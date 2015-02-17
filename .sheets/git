@@ -1,2 +1,3 @@
 git remote add origin git@github.com:krgrwm/.git # add remote repository
 git push -u origin master # push to master branch
+git clone git@github.com:krgrwm/.git
