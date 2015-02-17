@@ -1,0 +1,4 @@
+mv ~/.config/chromium* ~/chromium
+
+find ~ -maxdepth 1 -type d -name '.*' | grep -v -f ~/bin/ex_backup_dotdirs
+cp -r `find ~ -maxdepth 1 -type d -name '.*' | grep -v -f ~/bin/ex_backup_dotdirs` ~/Dropbox/Backup/dotdirs

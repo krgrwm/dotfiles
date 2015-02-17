@@ -1,0 +1,1 @@
+wmctrl -l | sed -n "$1 p" | cut -c -10 | xargs wmctrl -i -a

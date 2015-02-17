@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Saving contents of ramdisk to harddrive"
+rm /var/abs
+#rm /var/cache/pacman
+rm /var/lib/pacman
+mv /mnt/ramdisk/var/abs /var
+#mv /mnt/ramdisk/var/cache/pacman /var/cache
+mv /mnt/ramdisk/var/lib/pacman /var/lib

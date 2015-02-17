@@ -1,0 +1,2 @@
+#!/usr/bin/zsh
+for th in /usr/share/awesome/themes/*; echo $th && echo "beautiful.init(\""$th"/theme.lua\")" | awesome-client && read tmp

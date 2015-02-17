@@ -1,0 +1,2 @@
+#!/bin/sh
+gst123 ~/Music/Other/bell.ogg &> /dev/null

@@ -1,0 +1,5 @@
+arr=(a b c d)
+shift arr # delete head
+arr=(ppp $arr) # add element to head
+arr=($arr qqq) # push element to rear
+arr=($arr[1,-2]) # pop(delete rear element)

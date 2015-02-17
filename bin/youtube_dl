@@ -1,0 +1,9 @@
+path=$HOME/Music/new
+
+parcellite -p
+cd $path
+parcellite -p | tail -n 1 | clive
+cd -1
+
+
+

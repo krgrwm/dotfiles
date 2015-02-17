@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+setxkbmap dvorak
+xmodmap ~/.xmodmap.main
+xmodmap ~/.xmodmap/xmodmap.caps
+xmodmap ~/.xmodmap/xmodmap.enter
+xmodmap ~/.xmodmap/xmodmap.num
+xmodmap ~/.xmodmap/xmodmap.dvorak
+
+xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
+#xcape -e '#50=Prior' # Shift -> Shift + PageUp
+
+notify-send ' ' 'Dvorak'

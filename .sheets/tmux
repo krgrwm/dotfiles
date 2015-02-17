@@ -1,0 +1,3 @@
+tmux new -s session-name
+tmux send -t "command"
+tmux send -t log.0 "`geeknote notebook-list" # log.0 ha cat > /dev/null

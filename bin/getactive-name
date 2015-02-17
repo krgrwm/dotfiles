@@ -1,0 +1,1 @@
+~/bin/getactive | grep _NET_WM_NAME | cut -d'=' -f2 | tr -d '" '

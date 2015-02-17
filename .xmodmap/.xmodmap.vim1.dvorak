@@ -1,0 +1,5 @@
+! Muhenkan (.Xmodmap: Muhenkan -> BackSpace)
+keysym BackSpace = parenleft minus
+
+! Henkan
+keycode 100 = parenright equal

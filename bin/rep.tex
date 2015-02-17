@@ -1,0 +1,91 @@
+\documentclass[a4paper,10pt]{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage{ascmac}
+\usepackage{makeidx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{here}
+
+\renewcommand{\lstlistingname}{Program}
+\lstset{language=c,
+    basicstyle=\ttfamily\scriptsize,
+    commentstyle=\textit,
+    classoffset=1,
+    keywordstyle=\bfseries,
+    %frame=tRBl,
+    frame=single,
+    framesep=2pt,
+    showstringspaces=false,
+    numbers=left,
+    stepnumber=1,
+    numberstyle=\tiny,
+    tabsize=2
+}
+
+% 図，表，式番号にセクション番号を追加
+\makeatletter
+\renewcommand{\thefigure}{%
+    \thesection.\arabic{figure}}
+\@addtoreset{figure}{section}
+
+\makeatletter
+\renewcommand{\thetable}{%
+    \thesection.\arabic{table}}
+\@addtoreset{table}{section}
+\makeatother
+
+\makeatletter
+\renewcommand{\theequation}{%
+    \thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+
+
+
+%\setlength{\textwidth}{163truemm}      % テキスト幅: 210-(37+18)=155mm
+%\setlength{\oddsidemargin}{0truemm}   % 左余白
+%\setlength{\topmargin}{4pt}       % 上余白
+%\setlength{\textheight}{634pt}     % テキスト高さ: 297-(30+30)=237mm
+
+\makeatletter
+\renewcommand{\thefigure}{%
+\thesection.\arabic{figure}}
+\@addtoreset{figure}{section}
+\makeatother
+
+
+\begin{document}
+\title{素粒子実験 ミューオンの寿命測定実験 レポート}
+\author{物理学科3年 1SC12294K 佐藤俊之\\\\ 共同実験者\\市田 大生\\川崎 結加}
+\date{平成26年 10月 29日}
+
+\maketitle
+
+\section{目的}
+宇宙から地球に降り注ぐ宇宙線の内，ミューオンと呼ばれる素粒子の寿命を測定する．
+そして，素粒子反応，検出器，論理回路，データ解析などを学ぶ．
+
+\section{原理}
+本実験において必要となる原理を説明する．
+
+\subsection{素粒子と原子核}
+\subsection{放射線と崩壊}
+\subsection{光と物質の相互作用}
+
+
+\section{課題}
+
+\subsection{考察}
+
+
+
+\begin{thebibliography}{2}
+  \bibitem{BZ} 三池秀敏 森義仁 山口智彦, 「非平衡の科学3 反応$\cdot$拡散系のダイナミクス」, 講談社サイエンティフィク, 1998, p.39
+\end{thebibliography}
+\end{document}

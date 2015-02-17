@@ -1,0 +1,1 @@
+tmux_send $1 "$2" || (tmux new-window -a -n $1 && tmux_send "$1" "$2")

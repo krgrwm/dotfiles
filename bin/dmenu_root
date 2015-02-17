@@ -1,0 +1,12 @@
+path="$HOME/bin"
+prompt=$(basename ${1})
+source "$1/color"
+
+if [[ $1 ]]; then
+    hist=`cat "$1/history"`
+    result=`$SHELL $1/source | dmenu -nb $nb -nf $nf  -sb $sb -p $prompt -hist $hist -i -l 10 | $SHELL "$1/post"`
+    if [[ $result ]] ; then
+        echo $result
+        $SHELL "$1/run" $result
+    fi
+fi

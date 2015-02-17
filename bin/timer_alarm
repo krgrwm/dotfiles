@@ -1,0 +1,6 @@
+timer 5h30m
+~/bin/alarm
+timer 10m
+~/bin/alarm
+timer 10m
+~/bin/alarm

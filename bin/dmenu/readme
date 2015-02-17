@@ -1,0 +1,7 @@
+result =
+cat history + cat source
+| dmenu
+| post
+
+run result
+prefix 使ってない

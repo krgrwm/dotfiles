@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xelatex -output-directory=/tmp "$1.tex"&& evince /tmp/$1."pdf"

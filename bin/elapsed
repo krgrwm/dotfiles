@@ -1,0 +1,18 @@
+#!/bin/env zsh
+
+if [[ $# -eq 0 ]]; then
+    h="5m"
+else
+    h=$1
+fi
+
+Date=$(date +"%s")
+
+# : is null command
+while :
+do
+    sleep $h
+    i=$((`date +"%s"` - Date))
+    # seconds to H:M:S
+    date -u -d @$i +%H:%M:%S
+done

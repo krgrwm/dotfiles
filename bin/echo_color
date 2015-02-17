@@ -1,0 +1,39 @@
+#! /usr/bin/env python2
+
+import sys
+
+class c:
+    PURPLE = '\033[95m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    ORANGE = '\033[93m'
+    RED = '\033[91m'
+    ENDC = '\033[0m'
+
+class ca:
+    Standard = '0'
+    Bold = '1'
+    Reverse = '7'
+
+def colored(str, color):
+    return color + str + c.ENDC
+
+def attach(color, attr):
+    return '\033' + '[' + attr + ';' + color[2:]
+
+
+cd = {'p':c.PURPLE, 'b':c.BLUE, 'g':c.GREEN, 'o':c.ORANGE, 'r':c.RED}
+cda = {'s':ca.Standard, 'b':ca.Bold, 'r':ca.Reverse}
+
+f = open(sys.argv[1])
+print "[" + sys.argv[1].split("/")[-1] + "]"
+
+for i in f:
+    color = c.ENDC
+    str = "  " + i[:-1]
+    attr = ca.Standard
+    if(i[0] == "_"):
+        color = cd.get(i[1], c.ENDC)
+        attr = cda.get(i[2], ca.Standard)
+        str = "  " + i[3:-1]
+    print colored(str, attach(color,attr))

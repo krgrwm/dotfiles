@@ -1,0 +1,3 @@
+if [ $1 ]; then
+    $SHELL "$1/run" $2
+fi

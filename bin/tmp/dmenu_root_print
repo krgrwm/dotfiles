@@ -1,0 +1,4 @@
+if [ $1 ]; then
+    #prefix=`cat "$1/prefix"`
+    $SHELL "$1/source"
+fi

@@ -1,0 +1,11 @@
+keysym Tab = Shift_R
+add Shift = Shift_R
+
+keysym Hiragana_Katakana = Tab
+
+keysym Muhenkan = parenleft minus
+keysym Henkan_Mode = parenright equal
+
+keycode 132 = grave asciitilde 
+keycode 49 = Return
+keycode 97 = ampersand

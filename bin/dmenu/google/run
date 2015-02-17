@@ -1,0 +1,5 @@
+if [[ $1 =~ ",.*" ]]; then
+    dmenu_root ~/bin/dmenu/home
+else
+    chromium "https://www.google.co.jp/search?q=$1"
+fi

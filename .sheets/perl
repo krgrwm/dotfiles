@@ -1,0 +1,22 @@
+p -nl '/disgust/ and print;' # =grep
+p -nl '/\Q** 89.99 Sale! **\E/ and print;' # sales, =fgrep
+p -nl '/\b\d{5}\b/ and print $&;' # members, print only much
+p -nl '/disgust/ or print;' # =grep -v
+p -nl '/the/ and print $ARGV and close ARGV;' # grep -l ,print much file
+p -nl '/RE/i and print;' # =grep -i
+p -nl '/\bESR\b/ and /\bSRV\b/ and print;' # cascading filter, = grep 'ESR' | grep 'SRV'
+perl -00 -wnl -e '/RE/ and print;' # paragraph mode
+perl -00 -wnl -e '/\bBRIBE\b/i and print;' # testimony
+perl -00 -wnl -e '/\bBRIBE\b/i and print and close ARGV;' # testimony
+p -nl '/\bMinimal\b.+\bPerl\b/s and print;' # minimal,  s: . muchs newline = single line mode
+perl -00 -wnl -e '/\bMUDDBY\b.*\bWATERS\b/si and print $&;' # muddy
+p -nl '/^\S+\.[a-z][a-z]$/ and !/^\S+\.us/ and print;' # random, cascading
+date | p -pl 's/Mon/Monday/g;'
+p -pl '3 <= $. and $. <= 11 and s/old/new/g;' # line 3 to 11
+perl -00 -wpl -e '$.==2 and s/\bSun\b/Sunday/g;' # dai 2 danraku nomi
+p -pl 's/(Mr\.?) (Be[ea]n)/$1 Jelly $2/g;' # invite
+p -nl '3 <= $. and $. <=11 and print;' # print line 3 to 11
+p -pli.$SECONDS 's/\bPANTS\b/TROUSERS/ig;' # pantaloony
+p -pl 's/^! header.*$/$& ADDED/g;' # $& = mached
+p -pl 's/^.*$/\L$&/g;' # \L$&: $& to small make_money_fast
+p -pl 's/\d+/ $& * 1.6 /ge;' # mile to km, e: eval

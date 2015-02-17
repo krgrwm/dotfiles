@@ -1,0 +1,12 @@
+for i in {1..4}; do
+    clear
+    echo -e '\e[33m ['$i'/4]Start Tasks \e[m'
+    timer 25m && clear
+
+    echo -e '\e[33m ['$i'/4]Finished 1Pomodoro\n      Have a rest! \e[m'
+    timer 5m && clear
+done
+
+clear
+echo -e '\e[33m [4/4]Finished All Pomodoro!\n      Have a rest! \e[m'
+timer 20m

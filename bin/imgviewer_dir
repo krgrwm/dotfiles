@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+paste -d '' <(for i in {1..`ls *.(jpg|png) | wc -l`}; do echo '<img src="'; done ) <(ls *.(jpg|png) --color=no) <(for i in {1..`ls *.(jpg|png)| wc -l`}; do echo '" />';done) >! .tmp.html && w3m .tmp.html && rm .tmp.html
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+chmod 777 /tmp
+/home/krgr/bin/ramdisk.start &

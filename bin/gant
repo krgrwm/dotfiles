@@ -1,0 +1,1 @@
+java -Xmx256m -classpath :/opt/ganttproject/eclipsito.jar:/opt/ganttproject org.bardsoftware.eclipsito.Boot ganttproject-eclipsito-config.xml -log -log_file /home/krgr/.ganttproject.d/.ganttproject-20121016160808.log /home/krgr/tools/sch.gan

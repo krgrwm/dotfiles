@@ -1,0 +1,146 @@
+snippet     main
+abbr        main
+options     head
+    (ns ${1:project}.core
+    (:gen-class))
+    (defn -main [& args]
+    )
+
+snippet     dr
+abbr        defrecord
+options     head
+    (defrecord ${1:Record} [${2:Keys...}])
+
+snippet     la
+abbr        lambda 1
+    (fn [${1:Args...}] ${0})
+
+snippet     laa
+abbr        lambda2
+    #(${0:%1 %2...})
+
+snippet     de
+abbr        dest
+options     head
+    {${1:var} :${2:key}, ${0:...}}
+
+snippet     dee
+abbr        dest2
+    [${1:vars...} :as ${2:whole}]
+
+snippet     dn
+abbr        defn
+options     head
+    (defn ${1:Func}
+    ${2:[Args...]}
+    ${0}
+    )
+
+snippet     loop_sample
+abbr        
+options     head
+    (loop [result [] x 5]
+    (if (zero? x)
+    result
+    (recur (conj result x) (dec x))))
+
+snippet     loop_sample2
+abbr        
+options     head
+    (defn countdown [result x]
+      (if (zero? x)
+        result
+        (recur (conj result x) (dec x))))
+
+
+snippet     for_sample
+abbr        
+options     head
+    (defn index-filter [pred coll]
+      (when pred
+        (for [[idx elt] (map-indexed vector coll) :when (pred elt)] idx)))
+
+snippet     me
+abbr        metadata
+options     head
+    {:${1:tag} ${2:value}}${0}
+
+snippet     cl
+abbr        class
+options     head
+    ^${1:ClassName}${0}
+
+snippet     dm
+abbr        defmulti
+options     head
+    (defmulti ${1:Name}
+    ${2:la}
+    )
+
+snippet     dmm
+abbr        defmethod
+options     head
+    (defmethod ${1:Name}
+    :${2:Type}
+    ${3:[Args...]}
+    )
+
+snippet     dpm
+abbr        defprotocolmethod
+    (${1:Name} [${2:Args...}])
+    ${0}
+
+snippet     dpmd
+abbr        defprotocolmethod
+    (${1:Name} [${2:Args...}] ${3:"Doc"})
+    ${0}
+
+snippet     dp
+abbr        defprotocol
+options     head
+    (defprotocol ${1:Name}
+    ${2:dpm}
+    )
+
+snippet     exkv
+abbr        key and value for extend
+    :${1:Method} ${2:la}
+
+snippet     mela
+abbr        lambda for extend-type
+    (${1:Method} [${2:Args...}]
+    ${3}
+    )
+    ${0}
+
+snippet     ex
+abbr        extend-type
+options     head
+    (extend-type ${1:Name}
+      ${2:Protocol}
+      ${3:mela}
+      )
+
+snippet     exp
+abbr        extend-protocol
+options     head
+    (extend-protocol ${1:Protocol}
+    ${2:Type}
+    ${3:mela}
+    )
+
+snippet     dtt
+abbr        deftype
+    (deftype ${1:Name} [${2:Member}]
+    ${3:Protocol}
+    ${4:mela}
+    )${0}
+
+snippet     mt
+abbr        Instantiate Type
+    (->${1:Name} ${2:Args...})${0}
+
+
+snippet     named
+abbr        
+    [& {:keys [${1:key1,...}] :or {${2:key1 value1, ...}}}]

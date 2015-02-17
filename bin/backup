@@ -1,0 +1,10 @@
+echo 'Backup Dot files'
+sh backup_dots
+
+echo 'Backup bin'
+cp -r ~/bin/ ~/Dropbox/Backup/
+
+echo 'Backup Dot dirs'
+sh backup_dotdirs
+
+chmod 777 -R ~/Dropbox/Backup/

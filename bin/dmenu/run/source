@@ -1,0 +1,6 @@
+if [ -e /tmp/dmenu_run ];  then  ;
+    cat /tmp/dmenu_run
+; else ;
+    echo -n $PATH  |  xargs  -d  :  -I  {}  find  {}  -type  f -executable -printf  "%f\n" |  sort -u  >  /tmp/dmenu_run
+    cat  /tmp/dmenu_run
+fi

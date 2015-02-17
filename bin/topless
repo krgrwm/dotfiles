@@ -1,0 +1,344 @@
+#!/bin/sh
+[ -z ${BOOTED-""} -a -x /bin/ksh ] && exec env BOOTED=yes /bin/ksh "$0" "$@"
+#
+# Copyright (c) 2005 Daichi GOTO <daichi@ongs.co.jp>
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright 
+#    notice, this list of conditions and the following disclaimer. 
+# 2. Redistributions in binary form must reproduce the above copyright 
+#    notice, this list of conditions and the following disclaimer in the 
+#    documentation and/or other materials provided with the distribution.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+# PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
+# THE POSSIBILITY OF SUCH DAMAGE.
+
+# author: Daichi GOTO (daichi@ongs.co.jp)
+# first edition: Sun Mar 20 03:38:02 2005
+# last modified: $Date: 2006/02/01 13:50:34 $
+# version: $Revision: 1.53 $
+
+# topless
+#    display command output on the whole screen like "top"
+#
+# usage
+#    topless command...
+
+
+version='$Revision: 1.53 $'
+version=${version#* }
+version=${version% *}
+
+usage_msg="usage:
+    topless [-cwVhv] [-s <seconds>] [-n <number>] [-a <command>] COMMAND
+
+     -c             The lines difference from the previous screen update
+                    are colorized. (default: false)
+     -s <second>    Set the screen update periods to <seconds> seconds.
+                    If the sleep(1) command accepts and honors a non-integer 
+                    number of seconds, <seconds> can be a non-integer number.
+                    (default: 1)
+     -n <number>    The lines are kept colorized for I<number> times screen 
+                    update when -c is also enabled. Once a line is colorized,
+                    that line becomes blue on next screen update, and remains 
+                    blue until the line returns to be original color. 
+                    default: 1)
+     -a <command>   Topless enforce the specified command when COMMAND output 
+                    gets difference from the previous output assumed for alert 
+                    use, instead of -c use for monochrome monitor or others. 
+                    (default: false)
+     -w             Topless will use as many columns as necessary without
+                    regard for your window size. (default: true)
+     -V             Topless gets information header. (default: false)
+     -h             Print help message.
+     -v             Print version.
+
+    key command
+     q              quit
+
+    environment variables
+    TMPDIR          directory for temporary files
+   
+    topless version $version"
+
+# default configuration
+#
+colordiff_mode=false
+alert_mode=false
+waitsec=1
+colorhistnum=1
+fitwindowwidth=true
+header_mode=false
+
+# check the option arguments
+#
+while getopts cs:n:a:wVh?v option
+do
+    case "$option" in
+    c)
+        colordiff_mode=true
+        ;;
+    s)
+        waitsec=$OPTARG
+        ;;
+    n)
+        colorhistnum=$OPTARG
+        ;;
+    a)
+        alert_mode=true
+        alertcommand=$OPTARG
+        ;;
+    w)
+        fitwindowwidth=false
+        ;;
+    V)
+        header_mode=true
+        ;;
+    h|\?)
+        echo "$usage_msg" 1>&2
+        exit 0
+        ;;
+    v)
+        echo "topless version $version"
+        exit 0
+        ;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+case $# in
+0)
+    echo "$usage_msg" 1>&2
+    exit 1
+    ;;
+esac
+
+# OS case
+#
+print="echo -n "
+println="echo "
+printes="echo -e "
+
+case $(echo -n) in
+-n)
+    print='printf "%s"'
+    ;;
+esac
+
+case $(echo -e) in
+-e)
+    print='printf "%b"'
+    ;;
+esac
+
+type mktemp > /dev/null 2>&1 ||
+mktemp()
+{
+    _tmpfname=${@+"$@"}.$$
+    > "$_tmpfname"
+    $println "$_tmpfname"
+}
+
+# escape sequence
+#
+readonly color_red=$($printes "\033[31m")
+readonly color_blu=$($printes "\033[34m")
+readonly color_org=$($printes "\033[0m")
+readonly es_cur_hom=$(tput home) # cursor to home
+readonly es_clr_eol=$(tput ce 2> /dev/null || tput el) # clear to end of line
+readonly es_clr_eos=$(tput cd 2> /dev/null || tput ed) # clear to end of screen
+
+# trap treatment
+# 
+trap trapexit EXIT HUP INT QUIT ALRM TERM
+trap trapresz WINCH
+
+trapexit()
+{
+    rm -f "$difffile"
+    stty "$termstat"
+    exit 0
+}
+
+trapresz()
+{
+    term_rows=$(tput lines)
+    term_cols=$(tput cols)
+    $print "$es_cur_hom$es_clr_eos"
+}
+
+# color diff temporary file
+#
+umask 177
+difffile=$(mktemp ${TMPDIR:="$HOME"}/."${0##*/}".XXXXXX)
+
+# terminal device configuration
+#
+readonly termstat=$(stty -g)
+stty quit q  # q is quit key
+
+# avoid sleep core dump if ulimit supported
+#
+type ulimit > /dev/null && ulimit -c 0
+
+# terminal status
+#
+term_rows=$(tput lines)
+term_cols=$(tput cols)
+
+# customize color buffer
+#
+colorbuffer()
+{
+    count=1
+    N=0
+
+    $println "$difference" | 
+    while :
+    do
+        IFS= read line || {
+            $print "buffer='$_buffer'"
+            break
+        }
+
+        _buffer=$_buffer${_buffer:+"
+"}
+
+        case "$N$line" in
+        0---\ *)
+            N=1
+            ;;
+        1---\ *)
+            N=2
+            ;;
+        2*)
+            eval diffcount=\${diff$count:=0}
+
+            case "${line%% *}" in
+            +|!)
+                diffcount=$colorhistnum
+                ;;
+            *)
+                case $diffcount in
+                [1-9]*)
+                    diffcount=$(($diffcount - 1))
+                    ;;
+                esac
+                ;;
+            esac
+
+            $print "diff$count=$diffcount "
+
+            line=${line#[+! ] }
+            case $diffcount in
+            $colorhistnum)
+                _buffer=$_buffer$color_red$line$color_org
+                ;;
+            [1-9]*)
+                _buffer=$_buffer$color_blu$line$color_org
+                ;;
+            0)
+                _buffer=$_buffer$color_org$line$color_org
+                ;;
+            esac
+            ;;
+        esac
+    done
+}
+
+# sh only head(1) like function
+#
+shead()
+{
+    count=1
+    while IFS= read line
+    do
+        echo "$line"
+        case $count in
+        $1)
+            break
+            ;;
+        esac
+        count=$((1 + $count))
+    done
+}
+
+# display command output on the whole screen like "top"
+#
+firsttime=true
+while :
+do
+    buffer=$(eval ${@+"$@"}) || exit
+
+    case $fitwindowwidth$header_mode in
+    truefalse)
+        buffer=$(echo "$buffer" | shead $term_rows |
+                                  LANG=C cut -c 1-$term_cols)
+        ;;
+    falsefalse)
+        buffer=$(echo "$buffer" | shead $term_rows)
+        ;;
+    truetrue)
+        rows=$(($term_rows - 1))
+        buffer=$(echo "$buffer" | shead $rows | LANG=C cut -c 1-$term_cols)
+        ;;
+    falsetrue)
+        rows=$(($term_rows - 1))
+        buffer=$(echo "$buffer" | shead $rows)
+        ;;
+    esac
+
+    difference=$($println "$buffer" | diff -C 1000 "$difffile" -)
+    $println "$buffer" > "$difffile"
+
+    case "$difference" in
+    "")
+        ;;
+    *)
+        case $firsttime in
+        false)
+            case $alert_mode in
+            true)
+                eval $alertcommand
+                ;;
+            esac
+
+            case $colordiff_mode in
+            true)
+                colorbuffer=$(colorbuffer)
+                eval "$colorbuffer"
+                ;;
+            esac
+            ;;
+        true)
+            firsttime=false
+            ;;
+        esac
+        ;;
+    esac
+
+    case $header_mode in
+    true)
+        status="Every ${waitsec}s: ${@+"$@"} - $(date)"
+        buffer="$status
+$buffer"
+        ;;
+    esac
+
+    $print "$es_cur_hom$es_clr_eos$buffer"
+
+    sleep $waitsec
+done

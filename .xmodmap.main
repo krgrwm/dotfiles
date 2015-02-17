@@ -1,0 +1,13 @@
+keysym Hiragana_Katakana = Tab
+
+keysym Muhenkan = BackSpace minus
+
+! left of Backspace
+keycode 132 = grave asciitilde 
+
+! Hankaku/Zenkaku
+keycode 49 = semicolon
+
+! left of right shift
+keycode 97 = ampersand
+add Shift = Shift_R

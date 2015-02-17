@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+from subprocess import Popen, PIPE
+
+cmd = 'mocp -i'.split(' ')
+p = Popen(cmd, stdout=PIPE)
+info = str(p.stdout.read(), 'utf-8').split('\n')
+d = dict([tuple(t.strip().split(':', 1)) for t in info[:-1]])
+
+m2 = '[' + d['State'][1:] + '] ' + d['CurrentTime'][1:] + '/' + d['TotalTime'][1:]
+print(m2)

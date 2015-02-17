@@ -1,0 +1,21 @@
+snippet     for
+abbr        for
+options     head
+    for ${1:i} in ${2:}:
+        ${0}
+
+snippet     range
+abbr        range
+options     head
+    range(${1:0}, ${2:})
+
+snippet     var
+abbr        var
+options     head
+    ${1:var} = var('$1')${0}
+
+snippet     load_file
+abbr        load_file
+options     head
+    f = open('${1}')
+    lines = map(lambda l: [float(x) for x in l.split(' ') if x != ''], f.readlines())

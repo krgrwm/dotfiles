@@ -1,0 +1,3 @@
+pacman -S
+packer-color -S 
+pacman -Qgq # gropu

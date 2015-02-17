@@ -1,0 +1,60 @@
+#!/usr/bin/env zsh
+
+function nyan() {
+    typeset -a modes
+
+    help() {
+        echo 'Usage: nyan <mode>'
+        echo
+        echo 'Modes:'
+        echo '  neko, usagi, kuma, github'
+    }
+
+    neko() {
+        echo ' \u2227_\u2227'
+        echo "\u0e05'\u03c9'\u0e05 \uff1c \uff86\uff6c\uff70\uff9d"
+    }
+
+    usagi() {
+        echo '    /) /)'
+        echo '_(\u3000_ \u0e51\u275b\u1d17\u275b)_ \uff1c \uff86\uff6c\uff70\uff9d'
+    }
+
+    kuma() {
+        echo '(´(\uff6a)`) \uff1c \uff86\uff6c\uff70\uff9d'
+    }
+
+    github() {
+        echo '=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e\u3000(\ (\'
+        echo '=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e(,, 0 \u03c9 0) \uff1c \uff86\uff6c\uff70\uff9d'
+        echo '=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e=\u035f\u035f\u035e\u035e(/ (/ \) \)'
+    }
+
+    while [ $1 ]; do
+        case $1 in
+            -h|--help)
+                help
+                return
+                ;;
+            *)
+                modes=($modes[*] $1)
+                ;;
+        esac
+        shift
+    done
+
+    if (( $#modes == 0 )); then
+        neko
+        return
+    fi
+
+    for mode in $modes; do
+        if type $mode > /dev/null 2>&1; then
+            $mode
+        else
+            echo "No such mode \"$mode\""
+        fi
+    done
+}
+
+nyan $@

@@ -1,0 +1,10 @@
+#!/usr/bin/env gosh
+
+(use gauche.process)
+
+(run-process
+ (if (boolean? (string-scan (ref (process-output->string-list '(amixer)) 4) "off"))     
+     '(amixer set Master off)
+     '(amixer set Master on))
+ :wait #t)
+

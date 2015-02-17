@@ -1,0 +1,77 @@
+#!/usr/bin/gosh
+
+(use gauche.process)
+(use file.util)
+(use gauche.parseopt)
+(use srfi-13)
+
+(define *path* (string-append (home-directory) "/.es"))
+
+(define (check-wrong file)
+  (find (cut string=? "<div ID=nrCntTH>" <>)
+        (call-with-input-file file port->string-list)))
+
+(define (make-wrong-list dir)
+  (directory-fold dir
+                  (lambda (entry result)
+                    (if (check-wrong entry)
+                        (cons entry result)
+                        result))
+                  '())
+  )
+
+(define (check-exist word sentence?)
+  (let1 path (if sentence? 
+               (string-append *path* "/" "sentence")
+               *path*)
+    (find (cut string= <> word)
+          (directory-list path)))
+  )
+
+(define (search word sentence?)
+  (let ((path (if sentence? (string-append *path* "/" "sentence" "/")
+                (string-append *path* "/")))
+        (suf (if sentence? "?catid=computer" "")))
+  (run-process
+   `(w3m -T text/html ,(string-append
+                        path word suf))
+   :wait #t)
+  ))
+
+(define (search/dl word sentence?)
+  (let ((url (if sentence? "http://ejje.weblio.jp/sentence/content/"
+               "http://ejje.weblio.jp/content/"))
+        (path (if sentence? (string-append *path* "/" "sentence") *path*))
+        (suf (if sentence? "?catid=computer" "")))
+    (current-directory path)
+    (run-process
+      `(wget ,(string-append
+                url word suf))
+      :wait #t)
+    (run-process
+      `(w3m -T text/html ,word) :wait #t)
+    )
+  )
+
+(define (main args)
+  (let-args (cdr args)
+            ((clean "c|clean")
+             (sentence "s|sencence")
+             . rest)
+            (cond                    
+             ((null? rest) #f)
+             (clean (remove-files (make-wrong-list (car rest))))
+             (sentence 
+               (begin 
+                 (print 'hello)
+                 (if (check-exist (car rest) #t)
+                   (search (car rest) #t)
+                   (begin (print 'hello) (search/dl (car rest) #t))))
+               )
+             (else
+              (if (check-exist (car rest) #f)
+                  (search (car rest) #f)
+                  (search/dl (car rest) #f))))
+            ))
+
+

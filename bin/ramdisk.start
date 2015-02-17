@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd /var/ && /bin/tar cf abs.tar abs/
+#cd /var/cache/ && /bin/tar cf pacman.tar pacman/
+cd /var/lib/ && /bin/tar cf pacman.tar pacman/
+
+/bin/mkdir /mnt/ramdisk/var/
+#/bin/mkdir /mnt/ramdisk/var/cache/
+/bin/mkdir /mnt/ramdisk/var/lib/
+
+/bin/mv /var/abs /mnt/ramdisk/var && /bin/ln -s /mnt/ramdisk/var/abs /var/abs
+#/bin/mv /var/cache/pacman /mnt/ramdisk/var/cache &&  /bin/ln -s /mnt/ramdisk/var/lib/pacman /var/lib/pacman
+#/bin/mv /var/lib/pacman /mnt/ramdisk/var/lib && /bin/ln -s /mnt/ramdisk/var/cache/pacman /var/cache/pacman
+/bin/mv /var/lib/pacman /mnt/ramdisk/var/lib && /bin/ln -s /mnt/ramdisk/var/lib/pacman /var/lib/pacman
+
+/bin/ln -s /tmp /mnt/ramdisk/tmp
+/bin/chmod 777 /mnt/ramdisk/tmp

@@ -1,0 +1,1 @@
+cat /dev/urandom | tr -dc a-z. | head -c $1

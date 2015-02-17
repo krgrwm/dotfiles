@@ -1,0 +1,10 @@
+pkill yeahconsole
+pkill urxvtd
+
+urxvtd &
+xrdb -load /home/krgr/.Xresources
+yeahconsole &
+xrdb -load /home/krgr/.Xresources2
+yeahconsole &
+xrdb -load /home/krgr/.Xresources3
+yeahconsole 

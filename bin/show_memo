@@ -1,0 +1,4 @@
+for i in /home/krgr/Memo/*
+    do
+        echo_color $i
+    done

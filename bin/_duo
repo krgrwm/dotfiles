@@ -1,0 +1,173 @@
+#! /usr/bin/env python
+
+import os
+import sys
+import glob
+from random import Random
+import pickle
+import atexit
+
+
+prefix = "/home/krgr/English/DuoShadow/"
+script = "/home/krgr/English/duo_script"
+cfile = "/home/krgr/English/rduo_count"
+count = []
+
+def load_script():
+    scriptf = open(script).readlines()
+    while '\r\n' in scriptf: scriptf.remove('\r\n')
+    return scriptf
+    
+def load_file_list():
+    dirlist = []
+    filelist = []
+    
+    # Get dir list
+    for fn in glob.glob(prefix + "*"):
+        if os.path.isdir(fn):
+            dirlist.append(fn)
+
+    dirlist = map((lambda x: x.replace(prefix, "")), dirlist)
+
+
+    # Make tuple list
+    dirlist.sort((lambda x,y: int(x) - int(y)))
+
+    for d in dirlist:
+        tmp = []
+        for fn in glob.glob(prefix + d + "/*.ogg"):
+            tmp.append(fn)
+        tmp.sort()
+        filelist.extend(tmp)
+
+    return zip(range(1, len(filelist)), filelist)
+    
+
+def load_count():
+# Load count list
+    try:
+        f = open(cfile)
+    except IOError:
+        f = open(cfile, 'w')
+        count = [0 for i in range(len(filelist))]
+        pickle.dump(count, f)
+        f.close()
+    f = open(cfile)
+    count = pickle.load(f)
+    f.close()
+    return count
+
+def show_all(s):
+    def show(start, end):
+        for i in range(int(start), int(end)):
+            if count[i]!=0:
+                print "%4d:%3d"  % (i+1, count[i])
+        
+    if len(s)==1:
+        show(1, len(filelist))
+    elif s[1:]:
+        l = s[1:].split('-')
+        if len(l)==1:
+            show(l[0], len(filelist))
+        else:
+            show(l[0], l[1])
+
+        
+        
+def save_count():
+    f = open(cfile, 'w')
+    pickle.dump(count, f)
+    f.close()
+            
+def exitfunc():
+    save_count()
+    sys.exit()
+    
+def random_choice(s):
+    if len(s)==1:
+        return r.randint(0, len(filelist))
+    elif s[1:]:
+        l = s[1:].split('-')
+        if len(l)==1:
+            return r.randint(0, int(l[0]))
+        else:
+            return r.randint(int(l[0]), int(l[1]))
+    
+atexit.register(exitfunc)
+
+# Load script
+scriptf = load_script()
+
+# Load file list
+filelist = load_file_list()
+
+# Load count
+count = load_count()
+
+
+
+
+r = Random()
+before = 0
+bs = 'x'
+loop = 0
+reg = {}
+
+# Play ogg
+while True:
+    loop += 1
+    
+    print "%3d" % loop,
+    s = raw_input("> ")
+    if s=="":
+        s = bs
+        
+    
+    if s[0] in reg:
+        s = reg[s[0]]
+            
+
+    if s[0]=="r":
+        i = before
+    elif s[0]=="i":
+        i = before + 1
+    elif s[0]=="s":
+        print '----------------------'
+        show_all(s)
+        continue
+    elif s[0]=='x':
+        i = random_choice(s)
+    elif s[0]=='l':
+        print 'Reloaded script file'
+        scriptf = load_script()
+        continue
+    elif s[0]=='p':
+        print scriptf[filelist[i][0]-1]
+        continue
+    elif s[0]=='a':
+        reg[s[1]] = s[2:]
+        continue
+    elif s[0]=='v':
+        save_count()
+        print 'Saved count'
+        continue
+    elif s[0]=='c':
+        os.system('clear')
+        continue
+
+    else:
+        try:
+            i = int(s) - 1
+        except ValueError:
+            continue
+        
+    ogg = filelist[i][1]
+    scr = scriptf[filelist[i][0]-1]
+    
+    if before!=i:
+        print scr
+    os.system('gst123 %s &> /dev/null' % ogg)
+    before = i
+    count[i] += 1
+    bs = s
+    

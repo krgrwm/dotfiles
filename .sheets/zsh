@@ -1,0 +1,3 @@
+je sot/re/tar/st/ # and Tab -> expansion
+je /srv/www/site1/current/log && je site1 site2 #-> move to site2/current/log
+for i in *.a; do; mv $i $i:r.pdf; done

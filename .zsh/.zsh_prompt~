@@ -1,0 +1,20 @@
+# # PS1 and PS2
+# case ${UID} in    
+#     0)
+#         RPROMPT="%B%{[1;0m%}%n%/#%{[m%}%b "
+#         RPROMPT2="%B%{[31m%}% #%{[m%}%b "
+#         SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+#         [ -n "${REMOTEHOST}${SSH CONNECTION}" ] && 
+#         RPROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#         ;;
+#     *)
+#         RPROMPT="%{[31m%}%/%%%{[m%} "
+#         RPROMPT2="%{[31m%}% %%%{[m%} "
+#         SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+#         RPROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#         ;;
+# esac
+
+
+export PS1="$(print '%{\e[1;34m%}%n%{\e[0m%}'):$(print '%{\e[0;34m%}%~%{\e[0m%}')$ "
+export PS2="$(print '%{\e[0;34m%}>%{\e[0m%}')"

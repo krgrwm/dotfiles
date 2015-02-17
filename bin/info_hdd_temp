@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+sudo hddtemp /dev/sda | cut -f4 -d ' '

@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+from gi.repository import Notify
+from subprocess import Popen, PIPE
+from progress import progress
+
+p = Popen('mocp -i'.split(' '), stdout=PIPE)
+info = str(p.stdout.read(), 'utf-8').split('\n')
+d = dict([tuple(t.split(':', 1)) for t in info[:-1]])
+
+title = '<small> MOC: ' + d['State'] + '</small>'
+msg1 = '<small><span color="skyblue">' + (d['Artist'] if d['Artist']!=' ' else 'Unknown') + '</span></small>\n'
+msg2 = '<small><span color="skyblue">' + (d['SongTitle'] if d['SongTitle']!=' ' else d['File'].split('/')[-1][:-4]) + '</span></small>\n'
+
+cur = d['CurrentTime'].split(':')
+ttl = d['TotalTime'].split(':')
+cur = int(cur[0])*60 + int(cur[1])
+ttl = int(ttl[0])*60 + int(ttl[1])
+msg3 = '<small><span color="skyblue">' + progress(cur/ttl*100, 2) + ' ' + str((int)(cur/ttl*100)) + '%</span></small>'
+
+
+Notify.init ("MOC Notify")
+n=Notify.Notification.new(title, msg1+msg2+msg3, "dialog-information")
+n.show()

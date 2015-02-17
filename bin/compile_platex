@@ -1,0 +1,5 @@
+extractbb *.png
+extractbb *.jpg
+extractbb *.pdf
+platex -output-directory=/tmp "$1.tex"
+dvipdfm "/tmp/$1.dvi"

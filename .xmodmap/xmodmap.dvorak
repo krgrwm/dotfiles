@@ -1,0 +1,13 @@
+keysym minus        = apostrophe    quotedbl
+keysym bracketleft  = minus         underscore
+
+keysym bracketright = equal         plus
+keysym plus         = bracketright braceright
+
+keysym slash        = Return        colon
+keysym Tab          = Tab           slash
+keysym BackSpace    = BackSpace     question
+
+keysym apostrophe   = bracketleft   braceleft
+
+keysym Return       = Return        colon

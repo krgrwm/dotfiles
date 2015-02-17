@@ -1,0 +1,35 @@
+snippet     ret
+abbr        
+options     head
+  return ${1:value};${0}
+
+snippet     com
+abbr        
+options     head
+  /* ${1:comment} */${0}
+
+snippet     class
+abbr        
+options     head
+  class ${1:classname} {
+    private:${0}
+    public:
+    };
+
+snippet     cast
+abbr        
+options     head
+  static_cast<${1:type}>(${0}
+
+snippet     impl
+abbr        
+options     head
+  ${1:type} ${2:class}::${3:method}(${4:args})
+  {
+    ${0}
+    }
+
+snippet     virmethod
+abbr        
+options     head
+  virtual ${1:Type} ${2:Method}(${3:Args...})=0;

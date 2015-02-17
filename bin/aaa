@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+tmp=`cat ~/.xmodmap.main`
+echo $tmp

@@ -1,0 +1,2 @@
+#!/bin/sh
+utimer -c $1 && bell

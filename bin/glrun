@@ -1,0 +1,1 @@
+java -Djava.library.path=target/native/linux/x86/ -jar target/proj*standalone.jar

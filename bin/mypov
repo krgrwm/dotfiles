@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+povray $1 +W400 +H400 -D +X +A

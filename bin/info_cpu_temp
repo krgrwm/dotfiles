@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+sensors | grep Core | cut -c 16-19

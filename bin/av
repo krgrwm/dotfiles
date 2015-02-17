@@ -1,0 +1,1 @@
+awk '{s+=$'$2'} END{print s/NR}' $1

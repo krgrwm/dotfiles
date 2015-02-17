@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+notify-send "Temperature" "`echo -ne 'HDD\t'; info_hdd_temp ;paste <(echo 'CPU0\nCPU1') <(paste -d '' <(info_cpu_temp) <(echo '°C\n°C'))`"

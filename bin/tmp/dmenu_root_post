@@ -1,0 +1,4 @@
+if [ $1 ]; then
+    prefix=`cat "$1/prefix"`
+    cut -d"$prefix" -f2 | $SHELL "$1/post"
+fi

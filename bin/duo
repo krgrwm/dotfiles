@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+rlwrap python2 $HOME/bin/_duo
