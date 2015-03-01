@@ -90,6 +90,7 @@ alias mkdir=mkdir
 alias cp=cp
 alias v='vi -m -R'
 alias mozc_dict='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
+alias packer='packer-color'
 
 # for Dvorak
 alias no='ls -F'

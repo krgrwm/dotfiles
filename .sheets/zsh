@@ -1,3 +1,17 @@
 je sot/re/tar/st/ # and Tab -> expansion
 je /srv/www/site1/current/log && je site1 site2 #-> move to site2/current/log
 for i in *.a; do; mv $i $i:r.pdf; done
+ls *(.) # normal file
+ls *(/) # dir
+ls *(@) # simbolic link
+ls *(*) # executable
+ls *(D) # include .files
+ls *(^.) # ^ is inverse
+ls *(f644) # permission
+ls *(f6??) # ? はなんでもよい
+ls *(m-3) # 修正時刻が現在から3日以内, mではなくaだとアクセス時間
+ls *(mh-5) # hours
+ls *(ms+10) # 修正時刻が現在から10秒より前
+ls *(.f755) # AND: normal file and permisson 755
+ls *(m+1m-7) # 修正時刻が1日より前で7日より最近
+ls *(.,/) # OR: normal file or dir

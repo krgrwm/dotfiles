@@ -40,7 +40,7 @@ setopt menucomplete
 setopt banghist
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
-#
+
 unsetopt sh_wordsplit
 
 
@@ -122,3 +122,8 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 unset GREP_OPTIONS
+
+# pluginsに追加だと動かない
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS+=('%%' 'fg=cyan,bold,bg=cyan')

@@ -1,5 +1,5 @@
-nkf --guess file # moji code
+nkf --guess %%FILE # moji code
 echo 'hello' > /dev/pts/0
-tee >(process1) >(process2) >(process3) | process4
+tee >(%%PROCESS1) >(%%PROCESS2) >(%%PROCESS3) | %%PROCESS4
 cat /dev/urandom | tr -dc '[:digit:]' | head -c
 cat /dev/urandom | tr -dc _A-Z-a-z. | head -c
