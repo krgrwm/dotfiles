@@ -42,10 +42,7 @@ setopt menucomplete
 setopt banghist
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
-<<<<<<< HEAD
 setopt BRACE_CCL # echo test{a-d} とかできる
-=======
->>>>>>> origin/master
 
 unsetopt sh_wordsplit
 
