@@ -42,7 +42,10 @@ setopt menucomplete
 setopt banghist
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
+<<<<<<< HEAD
 setopt BRACE_CCL # echo test{a-d} とかできる
+=======
+>>>>>>> origin/master
 
 unsetopt sh_wordsplit
 
@@ -131,4 +134,3 @@ unset GREP_OPTIONS
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('%%' 'fg=cyan,bold,bg=cyan')
-
