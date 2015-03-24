@@ -1,3 +1,41 @@
 je sot/re/tar/st/ # and Tab -> expansion
 je /srv/www/site1/current/log && je site1 site2 #-> move to site2/current/log
 for i in *.a; do; mv $i $i:r.pdf; done
+ls *(.) # normal file
+ls *(/) # dir
+ls *(@) # simbolic link
+ls *(*) # executable
+ls *(D) # include .files
+ls *(^.) # ^ is inverse
+ls *(f644) # permission
+ls *(f6??) # ? はなんでもよい
+ls *(m-3) # 修正時刻が現在から3日以内, mではなくaだとアクセス時間
+ls *(mh-5) # hours
+ls *(ms+10) # 修正時刻が現在から10秒より前
+ls *(.f755) # AND: normal file and permisson 755
+ls *(m+1m-7) # 修正時刻が1日より前で7日より最近
+ls *(.,/) # OR: normal file or dir
+echo *.(c|cpp) #OR
+ls **/(bi|De*)~*(.mp3|.m4a)(.) # ~はマッチした結果から引き算する
+ls **/(bi|De*)~*.mp3~*.m4a)(.) # 上と同じ
+ls [^Dd]* # ^は否定,先頭がD,d以外にマッチ
+ls -d ^([Dd]o*|e*) # Do*,do*,e*以外にマッチ
+ls *(#a1)Decuments # Approximate matching, aの後の数字だけ間違った文字を訂正する
+print -l **/*.m4a(:t) # Modifier, t stands for tail
+print -l **/*.m4a(:t:r) # r stands for remove extension?
+print -l **/*.m4a(:e) # return extension
+print -l **/*.m4a(:h) # parent forder of the file, h stands for head
+print -l **/*.m4a(:h:h) # parent forder of the parent
+print -l **/*.m4a([1,3]:h) # parent forder and line 1 to 3, qualifiers and modifiers
+a="aaa.c"; echo ${a:r} # parameter expansion
+a="aaa.c"; echo ${a:u} #
+a="aaa.c"; echo ${a:u:s/C/bbb} # s stands for substitute
+a="aaa.aaa.ccc"; echo ${a:u:gs/AAA/bbb} # g stands for global
+a="aaa.aaa.ccc"; echo ${(s/./)a} # flags, s stands for split
+a="aaa.aaa.ccc"; b=(${(s/./)a}) # b is array, ()で囲まないと正しい内容が代入されない
+a=(aaa bbb ccc); echo ${(j/-/)a} # a is array, j stands for join
+word='aa bbb cccc ddd aa bbb cccc'; echo ${word#*bbb} # 先頭から一致した部分までを削除
+word='aa bbb cccc ddd aa bbb cccc'; echo ${word##*bbb} # 2つで最長一致
+word='aa bbb cccc ddd aa bbb cccc'; echo ${word%bbb*} # % は末尾から一致までを削除
+word='aa bbb cccc ddd aa bbb cccc'; echo ${word%%bbb*} # 最長一致
+ls -d (#i)d* # Globbing Flag, case insensitive

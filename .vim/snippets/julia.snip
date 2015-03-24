@@ -1,0 +1,26 @@
+snippet     func
+alias       def
+options     head
+    function ${1:funcname}(${2:args})
+        ${0}
+    end
+
+snippet     func2
+alias       def2
+options     head
+    ${1:funcname}(${2:args}) = ${0}
+
+snippet     lam
+options     word
+    ${1:x} -> ${0}
+
+
+snippet     comp
+abbr        comprehension
+    [${3} for ${1} = ${2:range}]
+
+snippet     for
+options     head
+    for ${1:i} in ${2:range}
+        ${3}
+    end

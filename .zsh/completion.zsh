@@ -8,7 +8,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' remote-access false
-zstyle ':completion:*' completer _complete 
+zstyle ':completion:*' completer _oldlist _complete 
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 compinit
 

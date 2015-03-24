@@ -91,6 +91,7 @@ NeoBundle 'rbonvall/vim-textobj-latex'
 NeoBundle 'lervag/vim-latex'
 NeoBundle 'igrep/vim-latex-omnifunc'
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'JuliaLang/julia-vim'
 
 
 " Required:

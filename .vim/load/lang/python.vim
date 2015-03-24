@@ -75,9 +75,6 @@ autocmd FileType python nmap <buffer> <silent> cra <Plug>(IPython-RunFile)
 " autocmd FileType python nnoremap CC :SlimeSend1 f=open('/tmp/slime.py', 'w'); f.write(<C-r><C-w>.__doc__); f.close()<CR>:silent !touch /tmp/slime.py<CR>:silent !slime_clear<CR>
 autocmd FileType python nmap <buffer> <silent> CC <Plug>(IPython-OpenPyDoc)
 " Get Doc in Browser
- autocmd FileType python nnoremap CH :python send('sage.misc.sagedoc.browse_sage_doc(<C-r><C-w>)')<CR>
-" Get Source
-" autocmd FileType python nnoremap cc :SlimeSend1 f=open('/tmp/slime_tmp.py', 'w'); f.write(sage.misc.sagedoc.my_getsource(<C-r><C-w>, True)); f.close()<CR>:silent !touch /tmp/slime_tmp.py<CR>:silent !slime_clear<CR>:silent tabnew /tmp/slime_tmp.py<CR>
 " autocmd FileType python nnoremap <Tab> :SlimeSend1 f=open('/tmp/slime_type.py', 'w'); f.write(str(type(<C-r><C-w>))); f.close()<CR>:silent !touch /tmp/slime_type.py<CR>:silent !slime_clear<CR>:!cat /tmp/slime_type.py<CR>
 
 " reload file

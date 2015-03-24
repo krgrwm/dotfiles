@@ -61,12 +61,13 @@ bindkey -M afu "^T" kill-line
 
 bindkey -M afu ',.' show-buffer-stack
 bindkey -M afu '^o^o' peco-snippets
+bindkey -M afu '^j' subs-snippet
 bindkey -M afu '^o^h' cddown_dir #peco-cd
 bindkey -M afu '^o^n' peco-commands
 bindkey -M afu '^o^r' peco-history
 bindkey -M afu '^o' peco-autojump
 bindkey -M afu '^o^p' peco-anamnesis
-bindkey -M afu ',,' peco-select
+#bindkey -M afu ',,' peco-select
 bindkey -M afu ')' peco-select
 bindkey -M afu '^r' bind-ls
 bindkey -M afu '' key-binds

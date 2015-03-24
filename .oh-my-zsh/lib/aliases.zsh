@@ -85,11 +85,13 @@ alias sl='ls'
 alias less='less -R'
 alias more='less'
 alias sudo='sudo '
-alias mv=mv
+alias zmv='noglob zmv -W'
+alias mv='mv -i'
 alias mkdir=mkdir
-alias cp=cp
+alias cp='cp -i'
 alias v='vi -m -R'
 alias mozc_dict='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
+alias packer='packer-color'
 
 # for Dvorak
 alias no='ls -F'

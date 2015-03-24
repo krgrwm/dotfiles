@@ -69,11 +69,30 @@ ls_abbrev() {
 
 
 function peco-snippets() {
-    BUFFER=$(cat <(echo "") <(grep "" ~/.sheets/*) | awk '{FS="sheets/"; print $2}' | peco --query "$LBUFFER" | cut -d ":" -f 2- | cut -d "#" -f 1)
+    BUFFER=$(cat <(echo "") <(grep "" ~/.sheets/*) | awk '{FS="sheets/"; print $2}' | peco --query "$LBUFFER" |
+    cut -d ":" -f 2- |
+    perl -wnl -e '@l=split(/#/,$_); print join("#", @l[0..$#l-1])'
+#    cut -d "#" -f 1
+    )
     #zle accept-line
     #zle clear-screen
-    zle end-of-line
-    zle magic-space
+    zle beginning-of-line
+}
+
+function subs-snippet()
+{
+    export MARKER="%%"
+    local AT
+    AT=$(echo $RBUFFER | perl -wnl -e '/$ENV{MARKER}/g and print pos')
+    if [[ $AT -ne 0 ]]; then
+        CURSOR=$((CURSOR+AT-$#MARKER))
+        for i in {1..$#MARKER}; do
+            zle delete-char-or-list
+        done
+        zle kill-word
+    else
+        zle end-of-line
+    fi
 }
 
 function peco-history() {
@@ -119,7 +138,9 @@ function peco-commands() {
 function peco-select() {
     IFS='\ '
     RES=$(ls --color=none | peco | tr -d '\r')
-    LBUFFER+=" \"${RES}\" "
+    if [[ -n $RES ]]; then
+        LBUFFER+=" \"${RES}\" "
+    fi
     zle reset-prompt
 }
 
@@ -148,6 +169,7 @@ function show-buffer-stack(){
 }
 
 zle -N peco-snippets
+zle -N subs-snippet
 zle -N peco-history
 zle -N peco-autojump
 zle -N peco-cd
@@ -166,7 +188,8 @@ zle -N key-binds
 
 
 function peco-anamnesis(){
-    BUFFER=$(anamnesis -l 200 | tail --lines=+3 | cut -d, -f 3 | cut -d \' -f2 | grep -v '\\u' | peco)
+# \047 = '
+    BUFFER=$(anamnesis -l 200 | tail --lines=+3 | perl -wnl -e '/u\047(.*)\\n/ and print $1' | peco)
 }
 zle -N peco-anamnesis
 

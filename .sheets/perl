@@ -1,4 +1,4 @@
-p -nl '/disgust/ and print;' # =grep
+p -nl '/%%pattern/ and print;' # =grep
 p -nl '/\Q** 89.99 Sale! **\E/ and print;' # sales, =fgrep
 p -nl '/\b\d{5}\b/ and print $&;' # members, print only much
 p -nl '/disgust/ or print;' # =grep -v
@@ -13,10 +13,23 @@ perl -00 -wnl -e '/\bMUDDBY\b.*\bWATERS\b/si and print $&;' # muddy
 p -nl '/^\S+\.[a-z][a-z]$/ and !/^\S+\.us/ and print;' # random, cascading
 date | p -pl 's/Mon/Monday/g;'
 p -pl '3 <= $. and $. <= 11 and s/old/new/g;' # line 3 to 11
-perl -00 -wpl -e '$.==2 and s/\bSun\b/Sunday/g;' # dai 2 danraku nomi
+perl -00 -wpl -e '$.==2 and s/\bSun\b/Sunday/g;' # 第二段落のみ
 p -pl 's/(Mr\.?) (Be[ea]n)/$1 Jelly $2/g;' # invite
 p -nl '3 <= $. and $. <=11 and print;' # print line 3 to 11
 p -pli.$SECONDS 's/\bPANTS\b/TROUSERS/ig;' # pantaloony
 p -pl 's/^! header.*$/$& ADDED/g;' # $& = mached
 p -pl 's/^.*$/\L$&/g;' # \L$&: $& to small make_money_fast
 p -pl 's/\d+/ $& * 1.6 /ge;' # mile to km, e: eval
+p -nl 'BEGIN{$tront="tRont"}; /$tront/i and print' drive_dist # hensuu tenkai
+p -nla '($date, $name)=@F; print "$name $date";' # birthdays
+p -nla '($A, undef, $C)=@F; print "$C $A";' # 
+p -nlaF':' '($date, $name)=@F; print "$name $date";' # birthdays2 # custom field separeter, regex mo tukaeru
+p -nlaF'/' '$F[1] =~ /^3/ and print;' # birthdays2, second field is ^3
+p -nla 'print $F[-1];'
+p -nla 'BEGIN{$total=0}; $total += $F[1]; END{print $total/$.;}' # print ave of second field
+p -nlaF':' '($name, undef, $uid)=@F; $uid =~ /^9\d\d$/ and print "$name:\t$uid";' # /etc/passwd
+p -nl '/Monday/ .. /Wednesday/ and print;' # days, Patter Range ..マッチしたRecordから次のマッチまで=1Recordに1つめと2つめのマッチがあれば1Record表示
+p -nl '/Monday/ ... /Wednesday/ and print;' # days, Patter Range ..マッチしたRecordの次のRecordから次のマッチを捜す
+p -nl 'print substr($_, 0, 80);' # perlは関数に()がいらない: substr($_, 0, 80) = substr $_, 0, 80
+p -nl 'print "The square root of $_ is ", sqrt($_);'
+p -nl '/%%pattern/g and print pos' # return pos of match word

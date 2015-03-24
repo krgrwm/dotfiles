@@ -19,6 +19,8 @@ promptinit
 autoload -U edit-command-line
 zle -N edit-command-line
 
+autoload -Uz zmv
+
 setopt autopushd pushdminus pushdsilent pushdtohome
 setopt autocd
 setopt correct
@@ -40,11 +42,13 @@ setopt menucomplete
 setopt banghist
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
-#
+setopt BRACE_CCL # echo test{a-d} とかできる
+
 unsetopt sh_wordsplit
 
 
 export EDITOR=vim
+export JULIA_EDITOR=gvim
 export BROWSER=chromium
 export PATH=/home/krgr/bin:$PATH
 export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
@@ -122,3 +126,9 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 unset GREP_OPTIONS
+
+# pluginsに追加だと動かない
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS+=('%%' 'fg=cyan,bold,bg=cyan')
+
