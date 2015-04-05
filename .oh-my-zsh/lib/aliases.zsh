@@ -139,3 +139,4 @@ alias -s mp3=gst123
 # Global Aliases
 alias -g Ic='| xsel -i -b'
 alias -g Ig='| ag'
+alias -g Ip='| pecorun '

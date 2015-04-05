@@ -1,0 +1,6 @@
+#alias -g Ix='| peco | xargs --null -i'
+if [ -p /dev/stdin ]; then
+    IFS='\ '
+    RES=$(cat - | remove_color_code | peco)
+    $1 "$RES"
+fi

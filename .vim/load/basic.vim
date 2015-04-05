@@ -104,3 +104,5 @@ let g:slime_python_ipython=1
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "slime", "target_pane": "0"}
 set autoread
+
+source $VIMRUNTIME/macros/matchit.vim
