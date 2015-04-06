@@ -33,3 +33,4 @@ p -nl '/Monday/ ... /Wednesday/ and print;' # days, Patter Range ..マッチし�
 p -nl 'print substr($_, 0, 80);' # perlは関数に()がいらない: substr($_, 0, 80) = substr $_, 0, 80
 p -nl 'print "The square root of $_ is ", sqrt($_);'
 p -nl '/%%pattern/g and print pos' # return pos of match word
+p -nl 'BEGIN{$/=":"}; print' # :で入力を区切る

@@ -1,2 +1,0 @@
-echo "`pwd`/$1" >> ~/.dmenuedit_list
-cat ~/.dmenuedit_list | sort | uniq >! ~/.dmenuedit_list

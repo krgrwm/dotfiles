@@ -1,3 +1,0 @@
-#!/bin/sh
-
-w3m "www.google.co.jp/search?q=$1"

@@ -1,7 +1,0 @@
-#!/usr/bin/zsh
-
-while true
-    do
-        paste <(date +"%m-%d-%H:%M") <(~/bin/getactive-class) <(~/bin/getactive-name) >> ~/.time-track
-        sleep 3m
-    done

@@ -1,2 +1,0 @@
-run("Open...");
-//setTool("oval");

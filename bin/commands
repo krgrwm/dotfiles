@@ -1,1 +1,9 @@
-echo -n $PATH | xargs -d : -I {} find {} -type f -executable -printf "%f\n" | sort -u
+echo -n $PATH | 
+
+# $_."/" -> PATH_DIR/ /home/krgr/bin だとfindが探してくれない
+perl -wnl -e 'BEGIN{$/=":"}; /bin$/ and print $_."/"'  | 
+
+# -i% で%がxargsから渡される引数
+# -n が引数の最大数
+xargs -n 1 -i% find % -executable -type f | 
+sort -u | xargs -n 1 basename

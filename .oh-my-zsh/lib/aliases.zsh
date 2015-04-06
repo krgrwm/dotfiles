@@ -140,3 +140,4 @@ alias -s mp3=gst123
 alias -g Ic='| xsel -i -b'
 alias -g Ig='| ag'
 alias -g Ip='| pecorun '
+alias -g In='&> /dev/null'

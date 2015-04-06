@@ -1,1 +1,0 @@
-find `pwd` -maxdepth 1 -mindepth 1 -name $1

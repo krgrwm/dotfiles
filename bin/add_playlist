@@ -1,2 +1,0 @@
-mv $1 /home/krgr/.moc/playlist
-notify-send -t 10 "add $1 to playlist"

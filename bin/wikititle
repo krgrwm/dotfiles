@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-wget -q $1 -O - | grep '<p><b>'

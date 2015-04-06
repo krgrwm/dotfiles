@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-echo '<img src="'$1'" />' >! .tmp.html && w3m .tmp.html && rm .tmp.html

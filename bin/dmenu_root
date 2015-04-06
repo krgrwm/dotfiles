@@ -7,6 +7,6 @@ if [[ $1 ]]; then
     result=`$SHELL $1/source | dmenu -nb $nb -nf $nf  -sb $sb -p $prompt -hist $hist -i -l 10 | $SHELL "$1/post"`
     if [[ $result ]] ; then
         echo $result
-        $SHELL "$1/run" $result
+        $SHELL "$1/run" "$result"
     fi
 fi

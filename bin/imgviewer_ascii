@@ -1,1 +1,0 @@
-img2txt -W $1 -H $2 $4 | less -R -S --shift=$3

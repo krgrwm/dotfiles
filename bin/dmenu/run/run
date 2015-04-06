@@ -1,1 +1,1 @@
-$1 | xsel -i -b
+$SHELL -c $1 | xsel -i -b

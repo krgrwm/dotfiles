@@ -1,4 +1,0 @@
-if [ $1 ]; then
-    history=`cat "$1/history"`
-    dmenu -hist $history -i -l 10
-fi
