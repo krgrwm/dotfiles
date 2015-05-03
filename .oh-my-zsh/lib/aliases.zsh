@@ -92,6 +92,7 @@ alias cp='cp -i'
 alias v='vi -m -R'
 alias mozc_dict='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
 alias packer='packer-color'
+alias man='man_vim'
 
 # for Dvorak
 alias no='ls -F'

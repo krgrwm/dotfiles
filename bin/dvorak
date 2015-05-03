@@ -9,6 +9,6 @@ xmodmap ~/.xmodmap/xmodmap.dvorak
 xmodmap ~/.xmodmap/xmodmap.henkan
 
 xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
-xcape -e '#50=Prior' # Shift -> Shift + PageUp
+#xcape -e '#50=Prior' # Shift -> Shift + PageUp
 
 notify-send ' ' 'Dvorak'

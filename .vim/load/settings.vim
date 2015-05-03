@@ -134,3 +134,6 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 au BufRead,BufNewFile *.cheat set filetype=cheat
+
+" indent_guides
+let g:indent_guides_exclude_filetypes = ['man']

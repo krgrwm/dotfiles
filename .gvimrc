@@ -19,3 +19,5 @@ let IM_vi_CooperativeMode=0
 highlight FoldColumn  gui=bold    guifg=Cyan guibg=Black
 highlight Folded      gui=italic  guifg=Cyan guibg=Black
 highlight LineNr      gui=NONE    guifg=Gray guibg=Black
+
+au FileType julia set guifont=Monospace\ 9

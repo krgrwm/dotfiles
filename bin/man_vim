@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+FIX=3
+
+# MANWIDTH が効かないのでCOLUMNSを変更
+stty cols $((COLUMNS - FIX))
+RES=`man $1 | col -b -x`
+stty cols $((COLUMNS + FIX))
+
+if [[ -n $RES ]]; then
+    echo "$RES" | vim -R -c 'set ft=man nolist nomod noma' -
+fi

@@ -7,4 +7,6 @@ yeahconsole &
 xrdb -load /home/krgr/.Xresources2
 yeahconsole &
 xrdb -load /home/krgr/.Xresources3
-yeahconsole 
+yeahconsole &
+xrdb -load /home/krgr/.Xresources21
+yeahconsole &

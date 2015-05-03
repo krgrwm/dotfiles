@@ -5,5 +5,5 @@ perl -wnl -e 'BEGIN{$/=":"}; /bin$/ and print $_."/"'  |
 
 # -i% で%がxargsから渡される引数
 # -n が引数の最大数
-xargs -n 1 -i% find % -executable -type f | 
+xargs -n 1 -i% find % -executable -type f -follow | 
 sort -u | xargs -n 1 basename
