@@ -1,3 +1,3 @@
-for i in *; do; geeknote create --notebook ___ --content "`cat $i`" --title "$i" --tags "tag1,tag2" ; done
+for i in *; do; geeknote create --notebook ___ --content "`cat $i`" --title "$i" --tags "tag1,tag2" ; done # 
 gnsync --path . --mask "*" # sync dir
 geeknote notebook-list

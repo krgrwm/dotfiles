@@ -137,3 +137,8 @@ au BufRead,BufNewFile *.cheat set filetype=cheat
 
 " indent_guides
 let g:indent_guides_exclude_filetypes = ['man']
+
+" junkfile
+let g:junkfile#directory='/home/krgr/Dropbox/todo'
+command! -nargs=0 JunkfileDay call junkfile#open_immediately(
+            \ strftime('%Y-%m-%d.junk'))
