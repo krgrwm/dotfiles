@@ -1,6 +1,6 @@
 
 "Unite
-nnoremap <silent> <C-e> :Unite file buffer file_mru<cr>
+nnoremap <silent> <C-e> :Unite file buffer file_mru junkfile<cr>
 nnoremap <silent> eb :Unite buffer<cr>
 nnoremap <silent> ep :Unite history/yank<cr>
 nnoremap <silent> ef :Unite file<cr>

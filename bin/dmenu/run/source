@@ -1,6 +1,7 @@
+#!/usr/bin/env zsh
 if [ -e /tmp/dmenu_run ];  then  ;
     cat /tmp/dmenu_run
 ; else ;
-    commands > /tmp/dmenu_run
+    commands | sort | uniq > /tmp/dmenu_run
     cat  /tmp/dmenu_run
 fi

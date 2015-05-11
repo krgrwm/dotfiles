@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+l=('home')
+
+for i in $l; do
+    echo $i
+done

@@ -142,3 +142,10 @@ alias -g Ic='| xsel -i -b'
 alias -g Ig='| ag'
 alias -g Ip='| pecorun '
 alias -g In='&> /dev/null'
+
+vim_RO()
+{
+    cat - | vim -R -c 'set nolist nomod noma' -
+}
+
+alias -g Iv='| vim_RO'
