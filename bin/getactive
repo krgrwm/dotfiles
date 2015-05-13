@@ -1,2 +1,8 @@
+#!/usr/bin/env zsh
+
 id=$(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5)
+
+if [[ $id = "0x0" ]]; then
+    return 1
+fi
 xprop -id $id

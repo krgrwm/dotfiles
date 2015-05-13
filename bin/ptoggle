@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+_PID=""
+RES=""
+STOPPED="stopped"
+
+if [[ $# -eq 0 ]]; then
+    _PID=`getactive-pid`
+else
+    _PID=`pgrep "$1" | sort -n | head -n 1`
+fi
+
+
+if [[ -z "$_PID" ]]; then
+    echo 'no process'
+    return 1
+else
+    RES=`
+    cat /proc/"$_PID"/task/*/status |
+    perl -wnlaF':' -e '$F[0]=~/^State/ and print $F[1]' | uniq
+    `
+fi
+
+#echo $_PID
+
+if [[ $RES =~ "$STOPPED" ]]; then
+    kill -CONT "$_PID"
+else
+    kill -STOP "$_PID"
+fi

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.zsh
 # export PATH=/home/krgr/.cabal/bin:$PATH
 export PYTHONPATH=/home/krgr/bin:$PYTHONPATH
 
@@ -53,6 +53,10 @@ export BROWSER=chromium
 export PATH=/home/krgr/bin:$PATH
 export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
 
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
 READNULLCMD=less
 
 #eval "$(lesspipe.sh)"
@@ -60,60 +64,25 @@ READNULLCMD=less
 export RLWRAP_HOME=$HOME/.rlwrap
 
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="mytheme"
-
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
-# zsh-syntax-highlighting ... cannot rebind error でる
-# auto fu の後にするとうまく行く(多少干渉する)
-# oh my zsh 先にやらないとoh my zsh の設定が反映されない
-# この順番だとhightlight 効かない
-#plugins=(git geeknote zsh-syntax-highlighting)
-
-
 source ~/.zsh/completion.zsh
-#source ~/.zsh/incr-0.2.zsh
 
-source $ZSH/oh-my-zsh.sh
+# custom oh-my-zsh
+# add fpaht
+fpath=($ZSH/functions $ZSH/completions $fpath)
 
+# antigen
+if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then
+    source ~/.zsh/antigen/antigen.zsh
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen apply
+fi
 
-plugins=(git geeknote zsh-git-promptzsh-syntax-highlighting)
-
-
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+# load config files
+for config_file ($ZSH/lib/*.zsh) source $config_file
 
 
 eval `dircolors ~/.dircolors`
 unsetopt sharehistory
-# Customize to your needs...
-# 
 
 
 export XDG_CACHE_HOME=/tmp
@@ -121,13 +90,21 @@ export XDG_CACHE_HOME=/tmp
 stty -ixon
 
 
+unset GREP_OPTIONS
+
+# zsh syntax highlight
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS+=('%%' 'fg=cyan,bold,bg=cyan')
+
+# load theme
+source $ZSH/mytheme.zsh-theme
+
+# directory stack
+DIRSTACKSIZE=10
+setopt AUTO_PUSHD
+
+
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
-unset GREP_OPTIONS
-
-# pluginsに追加だと動かない
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS+=('%%' 'fg=cyan,bold,bg=cyan')

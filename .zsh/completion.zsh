@@ -22,7 +22,7 @@ function () { # precompile
 
 
 #source ~/.zsh/auto-fu.zsh/auto-fu.zsh
-{ . ~/.zsh.d/auto-fu; auto-fu-install; }
+{ . ~/.zsh/auto-fu; auto-fu-install; }
 
 zstyle ':auto-fu:highlight' input bold
 zstyle ':auto-fu:highlight' completion fg=white,dim

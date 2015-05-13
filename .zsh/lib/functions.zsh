@@ -103,7 +103,10 @@ function peco-history() {
 
 function peco-autojump() {
 
-    BUFFER=$( cat ~/.local/share/autojump/autojump.txt | cut -f2 | peco --query "$LBUFFER")
+    DIRS=$(dirs | perl -wnl -e 's/ /\n/g and print')
+    AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2 |
+            perl -wnl -e 's/$ENV{"HOME"}/~/g and print')
+            BUFFER=$(cat <(echo $DIRS) <(echo $AUTOJ) | peco --query "$LBUFFER")
     zle accept-line
 }
 
