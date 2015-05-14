@@ -1,4 +1,4 @@
-#compdef pstopcont
+#compdef ptoggle
 
 local context state line ret=1 expl
 typeset -A opt_args

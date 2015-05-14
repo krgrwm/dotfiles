@@ -4,7 +4,7 @@ FIX=3
 
 # MANWIDTH が効かないのでCOLUMNSを変更
 stty cols $((COLUMNS - FIX))
-RES=`man $1 | col -b -x`
+RES=`man $1 $2 | col -b -x`
 stty cols $((COLUMNS + FIX))
 
 if [[ -n $RES ]]; then

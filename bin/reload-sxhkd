@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if pgrep sxhkd &> /dev/null ; then
+    pkill -SIGUSR1 sxhkd
+else
+    sxhkd &
+fi
