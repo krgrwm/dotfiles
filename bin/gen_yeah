@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+from os.path import expanduser
+
+yeah_options = ['toggleKey', 'KeyFull', 'consoleHeight', 'screenWidth', 'xOffset', 'yOffset']
+
+home = expanduser("~")
+filename = home + '/.Xresources.yeah'
+
+with open(home + '/.yeahconsole.conf') as f:
+    exec(f.read())
+
+def option_str(opt ,var):
+    if var == "":
+        return ""
+    else:
+        return "yeahconsole*" + opt + ": " + str(var)
+
+for i,yeah in enumerate(lis):
+    x = list(map(option_str, yeah_options, yeah))
+    with open(filename+str(i+1), "w+") as f:
+        f.write("\n".join(x))

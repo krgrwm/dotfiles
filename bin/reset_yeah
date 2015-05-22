@@ -4,9 +4,8 @@ pkill yeahconsole
 pkill urxvtd
 
 urxvtd &
-xrdb -load /home/krgr/.Xresources
-yeahconsole &
 
 for i in ~/.Xresources.yeah<->; do
-    cat ~/.Xresources $i | xrdb -load && yeahconsole &
+    echo $i
+    cat ~/.Xresources ~/.Xresources.yeahbase $i | xrdb -load && yeahconsole &
 done

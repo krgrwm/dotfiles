@@ -1,0 +1,1 @@
+xdpyinfo | perl -wna -e '/dimension/ and print $F[1]'

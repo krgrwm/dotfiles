@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/krgr/dotfiles/.oh-my-zsh/lib'
 let g:netrw_dirhist_2='/home/krgr/dotfiles/bin/dmenu/window'
 let g:netrw_dirhist_3='/home/krgr/dotfiles/bin/dmenu/run'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/home/krgr/dotfiles/bin/dmenu/edit'
 let g:netrw_dirhist_6='/home/krgr/dotfiles/bin/dmenu/window'
 let g:netrw_dirhist_7='/home/krgr/.zsh'
 let g:netrw_dirhist_8='/tmp'
+let g:netrw_dirhist_9='/home/krgr/dotfiles'
