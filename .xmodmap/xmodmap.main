@@ -1,4 +1,4 @@
-keysym Hiragana_Katakana = Tab
+keysym Hiragana_Katakana = Tab slash
 
 keysym Muhenkan = BackSpace minus
 
@@ -11,3 +11,6 @@ keycode 49 = semicolon
 ! left of right shift
 keycode 97 = ampersand
 add Shift = Shift_R
+
+! Henkan
+keycode 100 = semicolon equal

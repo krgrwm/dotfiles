@@ -5,5 +5,5 @@ case "$1" in
         dmenu_root ~/bin/dmenu/home
         ;;
     *)
-        chromium "https://www.google.co.jp/search?q=$1"
+        google-chrome-stable "https://www.google.co.jp/search?q=$1"
 esac

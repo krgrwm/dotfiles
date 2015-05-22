@@ -1,4 +1,4 @@
-$(command)
-for i in *; do; echo $i; done
-for i in $(%CMD); do; %%EXEC $i; done
-for f in *; ls ${f} # short loop
+$(command) # 
+for i in *; do; echo $i; done # 
+for i in $(%CMD); do; %%EXEC $i; done # 
+for f in *; ls ${f} # short loop # 

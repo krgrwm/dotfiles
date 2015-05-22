@@ -17,12 +17,6 @@ alias -s PKGBUILD=$EDITOR
 
 # Normal aliases
 alias rm='mv -f --backup=numbered --target-directory ~/.Trash'
-alias ls='ls --color -F'
-alias lsa='ls -lah'
-alias la='ls -ah'
-alias l='ls -la'
-alias ll='ls -l'
-alias sl=ls # often screw this up
 
 alias gvim='gvim -geom 82x35'
 alias ..='cd ..'
@@ -45,13 +39,24 @@ alias mozc_dict='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
 alias man='man_vim'
 
 # for Dvorak
+alias ls='ls --color -F'
+
+alias lsa='ls -lah'
+alias la='ls -ah'
+alias l='ls -la'
+alias ll='ls -l'
+alias sl=ls # often screw this up
+
 alias no='ls -F'
+
 alias je=cd
 alias n=l
 alias na=la
 alias h=j
 alias t=tmux
 alias kc=vi
+alias android-mount='go-mtpfs'
+alias android-unmount='fusermount -u'
 
 
 # CD Rip
@@ -77,9 +82,5 @@ alias -g Ig='| ag'
 alias -g Ip='| pecorun '
 alias -g In='&> /dev/null'
 
-vim_RO()
-{
-    cat - | vim -R -c 'set nolist nomod noma' -
-}
 
 alias -g Iv='| vim_RO'

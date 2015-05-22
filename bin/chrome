@@ -1,0 +1,1 @@
+google-chrome-stable --disk-cache-dir=/tmp/google-chrome-cache --enable=seccomp-sandbox

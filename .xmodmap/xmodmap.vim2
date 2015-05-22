@@ -1,5 +1,0 @@
-keysym parenleft = BackSpace minus
-keysym parenright = Right Left
-keycode 17 = 8 asterisk
-keycode 18 = 9
-keycode 19 = 0

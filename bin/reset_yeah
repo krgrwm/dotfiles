@@ -1,12 +1,12 @@
+#!/usr/bin/env zsh
+
 pkill yeahconsole
 pkill urxvtd
 
 urxvtd &
 xrdb -load /home/krgr/.Xresources
 yeahconsole &
-xrdb -load /home/krgr/.Xresources2
-yeahconsole &
-xrdb -load /home/krgr/.Xresources3
-yeahconsole &
-xrdb -load /home/krgr/.Xresources21
-yeahconsole &
+
+for i in ~/.Xresources.yeah<->; do
+    cat ~/.Xresources $i | xrdb -load && yeahconsole &
+done

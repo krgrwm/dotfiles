@@ -1,12 +1,7 @@
 #!/usr/bin/env sh
 
 setxkbmap dvorak
-xmodmap ~/.xmodmap.main
-xmodmap ~/.xmodmap/xmodmap.caps
-xmodmap ~/.xmodmap/xmodmap.enter
-xmodmap ~/.xmodmap/xmodmap.num
-xmodmap ~/.xmodmap/xmodmap.dvorak
-xmodmap ~/.xmodmap/xmodmap.henkan
+ls ~/.xmodmap/xmodmap.* | xargs -I{} -n 1 xmodmap {}
 
 xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
 #xcape -e '#50=Prior' # Shift -> Shift + PageUp

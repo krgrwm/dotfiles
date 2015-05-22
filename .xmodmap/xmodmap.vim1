@@ -1,9 +1,0 @@
-! Muhenkan (.Xmodmap: Muhenkan -> BackSpace)
-! keysym BackSpace = parenleft question
-keycode 102 = parenleft question
-
-! Henkan
-keycode 100 = parenright equal
-
-keycode 18 = Down 8
-keycode 19 = Up 0

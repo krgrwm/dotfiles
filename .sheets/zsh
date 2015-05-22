@@ -39,3 +39,4 @@ word='aa bbb cccc ddd aa bbb cccc'; echo ${word##*bbb} # 2つで最長一致
 word='aa bbb cccc ddd aa bbb cccc'; echo ${word%bbb*} # % は末尾から一致までを削除
 word='aa bbb cccc ddd aa bbb cccc'; echo ${word%%bbb*} # 最長一致
 ls -d (#i)d* # Globbing Flag, case insensitive
+ls *.c | xargs -I{} -n 1 file {} # = for

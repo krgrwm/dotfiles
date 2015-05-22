@@ -231,3 +231,8 @@ p()
         perl -w $1 -e $2 $argv[3,-1]
     fi
 }
+
+vim_RO()
+{
+    cat - | vim -R -c 'set nolist nomod noma' -
+}
