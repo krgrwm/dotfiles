@@ -1,21 +1,33 @@
-#!/usr/bin/env python
-from os.path import expanduser
+#!/usr/bin/env zsh
+opts=('suffix' 'toggleKey' 'KeyFull' 'consoleHeight' 'screenWidth' 'xOffset' 'yOffset')
 
-yeah_options = ['toggleKey', 'KeyFull', 'consoleHeight', 'screenWidth', 'xOffset', 'yOffset']
+filename=$HOME"/.Xresources.yeah"
 
-home = expanduser("~")
-filename = home + '/.Xresources.yeah'
+# file to array of lines
+lines=("${(@f)$(cat ~/.yeahconsole.conf)}")
 
-with open(home + '/.yeahconsole.conf') as f:
-    exec(f.read())
+# delete line that contains #
+lines=( ${lines:#\#*})
 
-def option_str(opt ,var):
-    if var == "":
-        return ""
-    else:
-        return "yeahconsole*" + opt + ": " + str(var)
+## get display info
+#wh=(${=$(disp_dimension | tr 'x' ' ' )})
+#
+## get font pixel size
+#size=$(cat $HOME"/.Xresources" | perl -wnl -e '/pixelsize=(\d*)/ and print $1')
+#
+## calc lines of height
+#h_lines=$(( wh[2] / (size+1)  ))
 
-for i,yeah in enumerate(lis):
-    x = list(map(option_str, yeah_options, yeah))
-    with open(filename+str(i+1), "w+") as f:
-        f.write("\n".join(x))
+for l in $lines; do
+    l=(${=l})
+    f="$filename"."$l[1]"
+    touch $f
+    echo $f
+
+    for i in {2..$#l}; do
+        if [[ ! "$l[$i]" == "None" ]]; then
+            echo 'yeahconsole*'$opts[$i]":\t"$l[$i] >> $f
+        fi
+    done
+done
+

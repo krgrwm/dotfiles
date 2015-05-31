@@ -1,6 +1,1 @@
 us_layout
-xmodmap $HOME/.xmodmap.main
-xmodmap $HOME/.xmodmap/xmodmap.caps
-xmodmap $HOME/.xmodmap/xmodmap.enter
-xmodmap $HOME/.xmodmap/xmodmap.henkan
-notify-send -t 20 'reset keyboard'

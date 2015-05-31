@@ -108,3 +108,4 @@ setopt AUTO_PUSHD
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
+

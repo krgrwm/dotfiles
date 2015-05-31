@@ -80,3 +80,5 @@ bindkey -M afu "^]" edit-command-line
 bindkey -M afu "^K" kill-clipboard
 
 bindkey -M afu '^o^b' peco-dfind
+
+bindkey -M afu 'M' kill-word

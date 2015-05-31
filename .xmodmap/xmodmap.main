@@ -1,6 +1,11 @@
 keysym Hiragana_Katakana = Tab slash
 
-keysym Muhenkan = BackSpace minus
+!keysym Muhenkan = BackSpace minus
+remove mod1 = Alt_L
+keysym Alt_L = BackSpace minus
+
+! Henkan -> Mode_switch
+keycode 100 = Mode_switch
 
 ! left of Backspace
 keycode 132 = grave asciitilde 
@@ -13,4 +18,4 @@ keycode 97 = ampersand
 add Shift = Shift_R
 
 ! Henkan
-keycode 100 = semicolon equal
+!keycode 100 = semicolon equal

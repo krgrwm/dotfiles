@@ -139,6 +139,15 @@ au BufRead,BufNewFile *.cheat set filetype=cheat
 let g:indent_guides_exclude_filetypes = ['man']
 
 " junkfile
-let g:junkfile#directory='/home/krgr/Dropbox/todo'
+let g:junkfile#directory='/home/krgr/Documents/tweet'
 command! -nargs=0 JunkfileDay call junkfile#open_immediately(
-            \ strftime('%Y-%m-%d.junk'))
+\ strftime('%Y-%m-%d.junk'))
+
+
+command! InsertTime 0r! date "+\%H:\%M:\%S "
+
+function! JunkTweet()
+    :JunkfileDay
+    :normal G
+    :InsertTime
+endfunction

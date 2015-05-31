@@ -1,0 +1,1 @@
+echo $1 | perl -wa -e 'print $F[1]' | xsel -i -b
