@@ -12,3 +12,4 @@ keysym l         = l L equal
 keysym semicolon = semicolon colon plus
 keysym t         = t T grave
 keysym n         = n N asciitilde
+keysym k         = k K slash
