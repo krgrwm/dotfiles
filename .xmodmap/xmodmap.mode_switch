@@ -1,16 +1,14 @@
-! exclam
-! at
-! numbersign
-! dollar
-! percent
-! asciicircum
-! ampersand
-! asterisk
-! parenleft
-! parenright
-! minus
-! underscore
-! equal
-! plus
-! grave
-! asciitilde
+keysym a         = a A exclam
+keysym o         = o O at
+keysym e         = e E numbersign
+keysym u         = u U dollar
+keysym i         = i I percent
+keysym h         = h H asciicircum
+keysym c         = c C ampersand
+keysym r         = r R asterisk
+keysym comma     = comma less parenleft
+keysym period    = period greater parenright
+keysym l         = l L equal
+keysym semicolon = semicolon colon plus
+keysym t         = t T grave
+keysym n         = n N asciitilde
