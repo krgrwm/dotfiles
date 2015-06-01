@@ -1,6 +1,7 @@
 keysym Hiragana_Katakana = Tab slash
 
-!keysym Muhenkan = BackSpace minus
+keysym Muhenkan = Super_R
+
 remove mod1 = Alt_L
 keysym Alt_L = BackSpace minus
 
