@@ -1,0 +1,15 @@
+# Audio
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+    amixer -q set Master {toggle, 2%+, 2%-}
+
+# Brightness
+XF86MonBrightness{Up,Down}
+    xbacklight {+10,-10}
+
+@Print
+    ~/bin/screenshot
+
+# dmenu
+alt + {p,Return,r,a,e,q}
+    ~/bin/dmenu_root ~/bin/dmenu/{window,edit,google,run,run_fav,snippet}
+

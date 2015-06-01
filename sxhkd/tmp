@@ -1,0 +1,22 @@
+XF86AudioMute 
+    amixer -q sset Master toggle
+XF86AudioRaiseVolume 
+    amixer -q set Master 2%+
+XF86AudioLowerVolume 
+    amixer -q set Master 2%-
+XF86MonBrightnessUp 
+    xbacklight +10
+XF86MonBrightnessDown 
+    xbacklight -10
+Print
+    ~/bin/screenshot
+
+alt + p
+    ~/bin/dmenu_root ~/bin/dmenu/window
+alt + Return
+    ~/bin/dmenu_root ~/bin/dmenu/edit
+alt + r
+    ~/bin/dmenu_root ~/bin/dmenu/google
+
+alt + a
+    ~/bin/dmenu_root ~/bin/dmenu/run
