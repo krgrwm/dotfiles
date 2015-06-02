@@ -20,3 +20,7 @@ add Shift = Shift_R
 
 ! Henkan
 !keycode 100 = semicolon equal
+
+! Shift_L -> Alt_R
+remove shift = Shift_L
+keycode 50 = Alt_R

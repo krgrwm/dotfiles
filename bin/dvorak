@@ -5,6 +5,7 @@ setxkbmap dvorak
 ls ~/.xmodmap/xmodmap.* | xargs -I{} -n 1 xmodmap {}
 
 xcape -e '#37=Escape' # Ctrl -> Ctrl + Escape
+xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
 #xcape -e '#50=Prior' # Shift -> Shift + PageUp
 
 notify-send ' ' 'Dvorak'

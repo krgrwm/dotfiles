@@ -34,3 +34,4 @@ p -nl 'print substr($_, 0, 80);' # perlは関数に()がいらない: substr($_,
 p -nl 'print "The square root of $_ is ", sqrt($_);'
 p -nl '/%%pattern/g and print pos' # return pos of match word
 p -nl 'BEGIN{$/=":"}; print' # :で入力を区切る
+perl -i.bak -wpl -e 's/a/b/g' files # i: ファイルに書き込み, pでprintしないとだめ
