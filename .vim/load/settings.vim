@@ -151,3 +151,7 @@ function! JunkTweet()
     :normal G
     :InsertTime
 endfunction
+
+" clipboard
+set clipboard=autoselect
+set clipboard=unnamedplus

@@ -96,9 +96,14 @@ function subs-snippet()
 }
 
 function peco-history() {
-
-    BUFFER=$( fc -l -n 1 | tail -n 50 | tac | peco --query "$LBUFFER")
+    LINES=150
+    BUFFER=$( fc -l -n 1 | tail -n $LINES | tac | peco --query "$LBUFFER")
     zle accept-line
+}
+
+file_basename()
+{
+    cat - | perl -wnl -MFile::Basename -e 'printf("%-33s %s\n", basename($_), $_)'
 }
 
 function peco-autojump() {
@@ -106,7 +111,8 @@ function peco-autojump() {
     DIRS=$(dirs | perl -wnl -e 's/ /\n/g and print')
     AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2 |
             perl -wnl -e 's/$ENV{"HOME"}/~/g and print')
-            BUFFER=$(cat <(echo $DIRS) <(echo $AUTOJ) | peco --query "$LBUFFER")
+            BUFFER=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename | peco --query "$LBUFFER" |
+                perl -wla -e 'print $F[1]')
     zle accept-line
 }
 

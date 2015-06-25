@@ -23,4 +23,5 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 #exec openbox-session
 exec awesome
+#exec ~/bin/stumpwm
 #exec qtile

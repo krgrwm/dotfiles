@@ -10,6 +10,13 @@ alias       def2
 options     head
     ${1:funcname}(${2:args}) = ${0}
 
+snippet     func_keywords
+abbr        function with keywords
+options     head
+    function ${1:funcname}(${2:args}; keywords...)
+        ${0}
+    end
+
 snippet     lam
 options     word
     ${1:x} -> ${0}
@@ -24,3 +31,21 @@ options     head
     for ${1:i} in ${2:range}
         ${3}
     end
+
+snippet     rangen_array
+options     word
+    linspace(${1:start}, ${2:stop}, ${3:n})
+
+snippet     rangen
+options     word
+    linrange(${1:start}, ${2:stop}, ${3:n})
+
+snippet     pygui
+abbr        pygui(true)
+options     head
+    pygui(true)
+
+snippet     plot_lim
+abbr        plot with limit
+options     head
+    xlim(${1:xmin}, ${2:xmax}); ylim(${3:ymin}, ${4:ymax}); plot(${0})

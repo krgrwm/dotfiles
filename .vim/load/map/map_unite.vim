@@ -11,6 +11,7 @@ nnoremap <silent> ec :Unite command<cr>
 nnoremap <silent> eg :Unite grep<cr>
 nnoremap <silent> el :Unite line<cr>
 nnoremap <silent> eo :Unite -no-quit -vertical -winwidth=50 outline<cr>
+nnoremap <silent> es :Unite neosnippet<cr>
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
