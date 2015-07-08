@@ -1,5 +1,7 @@
 nkf --guess %%FILE # moji code
-echo 'hello' > /dev/pts/0
-tee >(%%PROCESS1) >(%%PROCESS2) >(%%PROCESS3) | %%PROCESS4
-cat /dev/urandom | tr -dc '[:digit:]' | head -c
-cat /dev/urandom | tr -dc _A-Z-a-z. | head -c
+echo 'hello' > /dev/pts/0 # 
+tee >(%%PROCESS1) >(%%PROCESS2) >(%%PROCESS3) | %%PROCESS4 # 
+cat /dev/urandom | tr -dc '[:digit:]' | head -c # 
+cat /dev/urandom | tr -dc _A-Z-a-z. | head -c # 
+go-mtpfs ~/Android # Android mount
+fusermount -u ~/Android # Android unmount

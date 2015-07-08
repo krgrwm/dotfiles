@@ -24,7 +24,7 @@ alias mpg123='mpg123 -o oss'
 alias mpg321='mpg123 -o oss'
 alias packer='packer-color'
 
-alias pdf='evince'
+alias pdf='zathura'
 alias vi='vim'
 alias office='libreoffice'
 alias less='less -R'
@@ -64,7 +64,7 @@ alias rip='abcde -o vorbis:"-q5"'
 
 alias -s txt=less
 alias -s dat=less
-alias -s pdf=evince
+alias -s pdf=zathura
 alias -s ps=zathura
 alias -s png=mirage
 alias -s jpg=mirage

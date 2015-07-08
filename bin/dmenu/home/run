@@ -1,1 +1,1 @@
-google-chrome-stable "$1"
+firefox "$1"

@@ -153,6 +153,17 @@ function peco-select() {
     zle reset-prompt
 }
 
+function peco-open() {
+    IFS='\ '
+    RES=$(ls --color=none | peco | tr -d '\r')
+    if [[ -n $RES ]]; then
+        LBUFFER+="${RES}"
+    fi
+    zle accept-line
+    zle reset-prompt
+}
+zle -N peco-open
+
 function bind-ls() {
     echo
     no

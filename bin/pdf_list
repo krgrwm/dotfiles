@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+for f in *.pdf; do
+    res=`exiftool $f | ag Description`
+    if [[ -n $res ]]; then
+        echo "$f"
+        echo $res | perl -wnl -e '/:(.*$)/ and print "\t".$1'
+    fi
+done

@@ -52,7 +52,9 @@ export JULIA_EDITOR=gvim
 export BROWSER=chromium
 export PATH=/home/krgr/bin:$PATH
 export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
-export PATH=/opt/anaconda/bin:$PATH
+#export PATH=/opt/anaconda/bin:$PATH
+alias pyconda='/opt/anaconda/bin/python'
+alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
