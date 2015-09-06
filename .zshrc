@@ -1,4 +1,6 @@
 # Path to your oh-my-zsh configuration.
+
+
 ZSH=$HOME/.zsh
 # export PATH=/home/krgr/.cabal/bin:$PATH
 export PYTHONPATH=/home/krgr/bin:$PYTHONPATH
@@ -8,7 +10,6 @@ export TERM=screen-256color
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
-eval `dircolors -b`
 
 autoload -U compinit compinit
 compinit -u
@@ -46,6 +47,7 @@ setopt BRACE_CCL # echo test{a-d} とかできる
 
 unsetopt sh_wordsplit
 
+eval `dircolors ~/.dircolors`
 
 export EDITOR=vim
 export JULIA_EDITOR=gvim
@@ -54,37 +56,30 @@ export PATH=/home/krgr/bin:$PATH
 export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
 #export PATH=/opt/anaconda/bin:$PATH
 alias pyconda='/opt/anaconda/bin/python'
+alias ipyconda='/opt/anaconda/bin/ipython'
 alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
-
-zstyle ':completion:*' menu select
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
 READNULLCMD=less
 
-#eval "$(lesspipe.sh)"
-
 export RLWRAP_HOME=$HOME/.rlwrap
-
 
 source ~/.zsh/completion.zsh
 
 # custom oh-my-zsh
 # add fpaht
-fpath=($ZSH/functions $ZSH/completions $fpath)
+fpath=($ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
 
 # antigen
 if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then
     source ~/.zsh/antigen/antigen.zsh
     antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-completions
     antigen apply
 fi
 
 # load config files
 for config_file ($ZSH/lib/*.zsh) source $config_file
 
-
-eval `dircolors ~/.dircolors`
 unsetopt sharehistory
 
 

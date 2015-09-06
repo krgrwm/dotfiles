@@ -261,6 +261,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "u", awful.client.restore),
+--    awful.key({modkey,            }, "*",     function () awful.screen.focus(1) end),
+--    awful.key({modkey,            }, "(",     function () awful.screen.focus(2) end),
 
     -- XF86
 --    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -q sset Master toggle") end),
@@ -485,6 +487,6 @@ awful.util.spawn_with_shell("sleep 10 && anamnesis --start")
 awful.util.spawn_with_shell("sleep 10 && sxhkd")
 awful.util.spawn_with_shell("sleep 15 && unclutter")
 awful.util.spawn_with_shell("sleep 15 && redshift-gtk")
-awful.util.spawn_with_shell("sleep 15 && dropbox start")
+-- awful.util.spawn_with_shell("sleep 15 && dropbox start")
 
 -- }}}

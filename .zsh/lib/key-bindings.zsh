@@ -70,6 +70,8 @@ bindkey -M afu '^o^p' peco-anamnesis
 #bindkey -M afu ',,' peco-select
 bindkey -M afu ')' peco-select
 bindkey -M afu '?' peco-open
+bindkey -M afu '^s^s' peco-bookmark
+
 bindkey -M afu '^r' bind-ls
 bindkey -M afu '' key-binds
 bindkey -M afu '[' backward-word

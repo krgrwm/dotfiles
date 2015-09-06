@@ -111,10 +111,18 @@ function peco-autojump() {
     DIRS=$(dirs | perl -wnl -e 's/ /\n/g and print')
     AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2 |
             perl -wnl -e 's/$ENV{"HOME"}/~/g and print')
-            BUFFER=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename | peco --query "$LBUFFER" |
+            TMP=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename)
+            BUFFER=$(cat <(echo $TMP) | peco --query "$LBUFFER" |
                 perl -wla -e 'print $F[1]')
     zle accept-line
 }
+
+function peco-bookmark() {
+    BUFFER=$(cat ~/.bookmark_dirs | peco --query "$LBUFFER" |
+    perl -wla -e 'print $F[1]')
+    zle accept-line
+}
+zle -N peco-bookmark
 
 function peco-cd() {
 

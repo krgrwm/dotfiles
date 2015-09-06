@@ -1,8 +1,3 @@
-"inoremap <C-l> <C-t>
-"noremap f e
-"noremap F E
-"map [ q
-
 nnoremap / /\v
 nmap  <C-c> dw
 
@@ -15,9 +10,9 @@ nnoremap <silent> eu :GundoToggle<cr>
 nnoremap <silent> em :Unite ref/man<cr>
 
 " Tab
-nnoremap <silent> sj :tabnext<cr>
-nnoremap <silent> ss :tabnext<cr>
-nnoremap <silent> sk :tabprevious<cr>
+"nnoremap <silent> sj :tabnext<cr>
+"nnoremap <silent> ss :tabnext<cr>
+"nnoremap <silent> sk :tabprevious<cr>
 
 " Neosnippet
 imap <C-t>     <Plug>(neosnippet_expand_or_jump)

@@ -9,3 +9,15 @@ options     head
 snippet     range
 abbr        {i..n}
     {${1}..${2}}
+
+snippet     math
+abbr        math
+options     head
+    zmodload zsh/mathfunc
+
+
+snippet     argc
+abbr        $ARGC
+options     head
+    $#
+

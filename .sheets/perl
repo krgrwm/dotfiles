@@ -36,3 +36,4 @@ p -nl '/%%pattern/g and print pos' # return pos of match word
 p -nl 'BEGIN{$/=":"}; print' # :で入力を区切る
 perl -i.bak -wpl -e 's/a/b/g' files # i: ファイルに書き込み, pでprintしないとだめ
 perl -wnl -e '/Title:(.*$)/ and print $1' ()でくくった部分のマッチした部分$1
+cat data0.dat | perl -MList::Util=sum -nlae 'print sum @F' # 配列のsum

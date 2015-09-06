@@ -5,7 +5,8 @@ set t_Co=256
 "set shellcmdflag=-ic
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp,default,latin
+set fenc=utf-8
+set fileencodings=utf-8,cp932,euc-jp,default,latin
 
 
 colorscheme wombat256mod

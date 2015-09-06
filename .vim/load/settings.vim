@@ -155,3 +155,38 @@ endfunction
 " clipboard
 set clipboard=autoselect
 set clipboard=unnamedplus
+
+" clever-f
+let g:clever_f_smart_case=1
+let g:clever_f_show_prompt=1
+
+
+
+"----------------------------------------------
+" vimのマーク機能をできるだけ活用してみる - Make 鮫 noise
+" http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
+" mを押すことで現在位置に対して自動的にアルファベットを割り振る
+"----------------------------------------------
+" マーク設定 : {{{
+" 基本マップ
+nnoremap [Mark] <Nop>
+nmap C [Mark]
+" 現在位置をマーク
+if !exists('g:markrement_char')
+    let g:markrement_char = [
+    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    \     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    \ ]
+endif
+nnoremap <silent>[Mark]C :<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
+function! s:AutoMarkrement()
+    if !exists('b:markrement_pos')
+        let b:markrement_pos = 0
+    else
+        let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
+    endif
+    execute 'mark' g:markrement_char[b:markrement_pos]
+    echo 'marked' g:markrement_char[b:markrement_pos]
+endfunction
+
+nnoremap [Mark]R `

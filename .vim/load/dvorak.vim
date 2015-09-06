@@ -1,13 +1,23 @@
 function! Dvorak()
+
     map  <PageDown>
-    map t <Right>
     "nmap b t
-    nmap m w
-    nmap M j
-    nmap de df
-    nmap l v
-    nmap L V
-    map <C-l> <C-v>
+    nnoremap m w
+    nnoremap M b
+
+    nnoremap t e
+    nnoremap T ge
+
+    nnoremap s c
+
+    nmap b f
+    xmap b f
+    omap b f
+    nmap B F
+    xmap B F
+    omap B F
+
+"    nmap de df
     map q q
     imap <buffer> <CR> ;
     nmap c dw

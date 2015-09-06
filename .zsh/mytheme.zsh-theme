@@ -32,7 +32,7 @@ path_color()
 
 prompt_pwd()
 {
-    pwd_tilda | path_short | path_color | head -n 1
+    echo $(pwd_tilda | path_short | path_color | head -n 1) ""
 }
 
 PROMPT="%{$fg[blue]%}[%T]%{$reset_color%}%{$fg[yellow]%} ["'$(prompt_pwd)'"$(git_prompt_info)] %{$reset_color%}

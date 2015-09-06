@@ -1,0 +1,63 @@
+colorscheme mydarkness
+
+set ignorecase
+set smartcase
+set focuscontent
+set noerrorbells
+
+set editor='/usr/bin/vim'
+
+set! ui.key.contentAccess=0
+set! browser.download.manager.closeWhenDone=true
+set! security.dialog_enable_delay=0
+set! browser.startup.page=3
+
+
+set noerrorbells
+set editor='/usr/bin/vim'
+set! ui.key.contentAccess=0
+
+"" タブの閉じるボタンを非表示
+set! browser.tabs.closeButtons=2
+
+set gui=none
+
+hi Hint font-family: Ricty; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
+highlight HintElem color: gray; background-color: #a1e4e6;
+highlight HintActive color: black; background-color: #ff8700;
+
+set hintchars=aoeu
+
+
+"" toggle
+js <<EOM
+liberator.globalVariables.toggler = {
+  navi: ["set gui=none", "set gui=navigation"]
+};
+EOM
+
+nnoremap .nb :toggle navi<CR>
+
+
+nnoremap j 14j
+nnoremap k 14k
+nnoremap .r :source ~/.vimperatorrc<CR>:echo 'reload settings'<CR>
+nnoremap .p :pageinfo<CR>
+nnoremap <C-h> <Nop>
+nnoremap <C-t> <Nop>
+
+"" Tab
+nnoremap h <C-p>
+nnoremap l <C-n>
+
+
+"" inactive fcitx
+nnoremap <silent> u :!fcitx-remote -o<CR>qf
+
+nnoremap <silent> e :!fcitx-remote -o<CR>q;
+
+cnoremap <C-n> <Tab>
+cnoremap <C-p> <S-Tab>
+
+
+nmap <C-i> <A-i>

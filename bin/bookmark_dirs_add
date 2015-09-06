@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+if [[ -z "$2" ]]; then
+    dir=$(readlink -m $1)
+    name=$(basename $dir)
+else
+    name=$2
+    dir=$(readlink -m $1)
+fi
+
+dir=${dir/$HOME/"~"}
+
+echo $name "  " $dir >> ~/.bookmark_dirs
+sort -u ~/.bookmark_dirs -o ~/.bookmark_dirs
+
+echo "alias: " $name
+echo "path:  " $dir
