@@ -1,5 +1,5 @@
 nnoremap [Fold] <Nop>
-nmap . [Fold]
+nmap <Space>l [Fold]
 
 " Fold {}
 noremap <silent> [Fold]( k$/{$<CR>v%zf:noh<CR><ESC>

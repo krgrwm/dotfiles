@@ -19,7 +19,6 @@ function! Dvorak()
 
 "    nmap de df
     map q q
-    imap <buffer> <CR> ;
     nmap c dw
 endfunction
 call Dvorak()

@@ -3,4 +3,5 @@
 "" 8byte
 "au FileType c noremap <C-t> /\v\=<CR>b:C x/2wx &<C-r><C-w><CR>
 
+au FileType c imap <buffer> <CR> ;
 au FileType c imap <S-CR> <ESC>A;<C-CR>

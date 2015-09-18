@@ -19,3 +19,18 @@ abbr        load_file
 options     head
     f = open('${1}')
     lines = map(lambda l: [float(x) for x in l.split(' ') if x != ''], f.readlines())
+
+
+snippet     doc
+abbr        doc
+options     head
+    '''${0}
+    '''
+
+snippet     try
+abbr        try
+options     head
+    try:
+        ${1}
+    except ${2:Error}:
+        ${0}

@@ -17,17 +17,17 @@ endif
 "if !exists('g:neocomplete#sources#omni#input_patterns')
 "        let g:neocomplete#sources#omni#input_patterns= {}
 "endif
-
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-"let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
 autocmd FileType python setlocal completeopt-=preview
 
 " For jedi and neocomplete
 autocmd FileType python setlocal omnifunc=jedi#completions
 " omni func 設定しなくても下のだけで保管がでる
 " CompleteIPythonを設定すると無効化される
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#popup_select_first=0
 
 
 " IPython
@@ -39,15 +39,14 @@ let g:ipy_status_out_gui_color = 'Orange'
 set splitbelow
 
 " map
+au FileType python inoremap <silent> <S-CR> <ESC>o
+au FileType python inoremap <silent> <CR> <CR>
 au FileType python nnoremap <silent> em :Unite ref/pydoc<cr>
 au FileType python nnoremap <silent> ew :NeoComplCacheToggle<CR>
 au FileType python setl autoindent
 au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 au FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-
-au FileType cs inoremap <C-Enter> <C-j>
-au FileType cs imap <buffer> <CR> ;
 
 " vim indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -64,6 +63,7 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "cr"
 let g:jedi#show_call_signatures = "1"
 
+
 " IPython map
 " Send Text
 " autocmd FileType python vnoremap <silent> <CR> :SlimeSend<CR>:SlimeSend1 os.popen('slime_all'); os.popen('touch /tmp/slime.py')<CR>
@@ -71,9 +71,12 @@ let g:jedi#show_call_signatures = "1"
 autocmd FileType python vmap <buffer> <silent> <CR> <Plug>(IPython-RunLines)
 
 " vaf Visual a function
-autocmd FileType python nmap <buffer> <silent> <S-CR> vaf<Plug>(IPython-RunLines)
-
+" line
 autocmd FileType python nmap <buffer> <silent> <CR> <Plug>(IPython-RunLine)
+" function
+autocmd FileType python nmap <buffer> <silent> <S-CR> vaf<Plug>(IPython-RunLines)
+" indent (for)
+autocmd FileType python nmap <buffer> <silent> <C-CR> vii<Plug>(IPython-RunLines)
 autocmd FileType python nmap <buffer> <silent> cra <Plug>(IPython-RunFile)
 
 " Get Doc
