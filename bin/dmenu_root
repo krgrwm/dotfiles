@@ -1,12 +1,15 @@
-path="$HOME/bin"
 prompt=$(basename ${1})
 source "$1/color"
 
 if [[ $1 ]]; then
     hist=`cat "$1/history"`
-    result=`$1/source | dmenu2 -nb $nb -nf $nf  -sb $sb -p $prompt -hist $hist -i -l 20 \
-                        -fn "Ricty-10:normal" -w 700 \
-    | $SHELL "$1/post"`
+    cmd_dmenu="dmenu2 -w 600 -nb $nb -nf $nf -sb $sb -p $prompt -hist $hist -i -l 20"
+    echo $cmd_dmenu
+    res1=$($1/source)
+
+    echo $cmd_dmenu
+    result=$(echo "$res1" | $cmd_dmenu | $SHELL "$1/post")
+
     if [[ $result ]] ; then
         echo $result
         $SHELL "$1/run" "$result"

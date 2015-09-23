@@ -11,4 +11,4 @@ XF86MonBrightness{Up,Down}
 
 # dmenu
 alt + {p,Return,d,n,e,y}
-    ~/bin/dmenu_root ~/bin/dmenu/{window,edit,google,run,run_fav,snippet}
+    ~/bin/dmenu_root ~/bin/dmenu/{window,edit,lookup,run,run_fav}
