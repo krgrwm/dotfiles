@@ -12,7 +12,7 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' remote-access false
-zstyle ':completion:*' completer _oldlist _expand _complete _match _prefix _list _history
+zstyle ':completion:*' completer _oldlist _expand _complete _prefix _list _history
 
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
