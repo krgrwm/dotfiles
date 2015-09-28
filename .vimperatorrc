@@ -5,7 +5,7 @@ set smartcase
 set focuscontent
 set noerrorbells
 
-set editor='/usr/bin/gvim'
+set editor='/usr/bin/gvim -f'
 
 set! ui.key.contentAccess=0
 set! browser.download.manager.closeWhenDone=true

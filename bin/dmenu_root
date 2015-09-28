@@ -7,6 +7,10 @@ if [[ $1 ]]; then
     echo $cmd_dmenu
     res1=$($1/source)
 
+    if [[ ! -e $hist ]] ; then
+        touch $hist
+    fi
+
     echo $cmd_dmenu
     result=$(echo "$res1" | $cmd_dmenu | $SHELL "$1/post")
 
