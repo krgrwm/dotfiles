@@ -1,6 +1,3 @@
-# Path to your oh-my-zsh configuration.
-
-
 ZSH=$HOME/.zsh
 # export PATH=/home/krgr/.cabal/bin:$PATH
 export PYTHONPATH=/home/krgr/bin:$PYTHONPATH
@@ -51,7 +48,7 @@ eval `dircolors ~/.dircolors`
 
 export EDITOR=vim
 export JULIA_EDITOR=gvim
-export BROWSER=chromium
+export BROWSER=firefox
 export PATH=/home/krgr/bin:$PATH
 export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
 #export PATH=/opt/anaconda/bin:$PATH
@@ -106,4 +103,3 @@ setopt AUTO_PUSHD
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
-

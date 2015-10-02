@@ -149,7 +149,7 @@ function bindkey-advice-before () {
         bind=(`bindkey -M main "$key"`)
         widget=$bind[2]
     }
-local fun="$advice"
+    local fun="$advice"
 if [[ "$widget" != "undefined-key" ]]; then
     local code=${"$(<=(cat <<"EOT"
     function $advice-$widget () {
