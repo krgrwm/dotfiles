@@ -135,7 +135,7 @@ function cddown_dir(){
     com='$SHELL -c "ls -AF . | grep / "'
     while [ $? = 0 ] # $?: the exit status of the last command, failed-> not zero
     do
-        cdir=`eval $com | peco --query '^[^.] ^'`
+        cdir=`eval $com | peco --query ''`
         if [ $? = 0 ];then # check the exit status of cdir=...
             cd $cdir # $? is zero
             eval $com # for while check. if there is no dir, $? is not zero

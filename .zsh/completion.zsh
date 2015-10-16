@@ -1,41 +1,57 @@
 # completion
 
 setopt   auto_list auto_param_slash list_packed rec_exact
-unsetopt list_beep
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on succesive tab press
-setopt complete_in_word
 setopt always_to_end
 
 zstyle ':completion:*:default' menu select=2
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' remote-access false
 zstyle ':completion:*' completer _oldlist _expand _complete _prefix _list _history
 
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
-zstyle ':completion:*:messages' format '%F{yellow}%d'$DEFAULT
-zstyle ':completion:*:warnings' format '%F{red}No matches for:''%F{yellow} %d'$DEFAULT
-zstyle ':completion:*:descriptions' format '%F{white}%B%d%b'$DEFAULT
-zstyle ':completion:*:options' description 'yes'
 
+
+## 補完方法毎にグループ化する。
+### 補完方法の表示方法
+###   %B...%b: 「...」を太字にする。
+###   %d: 補完方法のラベル
+zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*' group-name ''
 
+## 補完候補がなければより曖昧に候補を探す。
+### m:{a-z}={A-Z}: 小文字を大文字に変えたものでも補完する。
+### r:|[._-]=*: 「.」「_」「-」の前にワイルドカード「*」があるものとして補完する。
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 
-WORDCHARS=''
+## 詳細な情報を使う。
+zstyle ':completion:*' verbose yes
+
+## カーソル位置で補完する。
+setopt complete_in_word
+## globを展開しないで候補の一覧から補完する。
+setopt glob_complete
+## 補完時にヒストリを自動的に展開する。
+setopt hist_expand
+## 補完候補がないときなどにビープ音を鳴らさない。
+setopt no_beep
+## 辞書順ではなく数字順に並べる。
+setopt numeric_glob_sort
+
+# --prefix=~/localというように「=」の後でも
+## 「~」や「=コマンド」などのファイル名展開を行う。
+setopt magic_equal_subst
+
+
+## 「/」も単語区切りとみなす。
+WORDCHARS=${WORDCHARS:s,/,,}
+WORDCHARS=${WORDCHARS:s,-,,}
+WORDCHARS=${WORDCHARS:s,_,,}
 
 zmodload -i zsh/complist
-
-## case-insensitive (all),partial-word and then substring completion
-if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
-  zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-  unset CASE_SENSITIVE
-else
-  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-fi
-
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
@@ -59,7 +75,7 @@ zstyle ':completion:*:hosts' hosts $hosts
 
 # Use caching so that commands like apt and dpkg complete are useable
 zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path ~/.zsh/cache/
+zstyle ':completion::complete:*' cache-path /tmp/zsh/cache/
 
 # Don't complete uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
@@ -90,16 +106,6 @@ zstyle ':completion:*:manuals' separate-sections true
 if [ -n "$LS_COLORS" ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -50,8 +50,6 @@ export EDITOR=vim
 export JULIA_EDITOR=gvim
 export BROWSER=firefox
 export PATH=/home/krgr/bin:$PATH
-export PATH=/home/krgr/.gem/ruby/2.1.0/bin:$PATH
-#export PATH=/opt/anaconda/bin:$PATH
 alias pyconda='/opt/anaconda/bin/python'
 alias ipyconda='/opt/anaconda/bin/ipython'
 alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
@@ -62,7 +60,6 @@ export RLWRAP_HOME=$HOME/.rlwrap
 
 source ~/.zsh/completion.zsh
 
-# custom oh-my-zsh
 # add fpaht
 fpath=($ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
 

@@ -18,7 +18,8 @@ set splitbelow
 
 autocmd FileType julia vmap <buffer> <silent> <CR> <Plug>(IPython-RunLines)
 autocmd FileType julia nmap <buffer> <silent> <CR> <Plug>(IPython-RunLine)
-autocmd FileType julia nmap <buffer> <silent> ee ?function<CR>L%<CR><ESC>:noh<CR>
+autocmd FileType python nmap <buffer> <silent> <C-CR> vii<Plug>(IPython-RunLines)
+autocmd FileType julia nmap <buffer> <silent> <S-CR> ?function<CR>V%<CR><ESC>:noh<CR>
 autocmd FileType julia nmap <buffer> <silent> cra <Plug>(IPython-RunFile)
 autocmd FileType julia nmap <buffer> <silent> CC <Plug>(IPython-OpenPyDoc)
 

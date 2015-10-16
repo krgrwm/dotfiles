@@ -1,9 +1,3 @@
 #!/usr/bin/env zsh
 
-case "$1" in
-    home)
-        dmenu_root ~/bin/dmenu/home
-        ;;
-    *)
-        goldendict $1
-esac
+goldendict $1
