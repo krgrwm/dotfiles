@@ -1,1 +1,1 @@
-ipython console --profile julia
+ipython console --kernel julia-0.4

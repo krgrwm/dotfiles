@@ -223,7 +223,9 @@ zle -N peco-anamnesis
 
 function kill-clipboard(){
     zle kill-line
-    echo $CUTBUFFER | xsel -i -b
+    if [[ ! "$(uname)" == "FreeBSD" ]] ; then
+        echo $CUTBUFFER | xsel -i -b
+    fi
 }
 zle -N kill-clipboard
 

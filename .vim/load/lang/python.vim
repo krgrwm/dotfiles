@@ -61,23 +61,26 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "cn"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "cr"
-let g:jedi#show_call_signatures = "1"
+"let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures = "2"
 
 
 " IPython map
 " Send Text
 " autocmd FileType python vnoremap <silent> <CR> :SlimeSend<CR>:SlimeSend1 os.popen('slime_all'); os.popen('touch /tmp/slime.py')<CR>
 " autocmd FileType python nmap <silent> <CR> L<CR>
-autocmd FileType python vmap <buffer> <silent> <CR> <Plug>(IPython-RunLines)
+"autocmd FileType python vmap <buffer> <silent> <CR> <Plug>(IPython-RunLines)
+autocmd FileType python vmap <buffer> <silent> <CR> :python3 run_these_lines()<CR>
 
 " vaf Visual a function
 " line
-autocmd FileType python nmap <buffer> <silent> <CR> <Plug>(IPython-RunLine)
+"autocmd FileType python nmap <buffer> <silent> <CR> <Plug>(IPython-RunLine)
+autocmd FileType python nmap <buffer> <silent> <CR> :python3 run_this_line()<CR>
 " function
-autocmd FileType python nmap <buffer> <silent> <S-CR> vaf<Plug>(IPython-RunLines)
+autocmd FileType python nmap <buffer> <silent> <S-CR> vaf:python3 run_these_lines()<CR>
 " indent (for)
-autocmd FileType python nmap <buffer> <silent> <C-CR> vii<Plug>(IPython-RunLines)
-autocmd FileType python nmap <buffer> <silent> cra <Plug>(IPython-RunFile)
+autocmd FileType python nmap <buffer> <silent> <C-CR> vii:python3 run_these_lines()<CR>
+autocmd FileType python nmap <buffer> <silent> cra :python3 run_this_file()<CR>
 
 " Get Doc
 " autocmd FileType python nnoremap CC :SlimeSend1 f=open('/tmp/slime.py', 'w'); f.write(<C-r><C-w>.__doc__); f.close()<CR>:silent !touch /tmp/slime.py<CR>:silent !slime_clear<CR>

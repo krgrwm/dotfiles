@@ -40,7 +40,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/mytheme/theme.lua")
-beautiful.init("/home/krgr/.config/awesome/themes/mytheme/theme.lua")
+username=os.getenv("USER")
+beautiful.init("/home/"..username.."/.config/awesome/themes/mytheme/theme.lua")
 
 -- Variables
 terminal = "urxvt"
@@ -459,7 +460,7 @@ client.connect_signal("manage", function (c, startup)
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+--client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 
 
@@ -473,15 +474,16 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
+awful.util.spawn_with_shell("feh --bg-scale /home/"..username.."/.config/awesome/themes/mytheme/background.png")
 awful.util.spawn_with_shell("nm-applet")
 awful.util.spawn_with_shell("~/bin/beepoff")
 awful.util.spawn_with_shell("xset -b")
 -- awful.util.spawn_with_shell("sleep 1 && ~/bin/reset_yeah")
-awful.util.spawn_with_shell("sleep 2 && conky -q --config=/home/krgr/.conkyrc")
+awful.util.spawn_with_shell("sleep 2 && conky -q --config=/home/"..username.."/.conkyrc")
 awful.util.spawn_with_shell("sleep 3 && octopi-notifier")
 awful.util.spawn_with_shell("sleep 3 && fcitx")
 awful.util.spawn_with_shell("sleep 3 && volumeicon")
-awful.util.spawn_with_shell("sleep 5 && ~/bin/dvorak && ~/bin/sands")
+awful.util.spawn_with_shell("sleep 5 && ~/bin/reset_keyboard && ~/bin/dvorak && ~/bin/sands")
 -- awful.util.spawn_with_shell("sleep 10 && ~/bin/time-track")
 awful.util.spawn_with_shell("sleep 10 && anamnesis --start")
 awful.util.spawn_with_shell("sleep 10 && sxhkd")

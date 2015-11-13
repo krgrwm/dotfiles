@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/krgr/.vimbackup'
-let g:netrw_dirhist_2='/home/krgr/Android'
-let g:netrw_dirhist_3='/home/krgr/bin'
-let g:netrw_dirhist_4='/home/krgr'
-let g:netrw_dirhist_5='/home/krgr/Desktop'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython'
+let g:netrw_dirhist_2='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython/ftplugin'
+let g:netrw_dirhist_3='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython/ftplugin/python'
+let g:netrw_dirhist_4='/usr/home/t.sato/.vimperator'

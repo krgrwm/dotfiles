@@ -5,7 +5,9 @@ pkill urxvtd
 
 urxvtd &
 
-for i in ~/.Xresources.yeah.*; do
+XRES="$HOME/.Xresources.yeah"
+
+for i in "$XRES".*; do
     echo $i
     cat ~/.Xresources ~/.Xresources.yeahbase $i | xrdb -load && yeahconsole &
 done

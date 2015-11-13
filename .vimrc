@@ -3,11 +3,11 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set runtimepath+=/home/krgr/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/home/krgr/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -106,6 +106,8 @@ NeoBundle "alfredodeza/khuno.vim"
 NeoBundle "rhysd/clever-f.vim"
 NeoBundle "tacroe/unite-mark"
 NeoBundle 'jacquesbh/vim-showmarks'
+NeoBundle 'jmcantrell/vim-virtualenv'
+NeoBundle 'umitkablan/slimux'
 
 let g:evervim_devtoken="S=s451:U=4db8118:E=154ae06d9bf:C=14d5655ad08:P=1cd:A=en-devtoken:V=2:H=0d5e77c0e2f400dbd0687a04a8c37b6e"
 

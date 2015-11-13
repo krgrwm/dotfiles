@@ -20,8 +20,11 @@ export XMODIFIERS="@im=fcit"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+/usr/local/bin/mozc start
+fcitx -r -d
 
 #exec openbox-session
 exec awesome
 #exec ~/bin/stumpwm
 #exec qtile
+#exec mate-session

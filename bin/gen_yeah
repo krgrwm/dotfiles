@@ -4,7 +4,12 @@ opts=('suffix' 'toggleKey' 'KeyFull' 'consoleHeight' 'screenWidth' 'xOffset' 'yO
 filename=$HOME"/.Xresources.yeah"
 
 # file to array of lines
-lines=("${(@f)$(cat ~/.yeahconsole.conf)}")
+CONF="$HOME/.yeahconsole.conf"
+if [[ "$(uname)" == "FreeBSD" ]] ; then
+    CONF="$HOME/.yeahconsole.freebsd.conf"
+fi
+
+lines=("${(@f)$(cat $CONF)}")
 
 # delete line that contains #
 lines=( ${lines:#\#*})

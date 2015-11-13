@@ -1,6 +1,6 @@
 ZSH=$HOME/.zsh
-# export PATH=/home/krgr/.cabal/bin:$PATH
-export PYTHONPATH=/home/krgr/bin:$PYTHONPATH
+# export PATH=/home/hoge/.cabal/bin:$PATH
+#export PYTHONPATH="$HOME/bin":$PYTHONPATH
 
 export TERM=screen-256color
 
@@ -44,15 +44,26 @@ setopt BRACE_CCL # echo test{a-d} とかできる
 
 unsetopt sh_wordsplit
 
-eval `dircolors ~/.dircolors`
+eval `dircolors -b $HOME/.dircolors`
 
 export EDITOR=vim
 export JULIA_EDITOR=gvim
 export BROWSER=firefox
-export PATH=/home/krgr/bin:$PATH
+export PATH=$HOME/bin:$PATH
 alias pyconda='/opt/anaconda/bin/python'
 alias ipyconda='/opt/anaconda/bin/ipython'
 alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+if [[ "$(uname)" == "FreeBSD" ]]; then
+    export PATH=$HOME/.julia_dir/usr/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/lib/gcc48
+fi
+
+
 
 READNULLCMD=less
 
@@ -71,7 +82,9 @@ if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then
     antigen apply
 fi
 
+
 # load config files
+source $ZSH/aliases.zsh
 for config_file ($ZSH/lib/*.zsh) source $config_file
 
 unsetopt sharehistory

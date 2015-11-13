@@ -1,18 +1,30 @@
+#!/usr/bin/env zsh
+
+DMENU="dmenu2"
+if [[ "$(uname)" == "FreeBSD" ]] ; then
+    DMENU="dmenu"
+fi
+
 prompt=$(basename ${1})
 source "$1/color"
 
 if [[ $1 ]]; then
     hist=`cat "$1/history"`
-    cmd_dmenu="dmenu2 -w 600 -nb $nb -nf $nf -sb $sb -p $prompt -hist $hist -i -l 20"
-    echo $cmd_dmenu
+
+    dmenu_options="-w 600 -nb $nb -nf $nf -sb $sb -p $prompt -hist $hist -i -l 20"
+    if [[ "$(uname)" == "FreeBSD" ]] ; then
+        dmenu_options="-p $prompt -i -l 20"
+    fi
+
+    echo $dmenu_options
     res1=$($1/source)
 
     if [[ ! -e $hist ]] ; then
         touch $hist
     fi
 
-    echo $cmd_dmenu
-    result=$(echo "$res1" | $cmd_dmenu | $SHELL "$1/post")
+    result=$(echo "$res1" | eval $DMENU "$dmenu_options" | $SHELL "$1/post")
+    echo $result
 
     if [[ $result ]] ; then
         echo $result

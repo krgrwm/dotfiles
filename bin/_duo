@@ -7,7 +7,6 @@ from random import Random
 import pickle
 import atexit
 
-
 prefix = "/home/krgr/English/DuoShadow/"
 script = "/home/krgr/English/duo_script"
 cfile = "/home/krgr/English/rduo_count"

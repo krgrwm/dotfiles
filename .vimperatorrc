@@ -52,7 +52,7 @@ nnoremap l <C-n>
 
 
 "" inactive fcitx
-nnoremap <silent> u :!fcitx-remote -o<CR>qf
+nnoremap <silent> u f
 
 nnoremap <silent> e :!fcitx-remote -o<CR>q;
 
