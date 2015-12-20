@@ -1,6 +1,10 @@
 # completion
 
-setopt   auto_list auto_param_slash list_packed rec_exact
+setopt   auto_list 
+setopt auto_param_slash 
+setopt list_packed 
+setopt rec_exact
+
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on succesive tab press
@@ -9,7 +13,8 @@ setopt always_to_end
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' remote-access false
-zstyle ':completion:*' completer _oldlist _expand _complete _prefix _list _history
+#zstyle ':completion:*' completer _oldlist _expand _complete _prefix _list _history
+zstyle ':completion:*' completer _oldlist _complete _prefix _list _history
 
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
@@ -33,7 +38,7 @@ zstyle ':completion:*' verbose yes
 ## カーソル位置で補完する。
 setopt complete_in_word
 ## globを展開しないで候補の一覧から補完する。
-setopt glob_complete
+unsetopt glob_complete
 ## 補完時にヒストリを自動的に展開する。
 setopt hist_expand
 ## 補完候補がないときなどにビープ音を鳴らさない。
@@ -50,6 +55,7 @@ setopt magic_equal_subst
 WORDCHARS=${WORDCHARS:s,/,,}
 WORDCHARS=${WORDCHARS:s,-,,}
 WORDCHARS=${WORDCHARS:s,_,,}
+WORDCHARS=${WORDCHARS:s,.,,}
 
 zmodload -i zsh/complist
 

@@ -17,6 +17,13 @@ options     head
         ${0}
     end
 
+snippet     macro
+alias       macro
+options     head
+    macro ${1:macroname}(${2:args})
+        ${0}
+    end
+
 snippet     lam
 options     word
     ${1:x} -> ${0}
@@ -49,3 +56,10 @@ snippet     plot_lim
 abbr        plot with limit
 options     head
     xlim(${1:xmin}, ${2:xmax}); ylim(${3:ymin}, ${4:ymax}); plot(${0})
+
+snippet     quote
+abbr        quote
+options     head
+    quote
+    ${0}
+    end

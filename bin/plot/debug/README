@@ -1,0 +1,1 @@
+The files in this directory are binaries intended to be installed with 'make install'. They should not be used in their present location, as they contain hard-coded links to files which are created by the 'make install' step.

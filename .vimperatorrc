@@ -54,10 +54,15 @@ nnoremap l <C-n>
 "" inactive fcitx
 nnoremap <silent> u f
 
-nnoremap <silent> e :!fcitx-remote -o<CR>q;
+"nnoremap <silent> e :!fcitx-remote -o<CR>q;
+nnoremap <silent> e :!fcitx-remote -c<CR>q;
 
 cnoremap <C-n> <Tab>
 cnoremap <C-p> <S-Tab>
 
 
 nmap <C-i> <A-i>
+
+
+
+

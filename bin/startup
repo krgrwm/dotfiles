@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+feh --bg-scale ~/Pictures/background.png
+~/bin/dvorak
+~/bin/sands
+~/bin/reset_yeah
+sxhkd
+redshift -c ~/.config/redshift.conf
+
+if [[ "$(uname)" == "FreeBSD" ]]; then
+else
+    nm-applet
+    ~/bin/beepoff
+    xset -b
+
+    sleep 2
+    conky -q --config=~/.conkyrc
+    octopi-notifier
+    fcitx
+    volumeicon
+    anamnesis --start
+    unclutter
+fi
+

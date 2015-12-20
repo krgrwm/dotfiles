@@ -10,5 +10,5 @@ XF86MonBrightness{Up,Down}
     ~/bin/screenshot
 
 # dmenu
-alt + {n,p,Return,d,n,e,y}
-    ~/bin/dmenu_root ~/bin/dmenu/{launcher,window,edit,lookup,run,run_fav}
+super + {n}
+    ~/bin/dmenu_root ~/bin/dmenu/{launcher}

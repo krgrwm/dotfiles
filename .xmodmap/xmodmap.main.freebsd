@@ -25,6 +25,7 @@ keycode 133 = grave asciitilde
 
 ! Shift_L -> Alt_R
 remove shift = Shift_L
-keycode 50 = Alt_R
+!keycode 50 = Alt_R
+keycode 50 = Super_R
 
 keycode 131 = Shift_L

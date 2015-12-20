@@ -1,6 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython'
-let g:netrw_dirhist_2='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython/ftplugin'
-let g:netrw_dirhist_3='/usr/home/t.sato/dotfiles/.vim/bundle/vim-ipython/ftplugin/python'
-let g:netrw_dirhist_4='/usr/home/t.sato/.vimperator'
+let g:netrw_dirhist_cnt =0

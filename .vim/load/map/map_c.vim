@@ -10,8 +10,8 @@ au FileType cpp imap <buffer> <CR> ;
 au FileType c noremap <silent> ee :!\./%:r<cr>
 au FileType cpp noremap <silent> ee :!\./%:r<cr>
 
-au FileType c noremap <silent> er :make %:r<cr>
-au FileType cpp noremap er :make<cr>
+au FileType c noremap <space>r :CMakeBuild<cr>:make<cr>
+au FileType cpp noremap <space>r :CMakeBuild<cr>:make<cr>
 
 au FileType c set tabstop=2
 au FileType cpp set tabstop=2

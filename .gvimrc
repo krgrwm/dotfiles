@@ -21,5 +21,4 @@ highlight Folded      gui=italic  guifg=Cyan guibg=Black
 highlight LineNr      gui=NONE    guifg=Gray guibg=Black
 
 " au FileType julia set guifont=Monospace\ 9
-au FileType julia set guifont=Inconsolata\ 11
-au FileType python set guifont=Inconsolata\ 11
+set guifont=Inconsolata\ 11

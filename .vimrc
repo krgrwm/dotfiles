@@ -78,7 +78,7 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 "NeoBundle 'dgrnbrg/vim-redl'
 "NeoBundle 'kovisoft/slimv'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'ivanov/vim-ipython'
+"NeoBundle 'ivanov/vim-ipython'
 "NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -108,6 +108,7 @@ NeoBundle "tacroe/unite-mark"
 NeoBundle 'jacquesbh/vim-showmarks'
 NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'umitkablan/slimux'
+NeoBundle 'jalcine/cmake.vim'
 
 let g:evervim_devtoken="S=s451:U=4db8118:E=154ae06d9bf:C=14d5655ad08:P=1cd:A=en-devtoken:V=2:H=0d5e77c0e2f400dbd0687a04a8c37b6e"
 
@@ -124,3 +125,15 @@ NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 runtime! load**/*.vim
+
+
+
+
+
+
+" beef off
+set vb t_vb=
+
+
+
+

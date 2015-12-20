@@ -24,7 +24,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 fcitx -r -d
 
 #exec openbox-session
-exec awesome
+#exec awesome
+exec i3
 #exec ~/bin/stumpwm
 #exec qtile
 #exec mate-session

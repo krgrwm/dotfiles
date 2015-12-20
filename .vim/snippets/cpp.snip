@@ -37,4 +37,11 @@ options     head
 snippet     pri
 abbr        cout
 options     head
-  cout << %{1:var} << endl;
+  cout << ${1:var} << endl;
+
+snippet     for
+abbr        range based for
+options     head
+  for(auto& var : ${1:Container} ) {
+    ${0}
+  }

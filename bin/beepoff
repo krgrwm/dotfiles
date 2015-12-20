@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 amixer set 'Beep' 0% mute
 notify-send -t 10 'Set Beep Off'

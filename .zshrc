@@ -41,6 +41,7 @@ setopt banghist
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt BRACE_CCL # echo test{a-d} とかできる
+setopt no_beep
 
 unsetopt sh_wordsplit
 
@@ -61,6 +62,7 @@ eval "$(pyenv virtualenv-init -)"
 if [[ "$(uname)" == "FreeBSD" ]]; then
     export PATH=$HOME/.julia_dir/usr/bin:$PATH
     export LD_LIBRARY_PATH=/usr/local/lib/gcc48
+    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 fi
 
 
@@ -72,7 +74,7 @@ export RLWRAP_HOME=$HOME/.rlwrap
 source ~/.zsh/completion.zsh
 
 # add fpaht
-fpath=($ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
+fpath=($HOME/.autojump/functions $ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
 
 # antigen
 if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then
