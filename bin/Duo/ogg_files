@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+OGG_DIR="$HOME/English/DuoShadow"
+cd $OGG_DIR
+
+# ls -1 $OGG_DIR/**/*.ogg de sort -n suruto umaku ikanai
+ls -1 **/*.ogg | sort -n | xargs -n 1 readlink -f
