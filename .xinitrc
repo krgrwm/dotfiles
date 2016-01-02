@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 export BROWSER=firefox
 #export DE=openbox
 
@@ -20,12 +20,18 @@ export XMODIFIERS="@im=fcit"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
-/usr/local/bin/mozc start
 fcitx -r -d
 
+if [[ "$(uname)" == "FreeBSD" ]]; then
+    /usr/local/bin/mozc start
+    exec i3
+else
+    /usr/bin/mozc start
+    exec awesome
+fi
+    
 #exec openbox-session
 #exec awesome
-exec i3
 #exec ~/bin/stumpwm
 #exec qtile
 #exec mate-session

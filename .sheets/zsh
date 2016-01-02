@@ -41,3 +41,5 @@ word='aa bbb cccc ddd aa bbb cccc'; echo ${word%%bbb*} # 最長一致
 ls -d (#i)d* # Globbing Flag, case insensitive
 ls *.c | xargs -I{} -n 1 file {} # = for
 for var in ${=words_with_space}; do ... # ${=var}でスペースで区切る
+>/dev/null 2>&1 # redirect stdout,stderr to /dev/null
+&>/dev/null # redirect stdout,stderr to /dev/null

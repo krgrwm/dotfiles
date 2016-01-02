@@ -1,1 +1,6 @@
 ps -ef # e:all, f:full-format
+ps -l # l:long-format
+ps -e --forest # forest:tree-view
+ls -l | sort -M # month sort
+sort -t ":" -k 3,3 -n /etc/passwd # sort at column 3, separator ":"
+du -sh * | sort -nr

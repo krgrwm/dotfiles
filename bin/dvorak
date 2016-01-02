@@ -1,9 +1,16 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 setxkbmap -option ctrl:nocaps
 setxkbmap dvorak
+
+if [[ "$(uname)" == "FreeBSD" ]]; then
+    xmodmap ~/.xmodmap/_xmodmap.main.freebsd
+else
+    xmodmap ~/.xmodmap/_xmodmap.main
+fi
 ls ~/.xmodmap/xmodmap.* | xargs -I{} -n 1 xmodmap {}
 
+echo 'natoehu'
 xcape -e '#37=Escape' # Ctrl -> Ctrl + Escape
 xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
 #xcape -e '#100=Escape' # Mode_switch -> Mode_switch + Escape
