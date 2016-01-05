@@ -59,10 +59,12 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+PECO='peco'
 if [[ "$(uname)" == "FreeBSD" ]]; then
     export PATH=$HOME/.julia_dir/usr/bin:$PATH
     export LD_LIBRARY_PATH=/usr/local/lib/gcc48
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+    PECO='/usr/local/bin/peco'
 fi
 
 

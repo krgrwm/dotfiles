@@ -69,7 +69,7 @@ ls_abbrev() {
 
 
 function peco-snippets() {
-    BUFFER=$(cat <(echo "") <(grep "" ~/.sheets/*) | awk '{FS="sheets/"; print $2}' | peco --query "$LBUFFER" |
+    BUFFER=$(cat <(echo "") <(grep "" ~/.sheets/*) | awk '{FS="sheets/"; print $2}' | $PECO --query "$LBUFFER" |
     cut -d ":" -f 2- |
     perl -wnl -e '@l=split(/#/,$_); print join("#", @l[0..$#l-1])'
 #    cut -d "#" -f 1
@@ -97,7 +97,7 @@ function subs-snippet()
 
 function peco-history() {
     LINES=150
-    BUFFER=$( fc -l -n 1 | tail -n $LINES | tac | peco --query "$LBUFFER")
+    BUFFER=$( fc -l -n 1 | tail -n $LINES | tac | $PECO --query "$LBUFFER")
     zle accept-line
 }
 
@@ -112,13 +112,13 @@ function peco-autojump() {
     AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2 |
             perl -wnl -e 's/$ENV{"HOME"}/~/g and print')
             TMP=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename)
-            BUFFER=$(cat <(echo $TMP) | peco --query "$LBUFFER" |
+            BUFFER=$(cat <(echo $TMP) | $PECO --query "$LBUFFER" |
                 perl -wla -e 'print $F[1]')
     zle accept-line
 }
 
 function peco-bookmark() {
-    BUFFER=$(cat ~/.bookmark_dirs | peco --query "$LBUFFER" |
+    BUFFER=$(cat ~/.bookmark_dirs | $PECO --query "$LBUFFER" |
     perl -wla -e 'print $F[1]')
     zle accept-line
 }
@@ -127,7 +127,7 @@ zle -N peco-bookmark
 function peco-cd() {
 
 # yarizurai cara hutuuni cd
-    BUFFER=$(ls --color=none -d */ | peco --query "$LBUFFER")
+    BUFFER=$(ls --color=none -d */ | $PECO --query "$LBUFFER")
 #    pushln 'cd '
     zle accept-line
 }
@@ -135,7 +135,7 @@ function cddown_dir(){
     com='$SHELL -c "ls -AF . | grep / "'
     while [ $? = 0 ] # $?: the exit status of the last command, failed-> not zero
     do
-        cdir=`eval $com | peco --query ''`
+        cdir=`eval $com | $PECO --query ''`
         if [ $? = 0 ];then # check the exit status of cdir=...
             cd $cdir # $? is zero
             eval $com # for while check. if there is no dir, $? is not zero
@@ -147,14 +147,14 @@ function cddown_dir(){
 }
 
 function peco-commands() {
-    BUFFER=$(cat <(commands) <(alias | cut -d= -f1) | peco --query '^')
+    BUFFER=$(cat <(commands) <(alias | cut -d= -f1) | $PECO --query '^')
     zle end-of-line
     zle magic-space
 }
 
 function peco-select() {
     IFS='\ '
-    RES=$(ls --color=none | peco | tr -d '\r')
+    RES=$(ls --color=none | $PECO | tr -d '\r')
     if [[ -n $RES ]]; then
         LBUFFER+=" \"${RES}\" "
     fi
@@ -163,7 +163,7 @@ function peco-select() {
 
 function peco-open() {
     IFS='\ '
-    RES=$(ls --color=none | peco | tr -d '\r')
+    RES=$(ls --color=none | $PECO | tr -d '\r')
     if [[ -n $RES ]]; then
         LBUFFER+="${RES}"
     fi
@@ -217,7 +217,7 @@ zle -N key-binds
 
 function peco-anamnesis(){
 # \047 = '
-    BUFFER=$(anamnesis -l 200 | tail --lines=+3 | perl -wnl -e '/u\047(.*)\\n/ and print $1' | peco)
+    BUFFER=$(anamnesis -l 200 | tail --lines=+3 | perl -wnl -e '/u\047(.*)\\n/ and print $1' | $PECO )
 }
 zle -N peco-anamnesis
 
@@ -230,13 +230,13 @@ function kill-clipboard(){
 zle -N kill-clipboard
 
 function agvim() {
-vim $(ag $@ | peco | awk -F : '{print "-c " $2 " "$1}')
+vim $(ag $@ | $PECO | awk -F : '{print "-c " $2 " "$1}')
 }
 
 function peco-dfind() {
     local current_buffer=$BUFFER
     # .git系など不可視フォルダは除外
-    local selected_dir="$(find . -maxdepth 5 -type d ! -path "*/.*"| peco)"
+    local selected_dir="$(find . -maxdepth 5 -type d ! -path "*/.*"| $PECO)"
     if [ -d "$selected_dir" ]; then
         BUFFER="${current_buffer} \"${selected_dir}\""
         CURSOR=$#BUFFER
