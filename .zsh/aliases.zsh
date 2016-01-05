@@ -1,4 +1,8 @@
 # FreeBSD commands to coreutils
+LS="ls"
+MV="mv"
+RM="rm"
+CP="cp"
 if [[ "$(uname)" == "FreeBSD" ]]; then
     LS="gls"
     MV="gmv"

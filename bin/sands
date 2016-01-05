@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 #xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
 xmodmap -e 'keycode 255=Super_R'; xmodmap -e 'keycode 102=Shift_L'; xcape -e '#102=Super_R'

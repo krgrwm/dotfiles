@@ -23,4 +23,5 @@ add Shift = Shift_R
 
 ! Shift_L -> Alt_R
 remove shift = Shift_L
-keycode 50 = Alt_R
+!keycode 50 = Alt_R
+keycode 50 = Super_R

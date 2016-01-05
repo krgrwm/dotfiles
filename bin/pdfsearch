@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+pattern=$1
+for pdf in *.pdf; (pdftotext $pdf - | ag -i $pattern) >/dev/null 2>&1 && echo $pdf
