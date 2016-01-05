@@ -1,0 +1,2 @@
+git flow init -d # init
+git flow feature start %%REPO # start feature

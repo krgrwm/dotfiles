@@ -17,11 +17,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 
-"NeoBundle 'gmarik/vundle'
-"NeoBundle 'The-NERD-tree'
 NeoBundle 'Gundo'
 NeoBundle 'quickfixstatus.vim'
 NeoBundle 'hier'
@@ -59,7 +56,8 @@ NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'thinca/vim-editvar'
 NeoBundle 'ujihisa/unite-launch'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'h1mesuke/vim-alignta'
+"NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'junegunn/vim-easy-align'
 
 "NeoBundle "osyo-manga/unite-quickfix"
 "NeoBundle "osyo-manga/shabadou.vim"
@@ -77,7 +75,6 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 " redl の補完機能が重い
 "NeoBundle 'dgrnbrg/vim-redl'
 "NeoBundle 'kovisoft/slimv'
-NeoBundle 'kien/ctrlp.vim'
 "NeoBundle 'ivanov/vim-ipython'
 "NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'davidhalter/jedi-vim'
@@ -108,7 +105,7 @@ NeoBundle "tacroe/unite-mark"
 NeoBundle 'jacquesbh/vim-showmarks'
 NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'umitkablan/slimux'
-NeoBundle 'jalcine/cmake.vim'
+"NeoBundle 'jalcine/cmake.vim'
 
 let g:evervim_devtoken="S=s451:U=4db8118:E=154ae06d9bf:C=14d5655ad08:P=1cd:A=en-devtoken:V=2:H=0d5e77c0e2f400dbd0687a04a8c37b6e"
 

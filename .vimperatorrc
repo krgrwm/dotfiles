@@ -32,7 +32,7 @@ set hintchars=aoeu
 "" toggle
 js <<EOM
 liberator.globalVariables.toggler = {
-  navi: ["set gui=none", "set gui=navigation"]
+navi: ["set gui=none", "set gui=navigation"]
 };
 EOM
 
@@ -63,6 +63,4 @@ cnoremap <C-p> <S-Tab>
 
 nmap <C-i> <A-i>
 
-
-
-
+nnoremap <silent> .s :stylish turnall<CR>

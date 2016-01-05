@@ -73,22 +73,10 @@ noremap <silent> [E]r :QuickRun<cr>
 map [Space]ta :Unite -winheight=10 -immediately -default-action=tabopen gtags/context<CR>
 map [Space]to :Unite -winheight=10 -immediately -default-action=right gtags/def<CR>
 
-"Alignta
-map [Space]= :Alignta 
-
-
-
 " Grep(ag)
 nnoremap <silent> <C-x> :<C-u>Unite -default-action=tabopen -no-quit grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
 nnoremap <silent> <C-j>  :<C-u>UniteResume -default-action=tabopen -no-quit search-buffer<CR>
 
-
-
-" Ctrlp
-let g:ctrlp_cmd = 'CtrlPMix'
-let g:ctrlp_root_markers = ['.ctrlp']
-map [Space]c, :CtrlPBuffer<CR>
-map [Space]c. :CtrlPTag<CR>
 
 " VimFiler
 nnoremap [E]n :VimFiler -split -simple -winwidth=35 -no-quit<CR>

@@ -45,3 +45,10 @@ options     head
   for(auto& var : ${1:Container} ) {
     ${0}
   }
+
+snippet     method
+abbr        member function
+options     head
+  ${1:Type} ${2:Class}::${3:Method}(${4:Args...}) {
+    ${0}
+  }
