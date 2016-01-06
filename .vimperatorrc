@@ -45,6 +45,7 @@ nnoremap .r :source ~/.vimperatorrc<CR>:echo 'reload settings'<CR>
 nnoremap .p :pageinfo<CR>
 nnoremap <C-h> <Nop>
 nnoremap <C-t> <Nop>
+nnoremap U :u<Space>
 
 "" Tab
 nnoremap h <C-p>
@@ -64,3 +65,8 @@ cnoremap <C-p> <S-Tab>
 nmap <C-i> <A-i>
 
 nnoremap <silent> .s :stylish turnall<CR>
+
+"" next pattern
+set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
+set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$ 
+

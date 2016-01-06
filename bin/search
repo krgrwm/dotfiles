@@ -1,0 +1,15 @@
+#!/usr/local/bin/zsh -u
+
+word=$1
+from=$2"-01-01"
+
+if [[ $# -eq 2 ]]; then
+    to=$2"-12-31"
+else
+    to=$3"-12-31"
+fi
+
+url="http://kyushu.summon.serialssolutions.com/#!/search?ho=t&fvf=Discipline,physics,f&rf=PublicationDate,"
+url=$url$from":"$to"&l=jp&q="$word
+
+firefox $url
