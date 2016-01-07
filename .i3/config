@@ -80,14 +80,14 @@ exec --no-startup-id ~/bin/startup
 
 # modes
 set $resize "resize"
-bindsym $mod+h mode $resize
+bindsym $mod+h exec ~/bin/notify-key ; mode $resize
 
 set $resize_precise "resize_precise"
 
 mode $resize{
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+h mode "default"
+    bindsym Return exec ~/bin/notify-send.sh --close=10; mode "default"
+    bindsym Escape exec ~/bin/notify-send.sh --close=10; mode "default"
+    bindsym $mod+h exec ~/bin/notify-send.sh --close=10; mode "default"
     bindsym p mode $resize_precise
 
     bindsym l resize shrink left 10 px or 10 ppt

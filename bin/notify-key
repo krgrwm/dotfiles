@@ -1,0 +1,4 @@
+#/usr/local/bin/bash
+
+keys=$(cat ~/.i3/config | perl -wnl -e '/resize\s*{/ .. /}/ and print' | perl -wnl -e 's/^.*bindsym//g and s/^\s*(\w+?)\s//g and print "$1\t$_"')
+~/bin/notify-send.sh -t 0 --replace=10 "$keys"

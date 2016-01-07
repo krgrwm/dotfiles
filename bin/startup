@@ -6,6 +6,7 @@ feh --bg-scale ~/Pictures/background.png
 ~/bin/reset_yeah
 sxhkd
 redshift -c ~/.config/redshift.conf
+dunst -config $HOME/.config/dunst/dunstrc
 
 if [[ "$(uname)" == "FreeBSD" ]]; then
 else
