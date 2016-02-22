@@ -15,20 +15,16 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 xmodmap $HOME/.Xmodmap
 export XDG_CACHE_HOME=/tmp
 
-export XIM_ARGS="--xim"
-export XMODIFIERS="@im=fcit"
-export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+
+export XIM=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=xim
+export XMODIFIERS=@im=fcitx
+export XIM_PROGRAM="fcitx"
+
 fcitx -r -d
 
-if [[ "$(uname)" == "FreeBSD" ]]; then
-    /usr/local/bin/mozc start
-    exec i3
-else
-    /usr/bin/mozc start
-    exec awesome
-fi
+exec i3 || exec awesome
     
 #exec openbox-session
 #exec awesome

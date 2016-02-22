@@ -1,2 +1,4 @@
 git flow init -d # init
 git flow feature start %%REPO # start feature
+git flow feature publish %%REPO # start feature
+git flow feature finish %%REPO # finish feature:

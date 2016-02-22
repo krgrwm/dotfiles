@@ -1,5 +1,8 @@
+#!/usr/local/bin/zsh -u
+
+file="${1:r}"
 extractbb *.png
 extractbb *.jpg
 extractbb *.pdf
-platex -output-directory=/tmp "$1.tex"
-dvipdfm "/tmp/$1.dvi"
+platex -output-directory=/tmp "$file.tex"
+dvipdfm "/tmp/$file.dvi"

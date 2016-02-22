@@ -35,13 +35,27 @@ prompt_pwd()
     echo $(pwd_tilda | path_short | path_color | head -n 1) ""
 }
 
-PROMPT="%{$fg[blue]%}[%T]%{$reset_color%}%{$fg[yellow]%} ["'$(prompt_pwd)'"$(git_prompt_info)] %{$reset_color%}
+#### VCS_INFO (for git)
+
+theme_precmd () {
+    vcs_info
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd theme_precmd
+setopt prompt_subst
+
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+
+####
+
+
+PROMPT="%{$fg[blue]%}[%T]%{$reset_color%}%{$fg[yellow]%} ["'$(prompt_pwd)'"] "'${vcs_info_msg_0_}'" %{$reset_color%}
 %(?.%{${fg[green]}%}.%{${fg[red]}%}) > %{$fg[red]%}%{$reset_color%}"
+#${vcs_info_msg_0_}
 
-RPS1='%{$fg[blue]%}%n@%M%{$reset_color%} '
-#RPS1='%{$fg[green]%}%{$fg[normal]%}%2~$(git_prompt_info) %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX=" (%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ⚡%{$fg[yellow]%}"
+RPROMPT='%{$fg[blue]%}%n@%M%{$reset_color%} '

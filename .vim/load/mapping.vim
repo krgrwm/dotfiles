@@ -20,7 +20,7 @@ nnoremap <silent> [E]u :GundoToggle<cr>
 nnoremap <silent> [E]m :Unite ref/man<cr>
 
 " Tab
-"nnoremap <silent> sj :tabnext<cr>
+nnoremap <silent> 0 :tabnext<cr>
 "nnoremap <silent> ss :tabnext<cr>
 "nnoremap <silent> sk :tabprevious<cr>
 
@@ -70,8 +70,8 @@ noremap <silent> [E]r :QuickRun<cr>
 
 
 "Gtags
-map [Space]ta :Unite -winheight=10 -immediately -default-action=tabopen gtags/context<CR>
-map [Space]to :Unite -winheight=10 -immediately -default-action=right gtags/def<CR>
+map [Space]tc :Unite -winheight=10 -immediately -default-action=tabopen gtags/context<CR>
+map [Space]td :Unite -winheight=10 -immediately -default-action=right gtags/def<CR>
 
 " Grep(ag)
 nnoremap <silent> <C-x> :<C-u>Unite -default-action=tabopen -no-quit grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>

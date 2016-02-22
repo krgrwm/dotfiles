@@ -18,6 +18,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 
 autoload -Uz zmv
+autoload -Uz vcs_info
 
 setopt autopushd pushdminus pushdsilent pushdtohome
 setopt autocd

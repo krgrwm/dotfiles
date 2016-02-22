@@ -1,4 +1,2 @@
 $(command) # 
-for i in %%LIST; do; %%DO $i; done # 
-for i in $(%CMD); do; %%EXEC $i; done # 
-for f in *; ls ${f} # short loop # 
+for i in %%RANGE ; %%DO # short loop # 

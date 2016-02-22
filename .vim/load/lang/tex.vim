@@ -10,3 +10,4 @@ endif
 
 " tokusyu moji ga siroku naru
 let g:tex_conceal = ''
+

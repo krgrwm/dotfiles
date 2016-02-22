@@ -75,12 +75,13 @@ bindsym $mod+s scratchpad show
 bindsym $mod+e floating disable
 
 # startup
-exec --no-startup-id ~/bin/startup
+exec --no-startup-id /usr/home/t.sato/bin/startup
 
 
 # modes
 set $resize "resize"
-bindsym $mod+h exec ~/bin/notify-key ; mode $resize
+bindsym $mod+h mode $resize
+#bindsym $mod+h exec ~/bin/notify-key ; mode $resize
 
 set $resize_precise "resize_precise"
 
@@ -92,12 +93,13 @@ mode $resize{
 
     bindsym l resize shrink left 10 px or 10 ppt
     bindsym h resize grow left 10 px or 10 ppt
+    bindsym shift+l move right
+    bindsym shift+h move left
     
     bindsym $mod+c focus left
     bindsym f fullscreen toggle
     bindsym shift+c layout default
     bindsym c layout tabbed
-    bindsym w move left
 }
 
 mode $resize_precise{

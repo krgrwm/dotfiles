@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/usr/home/t.sato/nfs/t.sato/DBM/build'
 let g:netrw_dirhist_2='/usr/home/t.sato/nfs/t.sato/DBM/data'
 let g:netrw_dirhist_3='/usr/home/t.sato/.vimperator'
+let g:netrw_dirhist_4='/usr/home/t.sato/nfs/t.sato/DBM/bin'
+let g:netrw_dirhist_5='/usr/home/t.sato/dotfiles/.vim/load'
+let g:netrw_dirhist_6='/usr/home/t.sato/.config/fcitx/conf'

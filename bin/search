@@ -1,15 +1,46 @@
 #!/usr/local/bin/zsh -u
 
-word=$1
-from=$2"-01-01"
+local -A opthash
+zparseopts -D -A opthash -- -from: -to: -year: -author:
 
-if [[ $# -eq 2 ]]; then
-    to=$2"-12-31"
-else
-    to=$3"-12-31"
+from=""
+to=""
+author=""
+
+if [[ -n "${opthash[(i)--from]}" ]]; then
+    from=${opthash[--from]}
 fi
 
-url="http://kyushu.summon.serialssolutions.com/#!/search?ho=t&fvf=Discipline,physics,f&rf=PublicationDate,"
-url=$url$from":"$to"&l=jp&q="$word
+if [[ -n "${opthash[(i)--to]}" ]]; then
+    to=${opthash[--to]}
+fi
 
+if [[ -n "${opthash[(i)--year]}" ]]; then
+    year=${opthash[--year]}
+    from=$year"-01-01"
+    to=$year"-12-31"
+fi
+
+if [[ -n "${opthash[(i)--author]}" ]]; then
+    author=${opthash[--author]}
+fi
+
+search_word=$1
+PublicationDate="&rf=PublicationDate,"$from":"$to
+echo $PublicationDate
+
+TitleCombined="(TitleCombined:($search_word))"
+AuthorCombined="(AuthorCombined:($author))"
+AND="%20AND%20"
+
+Title_Author=$TitleCombined
+if [[ -n $author ]]; then
+    Title_Author=$TitleCombined$AND$AuthorCombined
+fi
+
+url="http://kyushu.summon.serialssolutions.com/#!/search?&l=jp&q="
+url=$url$Title_Author$PublicationDate
+
+
+echo $url
 firefox $url
