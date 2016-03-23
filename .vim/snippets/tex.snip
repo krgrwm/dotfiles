@@ -91,3 +91,37 @@ options     head
     \captionsetup{labelformat=empty,labelsep=none}
     \begin{lstlisting}[language=, numbers=none, caption=${1:caption}, label=${2:label}]
     \end{lstlisting}
+
+
+snippet     brace
+abbr        equation_brace
+options     head
+    \left\{ 
+        \begin{array}{l}
+            ${0}\\
+        \end{array}
+    \right.
+
+snippet     space
+abbr        space
+    \quad
+
+
+snippet allign
+alias   \begin{allign}
+    \begin{allign}
+        ${0}
+    \end{allign}
+
+
+snippet     equ_kakko
+abbr        allign_kakko
+    \begin{align}
+        ${1:y} = \left\{
+            \begin{aligned}
+                % & eq1 \\
+                % & eq2 \\
+                ${0}
+            \end{aligned}
+        \right.
+    \end{align}

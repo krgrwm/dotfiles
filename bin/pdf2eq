@@ -1,0 +1,8 @@
+#!/usr/local/bin/zsh -u
+
+file=$(readlink -f $1)
+file=${file:r}
+
+echo $file
+pdfcrop $file.pdf $file.pdf
+pdftocairo -svg $file.pdf
