@@ -63,3 +63,10 @@ options     head
     quote
     ${0}
     end
+
+snippet     opendo
+abbr        doopen
+options     head
+    open(${1:file}, ${2:"w"}) do f
+        ${0}
+    end
