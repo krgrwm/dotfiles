@@ -46,7 +46,7 @@ setopt no_beep
 
 unsetopt sh_wordsplit
 
-eval `dircolors -b $HOME/.dircolors`
+eval `gdircolors -b $HOME/.dircolors`
 
 export EDITOR=vim
 export JULIA_EDITOR=gvim

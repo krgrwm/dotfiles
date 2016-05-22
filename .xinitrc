@@ -16,16 +16,20 @@ xmodmap $HOME/.Xmodmap
 export XDG_CACHE_HOME=/tmp
 
 
-export XIM=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=xim
-export XMODIFIERS=@im=fcitx
-export XIM_PROGRAM="fcitx"
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+export XMODIFIERS=@im=uim
+export XIM=uim
+/usr/local/bin/mozc start
+uim-xim &
+uim-toolbar-gtk &
 
-fcitx -r -d
+
 
 exec i3 || exec awesome
-    
+
+#/usr/local/bin/mozc start
+
 #exec openbox-session
 #exec awesome
 #exec ~/bin/stumpwm

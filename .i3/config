@@ -36,6 +36,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+force_xinerama yes
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -75,7 +77,7 @@ bindsym $mod+s scratchpad show
 bindsym $mod+e floating disable
 
 # startup
-exec --no-startup-id /usr/home/t.sato/bin/startup
+exec --no-startup-id /home/t.sato/bin/startup
 
 
 # modes

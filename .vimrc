@@ -66,12 +66,12 @@ NeoBundle 'junegunn/vim-easy-align'
 "NeoBundle 'Pydiction'
 "NeoBundle 'pythoncomplete'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'luochen1990/rainbow'
 "NeoBundle 'slimv.vim'
 "NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'supasorn/vim-easymotion'
 "NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'kien/rainbow_parentheses.vim'
 " redl の補完機能が重い
 "NeoBundle 'dgrnbrg/vim-redl'
 "NeoBundle 'kovisoft/slimv'
@@ -106,6 +106,8 @@ NeoBundle 'jacquesbh/vim-showmarks'
 NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'umitkablan/slimux'
 "NeoBundle 'jalcine/cmake.vim'
+"NeoBundle 'tyru/eskk.vim'
+"NeoBundle 'haya14busa/incsearch.vim'
 
 let g:evervim_devtoken="S=s451:U=4db8118:E=154ae06d9bf:C=14d5655ad08:P=1cd:A=en-devtoken:V=2:H=0d5e77c0e2f400dbd0687a04a8c37b6e"
 

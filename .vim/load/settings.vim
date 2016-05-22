@@ -127,12 +127,6 @@ let g:EasyMotion_special_select_line = 0
 let g:EasyMotion_special_select_phrase = 0
 
 
-"Raibow_parentheses
-"au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 au BufRead,BufNewFile *.cheat set filetype=cheat
 
 " indent_guides
@@ -160,4 +154,16 @@ set clipboard=unnamedplus
 let g:clever_f_smart_case=1
 let g:clever_f_show_prompt=1
 
+" eskk
+"let g:eskk#directory = "~/.eskk"
+"let g:eskk#large_dictionary = { 'path': expand("/home/t.sato/.eskk/larg/ALL"), 'sorted': 1, 'encoding': 'utf-8', }
+"let g:eskk#dictionary = { 'path': expand("~/.eskk/user.dict"), 'sorted': 0, 'encoding': 'utf-8', }
+"let g:eskk#enable_completion=1
+"let g:eskk#server = {
+"\   'host': 'localhost',
+"\   'port': 55100,
+"\}
+"imap <C-t> <Plug>(eskk:toggle)
 
+" rainbow parentheses
+let g:rainbow_active = 1 

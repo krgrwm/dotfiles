@@ -36,16 +36,22 @@ navi: ["set gui=none", "set gui=navigation"]
 };
 EOM
 
-nnoremap .nb :toggle navi<CR>
+map . <Leader>
 
+nnoremap <Leader>nb :toggle navi<CR>
 
 nnoremap j 14j
 nnoremap k 14k
-nnoremap .r :source ~/.vimperatorrc<CR>:echo 'reload settings'<CR>
-nnoremap .p :pageinfo<CR>
+nnoremap <Leader>r :source ~/.vimperatorrc<CR>:echo 'reload settings'<CR>
+nnoremap <Leader>p :pageinfo<CR>
 nnoremap <C-h> <Nop>
 nnoremap <C-t> <Nop>
 nnoremap U :u<Space>
+
+"" panorama
+nnoremap <Leader>ll :panorama switch 
+nnoremap <Leader>la :panorama add 
+nnoremap <Leader>lp :panorama pushtab 
 
 "" Tab
 nnoremap h <C-p>
@@ -64,9 +70,11 @@ cnoremap <C-p> <S-Tab>
 
 nmap <C-i> <A-i>
 
-nnoremap <silent> .s :stylish turnall<CR>
+nnoremap <silent> <Leader>s :stylish turnall<CR>
 
 "" next pattern
 set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
 set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$ 
 
+"" bmarks
+bmark -title="kyudai_lib" -tags=keyword -keyword=lib http://catalog.lib.kyushu-u.ac.jp/en/xc/search/%s
