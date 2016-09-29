@@ -17,9 +17,9 @@ URxvt*depth:					32
 !URxvt*background:				rgba:0000/0000/0000/dddd
 Urxvt*background: rgba:0000/0000/0200/c800
 URxvt*scrollBar_right:				false
-!URxvt*font:					xft:Ricty:pixelsize=12:antialias=true
 ! for FreeBSD
-URxvt*font:					xft:Inconsolata:pixelsize=12:antialias=true
+!URxvt*font:					xft:Ricty:pixelsize=12:antialias=true
+URxvt*font:					xft:Inconsolata:pixelsize=14:antialias=true
 URxvt*cursorBlink:				true
 URxvt*cursorUnderline:				true
 URxvt*scrollColor:				#111111

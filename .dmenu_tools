@@ -1,0 +1,8 @@
+toggl    # chrome "https://www.toggl.com/app/timer"
+evernote # chrome "https://www.evernote.com/Home.action"
+todoist  # chrome "https://ja.todoist.com/app"
+calender # chrome "https://calendar.google.com/calendar"
+mail     # chrome "https://outlook.office.com/owa/?realm=stat.phys.kyushu-u.ac.jp"
+line     # chrome --profile-directory=Default --app-id=menkifleemblimdogmoihpfopnplikde
+wunder   # chrome "https://www.wunderlist.com/webapp"
+dropbox  # chrome "https://www.dropbox.com/home"

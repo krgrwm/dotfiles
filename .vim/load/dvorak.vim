@@ -5,8 +5,8 @@ function! Dvorak()
     nnoremap m w
     nnoremap M b
 
-    nnoremap t e
-    nnoremap T ge
+"    nnoremap t e
+"    nnoremap T ge
 
     nnoremap s c
 

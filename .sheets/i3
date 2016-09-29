@@ -1,0 +1,2 @@
+i3-msg move window \to right # 
+i3-msg move window \to left # 

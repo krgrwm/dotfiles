@@ -102,6 +102,8 @@ mode $resize{
     bindsym f fullscreen toggle
     bindsym shift+c layout default
     bindsym c layout tabbed
+
+    bindsym $mod+bracketright workspace next
 }
 
 mode $resize_precise{
@@ -113,4 +115,6 @@ mode $resize_precise{
     bindsym h resize grow left 1 px or 1 ppt
     bindsym $mod+c focus left
     bindsym w move left
+
+    bindsym $mod+bracketright workspace next
 }

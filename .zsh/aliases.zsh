@@ -16,6 +16,7 @@ if [[ "$(uname)" == "FreeBSD" ]]; then
 fi
 
 
+
 # Basic directory operations
 alias ...="cd ../.."
 
@@ -99,6 +100,8 @@ alias -g Ic="| xsel -i -b"
 alias -g Ig="| ag"
 alias -g Ip="| pecorun "
 alias -g In="&> /dev/null"
+alias -g from='$(mru)'
+alias -g to='$(dest)'
 
 
 alias -g Iv="| vim_RO"

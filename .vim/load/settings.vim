@@ -23,7 +23,7 @@ set path =.,/usr/include,/usr/include/GL,/usr/include/GL/internal
 let g:netrw_liststyle = 3
 
 "Unite
-let g:unite_enable_start_insert=0
+let g:unite_enable_start_insert=1
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
@@ -153,17 +153,20 @@ set clipboard=unnamedplus
 " clever-f
 let g:clever_f_smart_case=1
 let g:clever_f_show_prompt=1
-
-" eskk
-"let g:eskk#directory = "~/.eskk"
-"let g:eskk#large_dictionary = { 'path': expand("/home/t.sato/.eskk/larg/ALL"), 'sorted': 1, 'encoding': 'utf-8', }
-"let g:eskk#dictionary = { 'path': expand("~/.eskk/user.dict"), 'sorted': 0, 'encoding': 'utf-8', }
-"let g:eskk#enable_completion=1
-"let g:eskk#server = {
-"\   'host': 'localhost',
-"\   'port': 55100,
-"\}
-"imap <C-t> <Plug>(eskk:toggle)
+let g:clever_f_not_overwrites_standard_mappings=0
 
 " rainbow parentheses
 let g:rainbow_active = 1 
+
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+
+" FastFold
+let g:tex_fold_enabled=1
+

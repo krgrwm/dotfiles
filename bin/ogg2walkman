@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-ffmpeg -i $1 -ab 128k -acodec libmp3lame $2/${1:t:s/ogg/mp3}

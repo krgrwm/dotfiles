@@ -106,15 +106,23 @@ file_basename()
     cat - | perl -wnl -MFile::Basename -e 'printf("%-33s %s\n", basename($_), $_)'
 }
 
-function peco-autojump() {
+
+function peco-autojump-list() {
 
     DIRS=$(dirs | perl -wnl -e 's/ /\n/g and print')
-    AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2 |
-            perl -wnl -e 's/$ENV{"HOME"}/~/g and print')
-            TMP=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename)
-            BUFFER=$(cat <(echo $TMP) | $PECO --query "$LBUFFER" |
-                perl -wla -e 'print $F[1]')
+    AUTOJ=$(cat ~/.local/share/autojump/autojump.txt | sort -nr | cut -f2)
+    TMP=$(cat <(echo $DIRS) <(echo $AUTOJ) | file_basename)
+    echo $TMP
+}
+
+function peco-autojump() {
+    BUFFER="$(peco-autojump-list | perl -wnl -e 's/$ENV{"HOME"}/~/g and print' \
+         | $PECO | perl -wla -e 'print $F[1]')"
     zle accept-line
+}
+
+function dest() {
+    echo $(peco-autojump-list  | $PECO | perl -wla -e 'print $F[1]')
 }
 
 function peco-bookmark() {
@@ -163,12 +171,14 @@ function peco-select() {
 
 function peco-open() {
     IFS='\ '
-    RES=$(ls --color=none | $PECO | tr -d '\r')
+#    RES=$(ls --color=none | $PECO | tr -d '\r')
+    RES=$(find | $PECO | tr -d '\r')
     if [[ -n $RES ]]; then
         LBUFFER+="${RES}"
     fi
     zle accept-line
     zle reset-prompt
+    zle accept-line
 }
 zle -N peco-open
 
@@ -244,6 +254,7 @@ function peco-dfind() {
         #zle accept-line
     fi
     zle clear-screen
+    zle accept-line
 }
 zle -N peco-dfind
 
@@ -262,4 +273,66 @@ p()
 vim_RO()
 {
     cat - | vim -R -c 'set nolist nomod noma' -
+}
+
+# http://blog.b4b4r07.com/entry/2015/11/08/013526
+mru() {
+    local -a f
+    f=(
+    /tmp/neomru/file(N)
+    ~/.vim_mru_files(N)
+    ~/.unite/file_mru(N)
+    ~/.cache/ctrlp/mru/cache.txt(N)
+    ~/.frill(N)
+    )
+    if [[ $#f -eq 0 ]]; then
+        echo "There is no available MRU Vim plugins" >&2
+        return 1
+    fi
+
+    local cmd q k res
+    local line ok make_dir i arr
+    local get_styles styles style
+    while : ${make_dir:=0}; ok=("${ok[@]:-dummy_$RANDOM}"); cmd="$(
+        cat <$f \
+            | while read line; do [ -e "$line" ] && echo "$line"; done \
+            | while read line; do [ "$make_dir" -eq 1 ] && echo "${line:h}/" || echo "$line"; done \
+            | awk '!a[$0]++' \
+            | perl -pe 's/^(\/.*\/)(.*)$/\033[34m$1\033[m$2/' \
+            | fzf --ansi --multi --query="$q" \
+            --no-sort --exit-0 --prompt="MRU> " \
+            --print-query --expect=ctrl-v,ctrl-x,ctrl-l,ctrl-q,ctrl-r,"?"
+            )"; do
+        q="$(head -1 <<< "$cmd")"
+        k="$(head -2 <<< "$cmd" | tail -1)"
+        res="$(sed '1,2d;/^$/d' <<< "$cmd")"
+        [ -z "$res" ] && continue
+        case "$k" in
+            "?")
+                cat <<HELP > /dev/tty
+usage: vim_mru_files
+    list up most recently files
+keybind:
+  ctrl-v  vim files under the cursor
+  ctrl-r  change view type
+HELP
+                return 1
+                ;;
+            ctrl-r)
+                if [ $make_dir -eq 1 ]; then
+                    make_dir=0
+                else
+                    make_dir=1
+                fi
+                continue
+                ;;
+            ctrl-v)
+                vim -p "${(@f)res}" < /dev/tty > /dev/tty
+                ;;
+            *)
+                echo "${(@f)res}"
+                break
+                ;;
+        esac
+    done
 }

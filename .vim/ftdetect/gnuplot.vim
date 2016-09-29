@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.gp setfiletype gnuplot
+autocmd BufRead,BufNewFile *.plt setfiletype gnuplot

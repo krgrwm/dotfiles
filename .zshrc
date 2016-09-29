@@ -49,25 +49,25 @@ unsetopt sh_wordsplit
 eval `gdircolors -b $HOME/.dircolors`
 
 export EDITOR=vim
-export JULIA_EDITOR=gvim
+export JULIA_EDITOR='gvim --servername JULIA --remote-tab'
 export BROWSER=firefox
 export PATH=$HOME/bin:$PATH
-alias pyconda='/opt/anaconda/bin/python'
-alias ipyconda='/opt/anaconda/bin/ipython'
-alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
-
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+typeset -U path PATH
+#alias pyconda='/opt/anaconda/bin/python'
+#alias ipyconda='/opt/anaconda/bin/ipython'
+#alias anacondainit='export PATH=/opt/anaconda/bin:$PATH'
 
 PECO='peco'
 if [[ "$(uname)" == "FreeBSD" ]]; then
-    export PATH=$HOME/.julia_dir/usr/bin:$PATH
     export LD_LIBRARY_PATH=/usr/local/lib/gcc48
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
     PECO='/usr/local/bin/peco'
 fi
+PECO='fzf'
+export FZF_DEFAULT_OPTS="--ansi -m --reverse --inline-info"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 READNULLCMD=less
@@ -76,8 +76,9 @@ export RLWRAP_HOME=$HOME/.rlwrap
 
 source ~/.zsh/completion.zsh
 
-# add fpaht
+# add fpath
 fpath=($HOME/.autojump/functions $ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
+typeset -U path fpath
 
 # antigen
 if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then

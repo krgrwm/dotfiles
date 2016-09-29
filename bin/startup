@@ -16,7 +16,6 @@ else
     ibus-daemon
     volumeicon
     anamnesis --start
-    unclutter
 fi
 
 feh --bg-scale ~/Pictures/background.png
@@ -26,3 +25,4 @@ feh --bg-scale ~/Pictures/background.png
 sxhkd
 sleep 10s && redshift -c ~/.config/redshift.conf
 dunst -config $HOME/.config/dunst/dunstrc
+unclutter

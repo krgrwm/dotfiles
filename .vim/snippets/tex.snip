@@ -42,16 +42,23 @@ options     head
         \label{tab:${3:label}}
     \end{table}
 
+
 snippet     figure
 abbr        insert figure
 options     head
-    \begin{figure}[htbp]
-        \begin{center}
-            \includegraphics[scale=${1:0.45}]{${2:png}}
-        \end{center}
-        \caption{${3:caption}}
-        \label{fig:$2}
-    \end{figure}
+    \Fig{${1:png}}
+    {${2:caption}}
+    {\label{fig:${3:label}}} {scale=${4:0.3}}
+    ${0}
+
+snippet     figure_tex
+abbr        insert figure
+options     head
+    \FigI{${1:tex}}
+    {${2:caption}}
+    {\label{fig:${3:label}}}
+    {${4:0.8\hsize}}{!}
+    ${0}
     
 snippet     figure2
 abbr        insert two figures
@@ -72,6 +79,7 @@ options     head
   \label{fig:$5}
  \end{minipage}
     \end{figure}
+    ${0}
 
 snippet     frac
 abbr        frac

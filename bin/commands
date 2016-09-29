@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/local/bin/zsh -u
 if [[ "$(uname)" == "FreeBSD" ]]; then
     XARGS=gxargs
     FIND=gfind

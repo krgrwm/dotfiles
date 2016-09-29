@@ -20,7 +20,7 @@ nnoremap <silent> [E]u :GundoToggle<cr>
 nnoremap <silent> [E]m :Unite ref/man<cr>
 
 " Tab
-nnoremap <silent> 0 :tabnext<cr>
+noremap <silent> 0 :tabnext<cr>
 "nnoremap <silent> ss :tabnext<cr>
 "nnoremap <silent> sk :tabprevious<cr>
 
@@ -61,8 +61,8 @@ inoremap <expr><C-e>  neocomplte#cancel_popup()
 noremap <silent> _ :tabprevious<cr>
 noremap <silent> + :tabnext<cr>
 " Move Windows
-noremap <silent> ) <C-w>W
-noremap <silent> (  <C-w>w
+noremap <silent> ( <C-w>W
+noremap <silent> )  <C-w>w
 noremap <silent> <C-w>t :tabnew<cr>
 noremap <silent> [E]r :QuickRun<cr>
 " ?
@@ -115,3 +115,7 @@ endfunction
 nnoremap [Mark]R `
 
 nnoremap do diw
+
+" clevel-f
+nmap t <Plug>(clever-f-f)
+nmap T <Plug>(clever-f-F)

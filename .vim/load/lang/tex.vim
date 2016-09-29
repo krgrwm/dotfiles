@@ -11,3 +11,18 @@ endif
 " tokusyu moji ga siroku naru
 let g:tex_conceal = ''
 
+" vimtex
+"" viewer
+let g:vimtex_view_method='general'
+let g:vimtex_view_general_viewer="/usr/local/bin/llpp"
+
+"" latexmk
+let g:vimtex_latexmk_options='-pdfdvi'
+
+"" general
+" omokunaru
+let g:vimtex_fold_enabled=1
+
+let g:vimtex_latexmk_continuous=0
+
+let g:vimtex_complete_enabled=1

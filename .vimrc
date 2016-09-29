@@ -1,3 +1,19 @@
+let g:loaded_gzip              = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
+
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set nocompatible               " Be iMproved
@@ -108,8 +124,12 @@ NeoBundle 'umitkablan/slimux'
 "NeoBundle 'jalcine/cmake.vim'
 "NeoBundle 'tyru/eskk.vim'
 "NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'lervag/vimtex'
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'Konfekt/FastFold'
+NeoBundle 'mattn/benchvimrc-vim.git'
 
-let g:evervim_devtoken="S=s451:U=4db8118:E=154ae06d9bf:C=14d5655ad08:P=1cd:A=en-devtoken:V=2:H=0d5e77c0e2f400dbd0687a04a8c37b6e"
+
 
 
 " Required:
