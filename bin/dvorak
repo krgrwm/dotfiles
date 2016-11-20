@@ -10,7 +10,7 @@ else
 fi
 ls ~/.xmodmap/xmodmap.* | xargs -I{} -n 1 xmodmap {}
 
-echo 'natoehu'
+killall xcape
 xcape -e '#37=Escape' # Ctrl -> Ctrl + Escape
 xcape -e '#66=Escape' # Ctrl -> Ctrl + Escape
 #xcape -e '#100=Escape' # Mode_switch -> Mode_switch + Escape

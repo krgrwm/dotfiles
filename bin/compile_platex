@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh -u
+#!/usr/bin/zsh -u
 
 file="${1:r}"
 extractbb *.png

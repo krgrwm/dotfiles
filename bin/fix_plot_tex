@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh -u
+#!/usr/bin/zsh -u
 
 prefix="$1"
 perl -i -wpls -e 's/(put.*includegraphics\{)(.*)(\}\})/$1$p$2.eps$3/'  -- -p=$prefix *.tex

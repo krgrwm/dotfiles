@@ -6,11 +6,11 @@ if [[ "$(uname)" == "FreeBSD" ]] ; then
 fi
 
 prompt=$(basename ${1})
-source "$1/color"
+
+source "$1/config"
+echo $hist
 
 if [[ $1 ]]; then
-    hist=`cat "$1/history"`
-
     dmenu_options="-w 600 -nb '$nb' -nf '$nf' -sb '$sb' -p $prompt -hist $hist -i -l 20"
     if [[ "$(uname)" == "FreeBSD" ]] ; then
         dmenu_options="-p $prompt -i -l 20"

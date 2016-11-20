@@ -46,7 +46,7 @@ setopt no_beep
 
 unsetopt sh_wordsplit
 
-eval `gdircolors -b $HOME/.dircolors`
+eval `dircolors -b $HOME/.dircolors`
 
 export EDITOR=vim
 export JULIA_EDITOR='gvim --servername JULIA --remote-tab'
@@ -74,13 +74,13 @@ READNULLCMD=less
 
 export RLWRAP_HOME=$HOME/.rlwrap
 
-source ~/.zsh/completion.zsh
-
 # add fpath
 fpath=($HOME/.autojump/functions $ZSH/functions $ZSH/functions/zsh_users_comp $fpath)
 typeset -U path fpath
 
 # antigen
+# .zshrc yomikomigo ni source sinaito umaku ikanai ... ????
+# mataha saido .zshrc wo yomikomu
 if [[ -f ~/.zsh/antigen/antigen.zsh ]]; then
     source ~/.zsh/antigen/antigen.zsh
     antigen bundle zsh-users/zsh-syntax-highlighting
@@ -115,6 +115,8 @@ DIRSTACKSIZE=10
 setopt AUTO_PUSHD
 
 
+source ~/.zsh/completion.zsh
+source ~/.zsh/key-bindings.zsh
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc

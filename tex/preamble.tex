@@ -1,6 +1,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
-%\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{verbatim}
 \usepackage{wrapfig}
 \usepackage{ascmac}
@@ -69,6 +69,38 @@
 \end{figure}
 }
 
+\newcommand{\FigItriple}[3]
+{
+\begin{figure}[H]
+    \begin{minipage}{0.3\hsize}
+        #1
+    \end{minipage}
+    \begin{minipage}{0.3\hsize}
+        #2
+    \end{minipage}
+    \begin{minipage}{0.3\hsize}
+        #3
+    \end{minipage}
+\end{figure}
+}
+
+\newcommand{\FigItripleCap}[5]
+{
+\begin{figure}[H]
+    \begin{minipage}{0.3\hsize}
+        #1
+    \end{minipage}
+    \begin{minipage}{0.3\hsize}
+        #2
+    \end{minipage}
+    \begin{minipage}{0.3\hsize}
+        #3
+    \end{minipage}
+    \caption{#4}
+    #5 %label
+\end{figure}
+}
+
 \newcommand{\FigIdoublebeamer}[2]
 {
 \begin{columns}
@@ -85,14 +117,26 @@
 {
 \begin{figure}[H]
     \begin{center}
-        \resizebox{#4}{#5}{\input{#1}}
+        \resizebox*{#4}{#5}{\input{#1}}
     \end{center}
     \caption{#2}
     #3 %label
 \end{figure}
 }
 
+\newcommand{\FigInoCap}[3]
+{
+\begin{figure}[H]
+    \begin{center}
+        \resizebox*{#2}{#3}{\input{#1}}
+    \end{center}
+\end{figure}
+}
 \makeatletter
 \c@MaxMatrixCols=18
-\makeatother
 
+\def\Hline{
+    \noalign{\ifnum0=`}\fi\hrule \@height 4.\arrayrulewidth \futurelet
+\reserved@a\@xhline}
+
+\makeatother

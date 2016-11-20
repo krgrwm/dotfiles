@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh -u
+
+nb='#000000'
+nf='#aaaaaa'
+sb='#6666bb'
+
+hist=$HOME/.dmenu_history

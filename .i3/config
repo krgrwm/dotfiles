@@ -59,7 +59,7 @@ bar {
 
     # Using custom i3status.conf
     status_command i3status -c ~/.i3/i3status.conf
-    tray_output primary
+#    tray_output DVI-I-1
 
     mode hide
     hidden_state hide
@@ -75,9 +75,11 @@ bindsym $mod+Shift+q kill
 bindsym $mod+shift+s move scratchpad
 bindsym $mod+s scratchpad show
 bindsym $mod+e floating disable
+bindsym $mod+j focus child
+bindsym $mod+k focus parent
 
 # startup
-exec --no-startup-id /home/t.sato/bin/startup
+exec --no-startup-id /home/tsato/bin/startup
 
 
 # modes

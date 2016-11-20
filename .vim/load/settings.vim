@@ -170,3 +170,6 @@ nmap <C-n> <Plug>(yankround-next)
 " FastFold
 let g:tex_fold_enabled=1
 
+
+" vim-orgmode
+let g:org_indent = 1

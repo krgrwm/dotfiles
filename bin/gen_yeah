@@ -28,6 +28,7 @@ for l in $lines; do
     f="$filename"."$l[1]"
     touch $f
     echo $f
+    echo '' > $f
 
     for i in {2..$#l}; do
         if [[ ! "$l[$i]" == "None" ]]; then

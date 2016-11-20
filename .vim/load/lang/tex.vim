@@ -14,7 +14,7 @@ let g:tex_conceal = ''
 " vimtex
 "" viewer
 let g:vimtex_view_method='general'
-let g:vimtex_view_general_viewer="/usr/local/bin/llpp"
+let g:vimtex_view_general_viewer="/usr/bin/llpp"
 
 "" latexmk
 let g:vimtex_latexmk_options='-pdfdvi'

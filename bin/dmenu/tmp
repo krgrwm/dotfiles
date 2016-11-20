@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+cat $1/color > $1/config
+echo "hist=$(cat $1/history)" >> $1/config
+
+rm $1/color
+rm $1/history

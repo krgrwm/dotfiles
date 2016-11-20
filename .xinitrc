@@ -16,13 +16,10 @@ xmodmap $HOME/.Xmodmap
 export XDG_CACHE_HOME=/tmp
 
 
-export GTK_IM_MODULE=uim
-export QT_IM_MODULE=uim
-export XMODIFIERS=@im=uim
-export XIM=uim
-/usr/local/bin/mozc start
+export GTK_IM_MODULE='uim'
+export QT_IM_MODULE='uim'
 uim-xim &
-uim-toolbar-gtk &
+export XMODIFIERS='@im=uim'
 
 
 

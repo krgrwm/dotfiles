@@ -2,27 +2,25 @@
 
 
 
-if [[ "$(uname)" == "FreeBSD" ]]; then
-else
-    /usr/local/bin/mozc start
-    nm-applet
-    ~/bin/beepoff
-    xset -b
+#    /usr/local/bin/mozc start
+#    nm-applet
+#    ~/bin/beepoff
+#    xset -b
 
-    sleep 2
-    conky -q --config=~/.conkyrc
-    octopi-notifier
+#    sleep 2
+#    conky -q --config=~/.conkyrc
+#octopi-notifier
 
-    ibus-daemon
-    volumeicon
-    anamnesis --start
-fi
+#    ibus-daemon
+#    volumeicon
+anamnesis --start
 
-feh --bg-scale ~/Pictures/background.png
+feh --bg-scale ~/Pictures/background.jpg
 ~/bin/dvorak
 ~/bin/sands
 ~/bin/reset_yeah
+sleep 1s
 sxhkd
-sleep 10s && redshift -c ~/.config/redshift.conf
+sleep 10 && redshift -c ~/.config/redshift.conf
 dunst -config $HOME/.config/dunst/dunstrc
 unclutter
