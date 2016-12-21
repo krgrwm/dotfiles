@@ -218,3 +218,8 @@ repo = 'Konfekt/FastFold'
 [[plugins]]
 repo = 'mattn/benchvimrc-vim.git'
 
+[[plugins]]
+repo = 'neilagabriel/vim-geeknote'
+
+[[plugins]]
+repo = 'vim-syntastic/syntastic'

@@ -26,3 +26,4 @@ let g:vimtex_fold_enabled=1
 let g:vimtex_latexmk_continuous=0
 
 let g:vimtex_complete_enabled=1
+

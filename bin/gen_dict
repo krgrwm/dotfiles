@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+dic1="physics"
+dic2="kagi"
+
+wget -O $dic1.lzh http://ftp.vector.co.jp/03/96/104/physics.lzh
+unar ./$dic1.lzh
+wget --restrict-file-names=nocontrol -O $dic2.txt 'http://hooktail.org/computer/index.php?plugin=attach&refer=%CA%AA%CD%FD%A4%CE%A4%AB%A4%AE%A4%B7%A4%C3%A4%DD%BC%AD%BD%F1%A5%D5%A5%A1%A5%A4%A5%EB&openfile=HooktailDict20070120-anthy.txt'
+
+nkf --utf8 $dic1/$dic1.txt | perl -wnl -e 'BEGIN{use utf8;}; /(^.*)、(.*)、.*$/g and print "$1\t$2\t名詞\t"' > $dic1.dict
+nkf --utf8 $dic2.txt | perl -wnl -00 -e 'BEGIN{use utf8;}; /(^.*)\s\d\s(.*)\s(.*)\s=\s(.*)/g and print "$1\t$2\t名詞\t"'  > $dic2.dict
+
+/bin/rm $dic1.lzh
+/bin/rm -r $dic1
+/bin/rm $dic2.txt

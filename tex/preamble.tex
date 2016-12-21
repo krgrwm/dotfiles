@@ -12,6 +12,11 @@
 \usepackage{here}
 \usepackage{docmute}
 
+\newcommand{\knami}[1] {\left\{ #1 \right\}}
+\newcommand{\knorm}[1] {\left( #1 \right)}
+\newcommand{\kkaku}[1] {\left[ #1 \right]}
+
+
 \newcommand{\xDiff}[3]{\frac{#1 #2}{#1 #3}}
 \newcommand{\xDiffn}[4]{\frac{#1^#4 #2}{#1 #3^#4}}
 \newcommand{\D}[1]{\mathrm{d}#1}
@@ -19,6 +24,7 @@
 \newcommand{\Diffn}[3]{\xDiffn{\D}{#1}{#2}{#3}}
 \newcommand{\Par}[2]{\xDiff{\partial}{#1}{#2}}
 \newcommand{\Parn}[3]{\xDiffn{\partial}{#1}{#2}{#3}}
+\newcommand{\Parf}[3]{\knorm{\xDiff{\partial}{#1}{#2}}_{#3} }
 \newcommand{\FDiff}[2]{\xDiff{\delta}{#1}{#2}}
 \newcommand{\Int}[3]{\int_{#1}^{#2} #3}
 \newcommand{\Sum}[2]{\displaystyle \sum_{#1}^{#2} }
@@ -132,6 +138,7 @@
     \end{center}
 \end{figure}
 }
+
 \makeatletter
 \c@MaxMatrixCols=18
 
