@@ -223,3 +223,6 @@ repo = 'neilagabriel/vim-geeknote'
 
 [[plugins]]
 repo = 'vim-syntastic/syntastic'
+
+[[plugins]]
+repo = 'dag/vim-fish'
