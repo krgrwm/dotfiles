@@ -13,3 +13,4 @@ yeahconsole*shading:    25
 yeahconsole*stepSize:   0
 yeahconsole*term:   urxvtc
 yeahconsole*transparency: false
+yeahconsole*screenHeight: 700

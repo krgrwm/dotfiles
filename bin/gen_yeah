@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-opts=('suffix' 'toggleKey' 'KeyFull' 'consoleHeight' 'screenWidth' 'xOffset' 'yOffset')
+opts=('suffix' 'toggleKey' 'keyFull' 'consoleHeight' 'screenWidth' 'xOffset' 'yOffset')
 
 filename=$HOME"/.Xresources.yeah"
 

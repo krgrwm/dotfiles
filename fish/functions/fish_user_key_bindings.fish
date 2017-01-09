@@ -7,7 +7,9 @@ function fish_user_key_bindings
     bind \co\cn peco-commands
     bind \co\cr peco-history
     bind \co\cM peco-autojump
-    bind \co\cr peco-select
+    bind \co\cs peco-select
+    # tmux のバインドに移した
+#    bind \co\cb peco-tmux-panes
     bind \c] edit-commandline
 
     bind [ backward-word
