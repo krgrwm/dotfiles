@@ -226,3 +226,4 @@ repo = 'vim-syntastic/syntastic'
 
 [[plugins]]
 repo = 'dag/vim-fish'
+
