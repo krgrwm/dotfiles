@@ -1,7 +1,8 @@
 function peco-autojump-list
-    cat ~/.local/share/autojump/autojump.txt \
-    | sort -nr \
-    | perl -wnl -e '/^.*\s+(.*$)/ and print $1'
+    z -l | perl -wnla -e '/^$/ || print $F[1]'
+#    cat ~/.local/share/autojump/autojump.txt \
+#    | sort -nr \
+#    | perl -wnl -e '/^.*\s+(.*$)/ and print $1'
 end
 
 function base-fullpath
@@ -12,7 +13,7 @@ function peco-autojump
     peco-autojump-list | base-fullpath | peco-fish \
     | perl -wnl -e '/^.*\s+(.*$)/ and print $1' \
     | read -l select
-    and commandline -r "cd $select"
+    cd $select
     and commandline -f execute
     and ls
     commandline -f repaint
