@@ -13,7 +13,7 @@ function peco-autojump
     peco-autojump-list | base-fullpath | peco-fish \
     | perl -wnl -e '/^.*\s+(.*$)/ and print $1' \
     | read -l select
-    cd $select
+    test -z "$select"; or cd $select
     and commandline -f execute
     and ls
     commandline -f repaint

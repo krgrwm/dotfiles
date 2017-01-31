@@ -15,6 +15,8 @@ let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
 
+set shell=/bin/sh
+
 "dein Scripts-----------------------------
 
 let s:dein_dir = expand('~/.vim/dein')
