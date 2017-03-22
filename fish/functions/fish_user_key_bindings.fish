@@ -10,7 +10,7 @@ function fish_user_key_bindings
     bind \co\cs peco-select
     # tmux のバインドに移した
 #    bind \co\cb peco-tmux-panes
-    bind \c] edit-commandline
+    bind \cv edit-commandline
 
     bind [ backward-word
     bind ] forward-word
