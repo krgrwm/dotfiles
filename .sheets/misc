@@ -5,3 +5,4 @@ cat /dev/urandom | tr -dc '[:digit:]' | head -c #
 cat /dev/urandom | tr -dc _A-Z-a-z. | head -c # 
 go-mtpfs ~/Android # Android mount
 fusermount -u ~/Android # Android unmount
+sox %%OLDFILE %%NEWFILE pad %%ATBEGIN %%ATEND # add pad at begin and end
