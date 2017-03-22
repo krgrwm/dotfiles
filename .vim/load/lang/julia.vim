@@ -8,10 +8,13 @@ autocmd FileType julia setlocal completeopt-=preview
 " Slimux
 autocmd FileType julia vmap <buffer> <silent> <CR> :SlimuxREPLSendSelection<CR>
 autocmd FileType julia nmap <buffer> <silent> <CR> :SlimuxREPLSendLine<CR>
-autocmd FileType julia nmap <buffer> <silent> <C-CR> :mark '<CR>vii:SlimuxREPLSendSelection<CR>''
 "autocmd FileType julia nmap <buffer> <silent> <S-CR> ?function<CR>V%<CR><ESC>:noh<CR>
 autocmd FileType julia nmap <buffer> <silent> <S-CR> :mark '<CR>vip<CR>''
-autocmd FileType julia nmap <buffer> <silent> L :SlimuxSendKeysPrompt<CR><C-u>@edit\ <CR>Mv$<CR>
+"autocmd FileType julia nmap <buffer> <silent> L :SlimuxSendKeysPrompt<CR><C-u>@edit\ <CR>Mv$<CR>
+
+" Send Jupyter
+autocmd FileType julia nmap <silent> <C-l> vii:w! /tmp/jupyter<CR>:silent !~/.vim/bin_jupyter/read_type
+autocmd FileType julia vmap <silent> <C-l> :w! /tmp/jupyter<CR>:silent !~/.vim/bin_jupyter/read_type
 
 " IPython
 " omnifunc は1つしか指定できない

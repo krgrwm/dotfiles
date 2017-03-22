@@ -6,3 +6,7 @@ mail     # chromium "https://outlook.office.com/owa/?realm=stat.phys.kyushu-u.ac
 line     # chromium --profile-directory=Default --app-id=menkifleemblimdogmoihpfopnplikde
 wunder   # chromium "https://www.wunderlist.com/webapp"
 dropbox  # chromium "https://www.dropbox.com/home"
+ticktick # chromium "https://www.ticktick.com"
+gmail    # chromium "https://mail.google.com/mail"
+feedly   # chromium "https://feedly.com"
+pocket   # chromium "https://getpocket.com/a/queue/list/"

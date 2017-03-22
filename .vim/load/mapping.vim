@@ -20,7 +20,7 @@ nnoremap <silent> [E]u :GundoToggle<cr>
 nnoremap <silent> [E]m :Unite ref/man<cr>
 
 " Tab
-noremap <silent> 0 :tabnext<cr>
+noremap <silent> cc :tabnext<cr>
 "nnoremap <silent> ss :tabnext<cr>
 "nnoremap <silent> sk :tabprevious<cr>
 

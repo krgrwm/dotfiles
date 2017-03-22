@@ -64,6 +64,9 @@
 \renewcommand{\figurename}{図}
 \renewcommand{\tablename}{表}
 
+% zu, hyou wo kesu
+\usepackage[labelformat=empty,labelsep=none]{caption}
+
 % caption に番号追加
 \setbeamertemplate{caption}[numbered]
 
@@ -76,8 +79,9 @@
     \end{minipage}
 }
 
-\newcommand{\himath}[2][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){$\displaystyle{#2}$};}}
-\newcommand{\himathcap}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){$\displaystyle{#3}$} node[below of=x, color=#1]{#2};}}
+\newcommand{\himath}[2][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1, opacity=0.4, text opacity=1](x){$\displaystyle{#2}$};}}
+\newcommand{\himathalpha}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1, opacity=#2, text opacity=1](x){$\displaystyle{#3}$};}}
+\newcommand{\himathcapalpha}[4][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1, opacity=#2, text opacity=1](x){$\displaystyle{#4}$} node[below=0.1cm of x, color=#1]{#3};}}
 
 
 \usepackage[absolute,overlay]{textpos}
