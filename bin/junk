@@ -1,1 +1,3 @@
-vim -c 'exec JunkTweet()'
+#!/usr/bin/env fish
+
+vi -c 'JunkfileDay'

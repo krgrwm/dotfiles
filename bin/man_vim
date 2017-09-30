@@ -8,5 +8,5 @@ RES=`man $1 $2 | col -b -x`
 stty cols $((COLUMNS + FIX))
 
 if [[ -n $RES ]]; then
-    echo "$RES" | vim -R -c 'set ft=man nolist nomod noma' -
+    echo "$RES" | nvim -R -c 'set ft=man nolist nomod noma' -
 fi

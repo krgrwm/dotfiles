@@ -27,3 +27,16 @@ let g:vimtex_latexmk_continuous=0
 
 let g:vimtex_complete_enabled=1
 
+
+let g:vimtex_compiler_latexmk = {
+            \ 'background' : 0,
+            \ 'build_dir' : '',
+            \ 'continuous' : 1,
+            \ 'options' : [
+            \   '-pdfdvi',
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \ ],
+            \}

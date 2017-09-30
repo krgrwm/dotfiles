@@ -1,1 +1,2 @@
+#!/usr/bin/env zsh
 cat /dev/urandom | tr -dc '[:digit:]' | head -c $1 

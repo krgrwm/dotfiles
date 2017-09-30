@@ -122,5 +122,5 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 
-# OPAM configuration
-. /home/tsato/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+## OPAM configuration
+#. /home/tsato/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

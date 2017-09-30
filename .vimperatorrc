@@ -79,3 +79,4 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "" bmarks
 bmark -title="kyudai_lib" -tags=keyword -keyword=lib http://catalog.lib.kyushu-u.ac.jp/en/xc/search/%s
 bmark -title="Merriam-Webster" -tags=keyword -keyword=dic http://www.merriam-webster.com/dictionary/%s
+bmark -title="minus_google" -tags=keyword -keyword=minus  http://www.google.co.jp/search?q=%s+-naver

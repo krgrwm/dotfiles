@@ -1,0 +1,34 @@
+#!/usr/bin/env julia
+
+dat2index(x::Float64, width::Float64) = Int(floor(x/width))
+ind2bin(ind::Int, width::Float64) = width*ind + width/2
+
+filename = ARGS[1]
+nbins = parse(Int, ARGS[2])
+
+dat = readdlm(filename)
+
+if length(ARGS)==4
+    dat_min = parse(Float64, ARGS[3])
+    dat_max = parse(Float64, ARGS[4])
+else
+    dat_max = maximum(dat)
+    dat_min = minimum(dat)
+end
+
+
+# index of hist: 1 to nbins
+bin_width = (dat_max - dat_min) / (nbins-1)
+offset = -dat2index(dat_min, bin_width) + 1
+
+hist = zeros(Float64, nbins)
+
+for x in dat
+    ind = offset + dat2index(x, bin_width)
+    hist[ind] += 1
+end
+
+println("#file=$filename, nbins=$nbins, bin_width=$bin_width")
+for ind in 1:nbins
+    println(ind2bin(ind-offset, bin_width), ", ", hist[ind])
+end
