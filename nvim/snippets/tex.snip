@@ -1,0 +1,135 @@
+snippet     program
+abbr        program
+options     head
+    \lstinputlisting[label=src:${1:filename}, caption=$1]{$1}${0}
+
+
+snippet     vp
+abbr        viewport
+options     word
+    viewport= ${1:x} ${2:y} ${3:X} ${4:Y}, clip,  ${0:left lower (x,y) right upper (X,Y)}
+
+snippet     refp
+abbr        ref program
+options     word
+    Program\ref{src:${1:filename}}${0}
+
+snippet     reff
+abbr        ref figure
+options     word
+    図\ref{fig:${1:filename}}${0}
+
+snippet     reft
+abbr        ref table
+options     word
+    表\ref{tab:${1:label}}${0}
+
+snippet     refe
+abbr        ref equatino
+options     word
+    式(\ref{eq:${1:label}})${0}
+
+snippet     table
+abbr        insert table
+options     head
+    \begin{table}[htbp]
+        \caption{${1:caption}}
+        \begin{center}
+            \begin{tabular}{${2:rr}} \Hline
+                % a & b & c \\
+            \end{tabular}
+        \end{center}
+        \label{tab:${3:label}}
+    \end{table}
+
+
+snippet     figure
+abbr        insert figure
+options     head
+    \Fig{${1:png}}
+    {${2:caption}}
+    {\label{fig:${3:label}}} {scale=${4:0.3}}
+    ${0}
+
+snippet     figure_tex
+abbr        insert figure
+options     head
+    \FigI{${1:tex}}
+    {${2:caption}}
+    {\label{fig:${3:label}}}
+    {${4:0.8\hsize}}{!}
+    ${0}
+    
+snippet     figure2
+abbr        insert two figures
+options     head
+    \begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=${1:0.45}]{${2:png}}
+  \end{center}
+    \caption{${3:caption}}
+  \label{fig:$2}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=${4:0.45}]{${5:png}}
+  \end{center}
+  \caption{${6:caption}}
+  \label{fig:$5}
+ \end{minipage}
+    \end{figure}
+    ${0}
+
+snippet     frac
+abbr        frac
+options     word
+    \frac{${1}}{${2}}${0}
+
+snippet     gather
+abbr        equnarry (center equation)
+options     head
+    \begin{gather}
+    ${0}
+    \end{gather}
+
+snippet     output
+abbr        output box
+options     head
+    \captionsetup{labelformat=empty,labelsep=none}
+    \begin{lstlisting}[language=, numbers=none, caption=${1:caption}, label=${2:label}]
+    \end{lstlisting}
+
+
+snippet     brace
+abbr        equation_brace
+options     head
+    \left\{ 
+        \begin{array}{l}
+            ${0}\\
+        \end{array}
+    \right.
+
+snippet     space
+abbr        space
+    \quad
+
+
+snippet align
+alias   \begin{align}
+    \begin{align}
+        ${0}
+    \end{align}
+
+
+snippet     equ_kakko
+abbr        allign_kakko
+    \begin{align}
+        ${1:y} = \left\{
+            \begin{aligned}
+                % & eq1 \\
+                % & eq2 \\
+                ${0}
+            \end{aligned}
+        \right.
+    \end{align}
