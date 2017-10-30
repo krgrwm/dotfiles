@@ -1,10 +1,12 @@
 #!/usr/bin/env julia
 
-dat2index(x::Float64, width::Float64) = Int(floor(x/width))
+dat2index(x::Float64, width::Float64) = Int(trunc(x/width))
 ind2bin(ind::Int, width::Float64) = width*ind + width/2
 
 filename = ARGS[1]
 nbins = parse(Int, ARGS[2])
+
+println(nbins)
 
 dat = readdlm(filename)
 
