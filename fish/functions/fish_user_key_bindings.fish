@@ -2,7 +2,8 @@ function fish_user_key_bindings
     set -g fish_user_key_bindings fish_emacs_key_bindgs
     bind \cu forward-char
 
-    bind \co\co peco-snippets
+    bind \co\co peco-sheets
+    bind \co\cp peco-local-sheets
     bind \cj subs-snippet
     bind \co\cn peco-commands
     bind \co\cr peco-history
