@@ -75,7 +75,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+shift+s move scratchpad
 bindsym $mod+g [window_role="tool"] scratchpad show
 bindsym $mod+u [class="Chromium"] scratchpad show
-bindsym $mod+s [class="Firefox"] scratchpad show
+#bindsym $mod+s [class="Firefox"] scratchpad show
+bindsym $mod+s [class="Waterfox"] scratchpad show
 bindsym $mod+f floating disable
 
 bindsym $mod+e floating disable

@@ -95,7 +95,7 @@ let g:EasyMotion_special_select_phrase = 0
 let g:indent_guides_exclude_filetypes = ['man']
 
 " junkfile
-let g:junkfile#directory='/home/tsato/Documents/junkfile'
+let g:junkfile#directory='/home/tsato/LocalDocuments/junkfile'
 command! -nargs=0 JunkfileDay call junkfile#open_immediately(
 \ strftime('%Y-%m-%d.junk'))
 

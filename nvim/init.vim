@@ -14,7 +14,6 @@ let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
-
 set shell=/bin/sh
 
 "dein Scripts-----------------------------
@@ -170,3 +169,10 @@ command! SyntaxInfo call s:get_syn_info()
 
 colorscheme wombat256mod
 set background=light
+
+" コメント中の特定の単語を強調表示する
+augroup HilightsForce
+  autocmd!
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|TEMP\):')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=Red guifg=White
+augroup END

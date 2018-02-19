@@ -1,15 +1,1 @@
-{
-  "name" : "textobj-latex",
-  "author" : "Roberto Bonvallet <rbonvall@gmail.com>",
-  "repository" : {
-    "type": "git",
-    "url": "git://github.com/rbonvall/vim-textobj-latex"
-  },
-  "dependencies" : {
-    "textobj-user": {
-      "type": "git",
-      "url": "git://github.com/kana/vim-textobj-user"
-    }
-  },
-  "description" : "Text objects for LaTeX code"
-}
+{"vim_script_nr": 3375, "dependencies": {"vim-misc": {}}, "homepage": "http://peterodding.com/code/vim/notes", "name": "vim-notes"}

@@ -1,59 +1,32 @@
-# Issue descriptions
+# Contributions
 
-Please see the [issue template](ISSUE_TEMPLATE.md) for how to write a good
-issue description. In short, it should contain the following:
+Contributions and pull requests are welcome.  Please take note of the following guidelines:
 
-1. Describe the issue in detail, include steps to reproduce the issue
-2. Include a minimal working example
-3. Include a minimal vimrc file
-4. If you have a `.latexmkrc` file, please mention it and provide the relevant
-   content
+*  Adhere to the existing style as much as possible; notably, 2 space indents and long-form keywords.
+*  Keep the history clean!  Squash your branches before you submit a pull request.  `pull --rebase` is your friend.
+*  Any changes to the core should be tested against Vim 7.2.
 
-# Guide for code contributions
+# Bugs
 
-## Branch model
+Tracking down bugs can take a very long time due to different configurations, versions, and operating systems.  To ensure a timely response, please help me out by doing the following:
 
-vimtex is developed mainly through the master branch, and pull requests should
-be [fork based](https://help.github.com/articles/using-pull-requests/).
+* Reproduce it with this [minivimrc][7] repository to rule out any configuration conflicts.  Even better, create a `gist` of your vimrc that is compatible with [pathogen][11].
+* And to make it easier to reproduce, please supply the following:
+  * the `:version` of vim
+  * the commit of vim-airline you're using
+  * the OS that you're using, including terminal emulator, GUI vs non-GUI
 
-## Documentation style
+# Themes
 
-Vim help files have their own specific syntax. There is a Vim help section on
-how to write them, see [`:h
-help-writing`](http://vimdoc.sourceforge.net/htmldoc/helphelp.html#help-writing).
+*  If you submit a theme, please create a screenshot so it can be added to the [Wiki][14].
+*  In the majority of cases, modifications to colors of existing themes will likely be rejected.  Themes are a subjective thing, so while you may prefer that a particular color be darker, another user will prefer it to be lighter, or something entirely different.  The more popular the theme, the more unlikely the change will be accepted.  However, it's pretty simple to create your own theme; copy the theme to `~/.vim/autoload/airline/themes` under a new name with your modifications, and it can be used.
 
-The vimtex documentation style should be relatively clear, and it should be
-easy to see from the existing documentation how to write it. Still, here are
-some pointers:
+# Maintenance
 
-- Max 80 columns per line
-- Use the help tag system for pointers to other parts of the Vim documentation
-- Use line of `=`s to separate sections
-- Use line of `-`s to separate subsections
-- The section tags should be right aligned at the 79th column
-- Sections should be included and linked to from the table of contents
+If you would like to take a more active role in improving vim-airline, please consider [becoming a maintainer][43].
 
-## Code style
 
-When submitting code for vimtex, please adhere to the following standards:
-
-- Use `shiftwidth=2` - no tabs!
-- Write readable code
-  - Break lines for readability
-    - Line should not be longer than 80 columns
-  - Use comments:
-    - For complex code that is difficult to understand
-    - Simple code does not need comments
-  - Use (single) empty lines to separate logical blocks of code
-  - Use good variable names
-    - The name should indicate what the variable is/does
-    - Variable names should be lower case
-    - Local function variables should be preceded with `l:`
-  - Prefer single quoted strings
-  - See also the [Google vimscript style
-    guide](https://google.github.io/styleguide/vimscriptguide.xml)
-- Use markers for folding
-  - I generally only fold functions, and I tend to group similar functions so
-    that when folded, I get a nice structural overview of a file
-  - See some of the files for examples of how I do this
-
+[7]: https://github.com/bling/minivimrc
+[11]: https://github.com/tpope/vim-pathogen
+[14]: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+[43]: https://github.com/vim-airline/vim-airline/wiki/Becoming-a-Maintainer
