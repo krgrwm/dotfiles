@@ -1,1 +1,2 @@
+#!/usr/bin/env fish
 scrot -s '/tmp/%Y-%m-%d--%s_$wx$h.png'
