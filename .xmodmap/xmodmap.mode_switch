@@ -16,3 +16,4 @@ keysym b         = b B grave
 keysym p         = p P plus
 keysym j         = j J exclam
 keysym x         = x X minus
+keysym space     = space space underscore

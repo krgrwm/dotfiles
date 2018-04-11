@@ -1,0 +1,1 @@
+/home/tsato/.config/fisherman/z/functions/__zo.fish

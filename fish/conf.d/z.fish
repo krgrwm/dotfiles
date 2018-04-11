@@ -1,0 +1,1 @@
+/home/tsato/.config/fisherman/z/conf.d/z.fish

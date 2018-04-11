@@ -1,6 +1,6 @@
 set -x TERM screen-256color
 
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x JULIA_EDITOR 'gvim --servername JULIA --remote-tab'
 set -x BROWSER firefox
 set -x PATH $HOME/bin $PATH
@@ -17,8 +17,8 @@ set -x RLWRAP_HOME $HOME/.rlwrap
 
 set -x XDG_CACHE_HOME /tmp
 
-# OPAM configuration
-source /home/tsato/.opam/opam-init/init.fish > /dev/null 2> /dev/null ; or true
+## OPAM configuration
+#source /home/tsato/.opam/opam-init/init.fish > /dev/null 2> /dev/null ; or true
 
 # autojump
 begin
@@ -47,7 +47,8 @@ set __fish_git_prompt_char_upstream_behind '$'
 alias rm="mv -f --backup=numbered --target-directory ~/.Trash"
 alias ..="cd .."
 alias pdf="zathura"
-alias vi="vim"
+alias vi="nvim"
+alias gvim="nvim-qt"
 alias sudo="sudo "
 alias mv="mv -i"
 alias cp="cp -i"

@@ -1,3 +1,3 @@
 function peco-fish
-    eval $PECO --query (string join '' '\^' "(commandline)")
+    eval $PECO $argv --query (string join '' '\^' "(commandline)")
 end

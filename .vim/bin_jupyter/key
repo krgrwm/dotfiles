@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set -l win $argv[1]
+set -l key $argv[2]
+
+xdotool key --window  $win $key

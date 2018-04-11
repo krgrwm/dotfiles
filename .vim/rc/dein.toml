@@ -199,7 +199,7 @@ repo = 'jacquesbh/vim-showmarks'
 repo = 'jmcantrell/vim-virtualenv'
 
 [[plugins]]
-repo = 'umitkablan/slimux'
+repo = 'epeli/slimux'
 
 [[plugins]]
 repo = 'jalcine/cmake.vim'
@@ -226,3 +226,4 @@ repo = 'vim-syntastic/syntastic'
 
 [[plugins]]
 repo = 'dag/vim-fish'
+

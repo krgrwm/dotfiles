@@ -15,6 +15,8 @@ let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
 
+set shell=/bin/sh
+
 "dein Scripts-----------------------------
 
 let s:dein_dir = expand('~/.vim/dein')
@@ -246,4 +248,9 @@ if count(s:opam_available_tools,"ocp-indent") == 0
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
 
-
+" コメント中の特定の単語を強調表示する
+augroup HilightsForce
+  autocmd!
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|TEMP\):')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=Red guifg=White
+augroup END

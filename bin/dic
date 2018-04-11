@@ -1,0 +1,9 @@
+#!/usr/bin/env fish
+
+test (count $argv) -ne 1; and exit 1
+
+set -l word $argv[1]
+
+curl -X GET --header "Accept: application/json" "http://api.pearson.com/v2/dictionaries/entries?headword=$word"\
+| jq '.results[].senses[] | .definition, .examples ' \
+| grep -v 'null' \

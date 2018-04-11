@@ -1,16 +1,21 @@
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
-\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx]{graphicx}
+
 \usepackage{verbatim}
+
 \usepackage{wrapfig}
 \usepackage{ascmac}
 \usepackage{makeidx}
 \usepackage{listings}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{multicol}
 \usepackage{longtable}
 \usepackage{here}
 \usepackage{docmute}
+\usepackage[at]{easylist}
+
+%\usepackage[backend=biber,style=numeric]{biblatex}  %backend=biber is 'better'  
 
 \newcommand{\knami}[1] {\left\{ #1 \right\}}
 \newcommand{\knorm}[1] {\left( #1 \right)}
@@ -41,14 +46,12 @@
     \end{figure}
 }
 
-\newcommand{\FigLess}[3]
+\newcommand{\FigLess}[2]
 {
     \begin{figure}[H]
         \begin{center}
-            \includegraphics{#1}
+            \includegraphics[#2]{#1}
         \end{center}
-        \caption{#2}
-        #3 %label
     \end{figure}
 }
 
@@ -119,6 +122,45 @@
 \end{columns}
 }
 
+\newcommand{\Column}[2]
+{
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+        #1
+    \end{column}
+    \begin{column}{0.48\textwidth}
+        #2
+    \end{column}
+\end{columns}
+}
+
+\newcommand{\ColumnWidth}[4]
+{
+\begin{columns}
+    \begin{column}{#1\textwidth}
+        #3
+    \end{column}
+    \begin{column}{#2\textwidth}
+        #4
+    \end{column}
+\end{columns}
+}
+
+\newcommand{\ColumnTri}[3]
+{
+\begin{columns}
+    \begin{column}{0.32\textwidth}
+        #1
+    \end{column}
+    \begin{column}{0.32\textwidth}
+        #2
+    \end{column}
+    \begin{column}{0.32\textwidth}
+        #3
+    \end{column}
+\end{columns}
+}
+
 \newcommand{\FigI}[5]
 {
 \begin{figure}[H]
@@ -138,6 +180,20 @@
     \end{center}
 \end{figure}
 }
+
+\newcommand{\E}[1]
+{
+    \left\langle #1 \right\rangle
+}
+
+\newcommand{\Under}[2][red]
+{
+    {\color{#1} \underline {\color{black} #2}}
+}
+
+\newcommand{\ctext}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+
 
 \makeatletter
 \c@MaxMatrixCols=18

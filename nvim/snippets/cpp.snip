@@ -1,0 +1,51 @@
+snippet     ret
+options     head
+  return ${1:value};${0}
+
+snippet     com
+options     head
+  /* ${1:comment} */${0}
+
+snippet     class
+options     head
+  class ${1:classname} {
+    private:${0}
+    public:
+    };
+
+snippet     cast
+options     head
+  static_cast<${1:type}>(${0}
+
+snippet     impl
+options     head
+  ${1:type} ${2:class}::${3:method}(${4:args})
+  {
+    ${0}
+    }
+
+snippet     virmethod
+options     head
+  virtual ${1:Type} ${2:Method}(${3:Args...})=0;
+
+snippet     pri
+options     head
+  cout << ${1:var} << endl;
+
+snippet     for
+options     head
+  for(auto& var : ${1:Container} ) {
+    ${0}
+  }
+
+snippet     for_i
+options     head
+  for(int ${1:i}=0; $1<${2:limit}; $1++) {
+    ${0}
+    }
+
+snippet     method
+options     head
+  ${1:Type} ${2:Class}::${3:Method}(${4:Args...}) {
+    ${0}
+  }

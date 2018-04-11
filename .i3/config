@@ -73,7 +73,12 @@ bindsym $mod+bracketright focus right
 bindsym $mod+Shift+q kill
 
 bindsym $mod+shift+s move scratchpad
-bindsym $mod+s scratchpad show
+bindsym $mod+g [window_role="tool"] scratchpad show
+bindsym $mod+u [class="Chromium"] scratchpad show
+#bindsym $mod+s [class="Firefox"] scratchpad show
+bindsym $mod+s [class="Waterfox"] scratchpad show
+bindsym $mod+f floating disable
+
 bindsym $mod+e floating disable
 bindsym $mod+j focus child
 bindsym $mod+k focus parent
@@ -97,6 +102,8 @@ mode $resize{
 
     bindsym l resize shrink left 10 px or 10 ppt
     bindsym h resize grow left 10 px or 10 ppt
+    bindsym j resize shrink up 10 px or 10 ppt
+    bindsym k resize grow up 10 px or 10 ppt
     bindsym shift+l move right
     bindsym shift+h move left
     
@@ -120,3 +127,6 @@ mode $resize_precise{
 
     bindsym $mod+bracketright workspace next
 }
+
+
+# scratchpad

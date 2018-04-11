@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set -l win $argv[1]
+cat - | read -l -z str
+
+xdotool type --window  $win $str

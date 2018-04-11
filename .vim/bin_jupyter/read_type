@@ -1,0 +1,17 @@
+#!/usr/bin/env fish
+
+set -l rootdir (dirname (readlink -f (status -f)))
+set -l ff (xdotool search --onlyvisible --class firefox | sort | head -n 1)
+set -l oldwin (xdotool getactivewindow)
+
+xdotool windowfocus $ff
+
+eval $rootdir/key  $ff b
+eval $rootdir/key  $ff Return
+echo 'IJulia.load("/tmp/jupyter")' | eval $rootdir/type $ff
+eval $rootdir/key  $ff ctrl+Return
+eval $rootdir/key  $ff Escape
+echo 'dd' | eval $rootdir/type $ff
+eval $rootdir/key  $ff ctrl+Return
+
+#xdotool windowfocus $oldwin

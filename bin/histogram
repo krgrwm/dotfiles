@@ -1,0 +1,11 @@
+#!/usr/bin/env julia
+
+using StatsBase
+
+filename = ARGS[1]
+nbins = parse(Int, ARGS[2])
+
+dat = readdlm(filename)
+hist = fit(Histogram, vec(dat), nbins=nbins, closed=:left)
+
+writedlm(STDOUT, [hist.edges[1][2:end] hist.weights])

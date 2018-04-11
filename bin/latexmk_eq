@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set -l tex $argv[1]
+set -l pdf (basename --suffix .tex $tex)
+latexmk $tex
+pdfcrop "/tmp/$pdf.pdf" "./$pdf.pdf"

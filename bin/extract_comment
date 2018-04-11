@@ -1,0 +1,3 @@
+#!/usr/bin/perl -wnl
+
+/\{frame\}\{(.*)\}/ and print "\n***$1"; /%+\s*(.*)/ and print "\t",$1

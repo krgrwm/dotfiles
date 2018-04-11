@@ -1,0 +1,42 @@
+snippet     if
+abbr        [[...]]
+options     head
+    if [[ ${1} ]]; then
+        ${2}
+    fi
+    ${0}
+
+snippet     range
+abbr        {i..n}
+    {${1}..${2}}
+
+snippet     math
+abbr        math
+options     head
+    zmodload zsh/mathfunc
+
+
+snippet     argc
+abbr        $ARGC
+options     head
+    $#
+
+snippet     cateof
+options     head
+    cat << EOF
+    ${0}
+    EOF
+
+snippet     option
+abbr        parse
+options     head
+    # opts: -opt1 -> opt1, --version -> -version
+    #       atai wo torunara opt1: tosuru
+    local -A opthash
+    zparseopts -D -A opthash -- ${0:opts} 
+
+snippet     ifopt
+options     head
+    if [[ -n "${opthash[(i)${1:opt-name}]}" ]]; then
+        ${0}
+    fi

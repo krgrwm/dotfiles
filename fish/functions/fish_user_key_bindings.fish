@@ -2,7 +2,8 @@ function fish_user_key_bindings
     set -g fish_user_key_bindings fish_emacs_key_bindgs
     bind \cu forward-char
 
-    bind \co\co peco-snippets
+    bind \co\co peco-sheets
+    bind \co\cp peco-local-sheets
     bind \cj subs-snippet
     bind \co\cn peco-commands
     bind \co\cr peco-history
@@ -10,7 +11,7 @@ function fish_user_key_bindings
     bind \co\cs peco-select
     # tmux のバインドに移した
 #    bind \co\cb peco-tmux-panes
-    bind \c] edit-commandline
+    bind \cv edit-commandline
 
     bind [ backward-word
     bind ] forward-word
