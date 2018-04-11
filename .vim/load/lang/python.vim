@@ -1,42 +1,42 @@
 "Python
 
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,preview,longest
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal completeopt-=preview
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,preview,longest
+""autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal completeopt-=preview
 
-" jedi web kara copipe
-let g:jedi#auto_vim_configuration = 0
+"" jedi web kara copipe
+"let g:jedi#auto_vim_configuration = 0
 
 " force... だとスニペットの候補が出ないが,sourecs...だと
 " jedi, ipython の補完がでない
 " https://github.com/Shougo/neosnippet.vim/issues/198
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-endif
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"        let g:neocomplete#force_omni_input_patterns = {}
+"endif
 "if !exists('g:neocomplete#sources#omni#input_patterns')
 "        let g:neocomplete#sources#omni#input_patterns= {}
 "endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+"let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
-autocmd FileType python setlocal completeopt-=preview
+"autocmd FileType python setlocal completeopt-=preview
 
-" For jedi and neocomplete
-autocmd FileType python setlocal omnifunc=jedi#completions
-" omni func 設定しなくても下のだけで保管がでる
-" CompleteIPythonを設定すると無効化される
-let g:jedi#completions_enabled = 0
-let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#popup_select_first=0
+"" For jedi and neocomplete
+"autocmd FileType python setlocal omnifunc=jedi#completions
+"" omni func 設定しなくても下のだけで保管がでる
+"" CompleteIPythonを設定すると無効化される
+"let g:jedi#completions_enabled = 0
+"let g:jedi#use_splits_not_buffers = "right"
+"let g:jedi#popup_select_first=0
 
 
-" IPython
-let g:ipy_completefunc = 'local'
-" omnifunc は1つしか指定できない
-"autocmd FileType python setlocal omnifunc=CompleteIPython
-let g:ipy_status_out_console_color = 'Red'
-let g:ipy_status_out_gui_color = 'Orange'
-set splitbelow
+"" IPython
+"let g:ipy_completefunc = 'local'
+"" omnifunc は1つしか指定できない
+""autocmd FileType python setlocal omnifunc=CompleteIPython
+"let g:ipy_status_out_console_color = 'Red'
+"let g:ipy_status_out_gui_color = 'Orange'
+"set splitbelow
 
 " map
 au FileType python inoremap <silent> <S-CR> <ESC>o
@@ -52,18 +52,18 @@ au FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size= 1
-
-"jedi map
-nnoremap c <NOP>
-let g:jedi#goto_assignments_command = "cg"
-let g:jedi#goto_definitions_command = "cd"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "cn"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "cr"
-"let g:jedi#show_call_signatures = "1"
-let g:jedi#show_call_signatures = "2"
-
+"
+""jedi map
+"nnoremap c <NOP>
+"let g:jedi#goto_assignments_command = "cg"
+"let g:jedi#goto_definitions_command = "cd"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "cn"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "cr"
+""let g:jedi#show_call_signatures = "1"
+"let g:jedi#show_call_signatures = "2"
+"
 
 " IPython map
 " Send Text
@@ -131,4 +131,4 @@ set autoread
 "autocmd BufWritePost *.py call Flake8()
 
 " Khuno
-autocmd FileType python nmap <buffer> <silent> .b :Khuno show<CR>
+"autocmd FileType python nmap <buffer> <silent> .b :Khuno show<CR>

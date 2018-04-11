@@ -127,8 +127,8 @@ repo = 'tpope/vim-surround'
 #""NeoBundle 'ivanov/vim-ipython'
 #""NeoBundle 'jpalardy/vim-slime'
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
+#[[plugins]]
+#repo = 'davidhalter/jedi-vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
