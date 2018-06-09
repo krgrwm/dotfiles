@@ -1,6 +1,5 @@
 keysym minus        = apostrophe    quotedbl
 keysym bracketleft  = minus         underscore
-
 keysym bracketright = equal         plus
 keysym plus         = bracketright braceright
 
@@ -11,3 +10,4 @@ keysym BackSpace    = BackSpace     question
 keysym apostrophe   = bracketleft   braceleft
 
 keysym Return       = Return
+
