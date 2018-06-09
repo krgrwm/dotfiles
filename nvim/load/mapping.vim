@@ -94,3 +94,10 @@ nnoremap [Mark]P [`
 " clevel-f
 nmap t <Plug>(clever-f-f)
 nmap T <Plug>(clever-f-F)
+
+" 直前のカーソル位置に戻る (<C-o>)
+nnoremap <C-m> <C-o>
+
+nnoremap <C-k><C-o> :FSHere<CR>
+
+nnorema [E]] <C-w>]

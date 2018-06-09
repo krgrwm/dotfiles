@@ -198,9 +198,6 @@ repo = 'Konfekt/FastFold'
 repo = 'dag/vim-fish'
 
 [[plugins]]
-repo = "neomake/neomake"
-
-[[plugins]]
 repo = "zchee/deoplete-clang"
 
 [[plugins]]
@@ -211,3 +208,27 @@ repo = "xolox/vim-misc"
 
 [[plugins]]
 repo = "xolox/vim-notes"
+
+[[plugins]]
+repo = "ludovicchabant/vim-gutentags"
+
+[[plugins]]
+repo = "justmao945/vim-clang"
+
+[[plugins]]
+repo = "derekwyatt/vim-fswitch"
+
+[[plugins]]
+repo = "octol/vim-cpp-enhanced-highlight"
+
+# ---- typescript ----
+[[plugins]]
+repo = "leafgarland/typescript-vim"
+# ----
+
+[[plugins]]
+repo = "w0rp/ale"
+
+# comment out
+[[plugins]]
+repo = "tpope/vim-commentary"

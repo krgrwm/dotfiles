@@ -76,13 +76,9 @@ au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 let g:quickrun_config = {}
 let g:quickrun_config.gp = {'command' : 'plot'}
 let g:quickrun_config = {
-\   "make" : {
-\       "command"   : "mingw32-make",
-\       "exec" : "%c %o",
-\       "outputter" : "error:buffer:quickfix",
-\       "runner" : "vimproc",
-\   },
-\}
+            \ "cpp": 
+            \{"command": "g++"},
+            \}
 
 " easy-motion
 let g:EasyMotion_keys='aoeusnth'
@@ -142,16 +138,16 @@ let g:syntastic_ignore_files=['\.tex$']
 
 
 " neomake
-autocmd! BufWritePost * Neomake "run Neomake on the current file on every write
-let g:neomake_open_list = 2
-let g:neomake_cpp_gcc_maker = {
-            \ 'exe': 'clang',
-            \ 'args': ['-std=c++11', '-Wall']
-            \}
-let g:neomake_cpp_enabled_makers = ['gcc']
-let g:neomake_error_sign = {'text': 'E', 'texthl': 'Error'}
-let g:neomake_warning_sign = {'text': 'W', 'texthl': 'Todo'}
-let g:neomake_message_sign = {'text': 'M', 'texthl': 'Normal'}
+"autocmd! BufWritePost * Neomake "run Neomake on the current file on every write
+"let g:neomake_open_list = 2
+"let g:neomake_cpp_gcc_maker = {
+"            \ 'exe': 'clang',
+"            \ 'args': ['-std=c++11', '-Wall']
+"            \}
+"let g:neomake_cpp_enabled_makers = ['gcc']
+"let g:neomake_error_sign = {'text': 'E', 'texthl': 'Error'}
+"let g:neomake_warning_sign = {'text': 'W', 'texthl': 'Todo'}
+"let g:neomake_message_sign = {'text': 'M', 'texthl': 'Normal'}
 
 
 " deoplete
@@ -163,3 +159,20 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 
 " vim-notes
 let g:notes_directories = ['~/Documents/junkfile']
+
+let g:gutentags_project_root = ['.gutentags']
+
+" vim-clang
+let g:clang_cpp_options = '-std=c++11'
+
+" vim-cpp-enhanced-highlight
+let g:cpp_member_variable_highlight=1
+
+
+" ALE
+let g:ale_linters = {
+\   'typescript': ['tsserver'],
+\}
+let g:ale_completion_enabled = 1
+
+
