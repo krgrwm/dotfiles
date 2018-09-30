@@ -1,0 +1,44 @@
+{
+    "vim.leader": ",",
+
+    // システムのclipboardにコピー
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+
+    // easymotion
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "aoeu",
+
+    // カーソル上にあるワードを"*"で検索
+    "vim.visualstar": true,
+    // 諸々のctrlキーを使った操作が有効になる
+    "vim.useCtrlKeys": true,
+    "vim.overrideCopy": true,
+    //wrap
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+
+    //ミニマップをfalse
+    "editor.minimap.enabled": false,
+
+    //twigとvueでも有効にします
+    "emmet.includeLanguages": {
+        "twig": "html",
+        "vue-html": "html"
+    },
+    "window.zoomLevel": 0,
+
+    //"vim.enableNeovim": true,
+    //"vim.neovimPath": "C:\\Program Files (x86)\\Neovim\\bin\\neovim.exe",
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+        "before":["m"],
+        "after":["w"]
+        },
+    ],
+
+    "search.location": "panel",
+
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+}
